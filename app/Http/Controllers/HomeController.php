@@ -34,6 +34,13 @@ class HomeController extends Controller
 
     public function search_car(Request $request){
 
+      $obj = sub_category::all();
+
+      //dd($obj);
+      $data['obj'] = $obj;
+
+
+
       $start_point = $request['start_point'];
       $start_dat = $request['start_dat'];
       $start_time = $request['start_time'];
@@ -41,7 +48,19 @@ class HomeController extends Controller
       $end_time = $request['end_time'];
       $car_options = $request['car_options'];
 
+      $data['start_point'] = $start_point;
+      $data['start_time'] = $start_time;
+      $data['end_time'] = $end_time;
+      $data['start_dat'] = $start_dat;
+      $data['end_day'] = $end_day;
 
+      $data['car_options'] = $car_options;
+
+      $result = explode(",",$start_point);
+
+      $data['result'] = $result;
+
+      //dd($result);
 
       //เงื่อนไขแรก
 
@@ -93,7 +112,7 @@ class HomeController extends Controller
                                       }
 
                       }else{
-                        $get_car['data'] = null;
+                        $data['data'] = null;
                       }
 
 
@@ -101,12 +120,12 @@ class HomeController extends Controller
 
 
       }else{
-        $get_car['data'] = null;
+        $data['data'] = null;
       }
 
 
 
-                    return view('search_car', $get_car);
+                    return view('search_car', $data);
                   //  dd($get_car);
 
     }

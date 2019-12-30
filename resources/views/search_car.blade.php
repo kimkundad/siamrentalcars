@@ -26,25 +26,22 @@
             <ul class="theme-breadcrumbs _mt-20">
               <li>
                 <p class="theme-breadcrumbs-item-title">
-                  <a href="index.html">Home</a>
+                  <a href="#">รถเช่า</a>
                 </p>
               </li>
               <li>
                 <p class="theme-breadcrumbs-item-title">
-                  <a href="#">United States</a>
+                  <a href="#">{{$result[0]}}</a>
                 </p>
-                <p class="theme-breadcrumbs-item-subtitle">123,878 deals</p>
+
               </li>
               <li>
                 <p class="theme-breadcrumbs-item-title">
-                  <a href="#">New York State</a>
+                  <a href="#">{{$result[1]}}</a>
                 </p>
-                <p class="theme-breadcrumbs-item-subtitle">5,478 deals</p>
+
               </li>
-              <li>
-                <p class="theme-breadcrumbs-item-title active">New York City Car Rentals</p>
-                <p class="theme-breadcrumbs-item-subtitle">2438 deals</p>
-              </li>
+
             </ul>
           </div>
 
@@ -53,53 +50,214 @@
 
           <div class="theme-search-area-form" id="hero-search-form">
             <div class="row" data-gutter="none">
-              <div class="col-md-7 ">
+              <div class="col-md-5 ">
                 <div class="row" data-gutter="none">
-                  <div class="col-md-6 ">
-                    <div class="theme-search-area-section first theme-search-area-section-curved theme-search-area-section-bg-white theme-search-area-section-mr">
-                      <label class="theme-search-area-section-label _c-w">Pick Up</label>
+
+
+
+                  <div class="col-md-12">
+                    <div class="ttheme-search-area-section first theme-search-area-section-curved theme-search-area-section-bg-white theme-search-area-section-mr">
                       <div class="theme-search-area-section-inner">
                         <i class="theme-search-area-section-icon lin lin-location-pin"></i>
-                        <input class="theme-search-area-section-input typeahead" value="New York" type="text" placeholder="Pick up location" data-provide="typeahead"/>
+                        <input class="theme-search-area-section-input typeahead" type="text" name="start_point" placeholder="จุดรับรถ" value="{{$start_point}}" data-provide="typeahead"/>
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-6 ">
-                    <div class="theme-search-area-section theme-search-area-section-curved theme-search-area-section-bg-white theme-search-area-section-mr">
-                      <label class="theme-search-area-section-label _c-w">Drop Off</label>
-                      <div class="theme-search-area-section-inner">
-                        <i class="theme-search-area-section-icon lin lin-location-pin"></i>
-                        <input class="theme-search-area-section-input typeahead" value="New York" type="text" placeholder="Drop off location" data-provide="typeahead"/>
-                      </div>
-                    </div>
-                  </div>
+
+
+
                 </div>
               </div>
-              <div class="col-md-2 ">
+              <div class="col-md-3 ">
+                <div class="row" data-gutter="none">
+              <div class="col-md-8 ">
                 <div class="theme-search-area-section theme-search-area-section-curved theme-search-area-section-bg-white theme-search-area-section-mr">
-                  <label class="theme-search-area-section-label _c-w">Check In</label>
                   <div class="theme-search-area-section-inner">
                     <i class="theme-search-area-section-icon lin lin-calendar"></i>
-                    <input class="theme-search-area-section-input datePickerStart _mob-h" value="Wed 06/27" type="text" placeholder="Check-in"/>
+                    <input class="theme-search-area-section-input datePickerStart _mob-h" name="start_dat" value="{{$start_dat}}" type="text" placeholder="Check-in"/>
                     <input class="theme-search-area-section-input _desk-h mobile-picker" value="2018-06-27" type="date"/>
                   </div>
                 </div>
               </div>
-              <div class="col-md-2 ">
+              <div class="col-md-4 ">
                 <div class="theme-search-area-section theme-search-area-section-curved theme-search-area-section-bg-white theme-search-area-section-mr">
-                  <label class="theme-search-area-section-label _c-w">Check Out</label>
                   <div class="theme-search-area-section-inner">
-                    <i class="theme-search-area-section-icon lin lin-calendar"></i>
-                    <input class="theme-search-area-section-input datePickerEnd _mob-h" value="Mon 07/02" type="text" placeholder="Check-out"/>
-                    <input class="theme-search-area-section-input _desk-h mobile-picker" value="2018-07-02" type="date"/>
+
+                    <div class="theme-payment-page-form-item form-group">
+                      <style>
+                      option {
+                            color:#000;
+                            min-height: 1.5em;
+                          }
+                      </style>
+                    <select class="theme-search-area-section-input" name="start_time" style="padding-left: 8px;">
+                      <option selected="selected" value="{{$start_time}}">{{$start_time}}</option>
+                      <option value="0:30">0:30</option>
+                      <option value="1:00">1:00</option>
+                      <option value="1:30">1:30</option>
+                      <option value="2:00">2:00</option>
+                      <option value="2:30">2:30</option>
+                      <option value="3:00">3:00</option>
+                      <option value="3:30">3:30</option>
+                      <option value="4:00">4:00</option>
+                      <option value="4:30">4:30</option>
+                      <option value="5:00">5:00</option>
+                      <option value="5:30">5:30</option>
+                      <option value="6:00">6:00</option>
+                      <option value="6:30">6:30</option>
+                      <option value="7:00">7:00</option>
+                      <option value="7:30">7:30</option>
+                      <option value="8:00">8:00</option>
+                      <option value="8:30">8:30</option>
+                      <option value="9:00">9:00</option>
+                      <option value="9:30">9:30</option>
+                      <option value="10:00">10:00</option>
+                      <option value="10:30">10:30</option>
+                      <option value="11:00">11:00</option>
+                      <option value="11:30">11:30</option>
+                      <option value="12:00">12:00</option>
+                      <option value="12:30">12:30</option>
+                      <option value="13:00">13:00</option>
+                      <option value="13:30">13:30</option>
+                      <option value="14:00">14:00</option>
+                      <option value="14:30">14:30</option>
+                      <option value="15:00">15:00</option>
+                      <option value="15:30">15:30</option>
+                      <option value="16:00">16:00</option>
+                      <option value="16:30">16:30</option>
+                      <option value="17:00">17:00</option>
+                      <option value="17:30">17:30</option>
+                      <option value="18:00">18:00</option>
+                      <option value="18:30">18:30</option>
+                      <option value="19:00">19:00</option>
+                      <option value="19:30">19:30</option>
+                      <option value="20:00">20:00</option>
+                      <option value="20:30">20:30</option>
+                      <option value="21:00">21:00</option>
+                      <option value="21:30">21:30</option>
+                      <option value="22:00">22:00</option>
+                      <option value="22:30">22:30</option>
+                      <option value="23:00">23:00</option>
+                      <option value="23:30">23:30</option>
+                    </select>
+                  </div>
                   </div>
                 </div>
               </div>
+              </div>
+              </div>
+              <div class="col-md-3 ">
+                <div class="row" data-gutter="none">
+              <div class="col-md-8 ">
+                <div class="theme-search-area-section theme-search-area-section-curved theme-search-area-section-bg-white theme-search-area-section-mr">
+                  <div class="theme-search-area-section-inner">
+                    <i class="theme-search-area-section-icon lin lin-calendar"></i>
+                    <input class="theme-search-area-section-input datePickerStart _mob-h" name="end_day" value="{{$end_day}}" type="text" placeholder="Check-in"/>
+                    <input class="theme-search-area-section-input _desk-h mobile-picker" value="2018-06-27" type="date"/>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 ">
+                <div class="theme-search-area-section theme-search-area-section-curved theme-search-area-section-bg-white theme-search-area-section-mr">
+                  <div class="theme-search-area-section-inner">
+
+                    <div class="theme-payment-page-form-item form-group">
+                      <style>
+                      option {
+                            color:#000;
+                            min-height: 1.5em;
+                          }
+                      </style>
+                    <select class="theme-search-area-section-input" name="end_time" style="padding-left: 8px;">
+                      <option selected="selected" value="{{$end_time}}">{{$end_time}}</option>
+                      <option value="0:30">0:30</option>
+                      <option value="1:00">1:00</option>
+                      <option value="1:30">1:30</option>
+                      <option value="2:00">2:00</option>
+                      <option value="2:30">2:30</option>
+                      <option value="3:00">3:00</option>
+                      <option value="3:30">3:30</option>
+                      <option value="4:00">4:00</option>
+                      <option value="4:30">4:30</option>
+                      <option value="5:00">5:00</option>
+                      <option value="5:30">5:30</option>
+                      <option value="6:00">6:00</option>
+                      <option value="6:30">6:30</option>
+                      <option value="7:00">7:00</option>
+                      <option value="7:30">7:30</option>
+                      <option value="8:00">8:00</option>
+                      <option value="8:30">8:30</option>
+                      <option value="9:00">9:00</option>
+                      <option value="9:30">9:30</option>
+                      <option value="10:00">10:00</option>
+                      <option value="10:30">10:30</option>
+                      <option value="11:00">11:00</option>
+                      <option value="11:30">11:30</option>
+                      <option value="12:00">12:00</option>
+                      <option value="12:30">12:30</option>
+                      <option value="13:00">13:00</option>
+                      <option value="13:30">13:30</option>
+                      <option value="14:00">14:00</option>
+                      <option value="14:30">14:30</option>
+                      <option value="15:00">15:00</option>
+                      <option value="15:30">15:30</option>
+                      <option value="16:00">16:00</option>
+                      <option value="16:30">16:30</option>
+                      <option value="17:00">17:00</option>
+                      <option value="17:30">17:30</option>
+                      <option value="18:00">18:00</option>
+                      <option value="18:30">18:30</option>
+                      <option value="19:00">19:00</option>
+                      <option value="19:30">19:30</option>
+                      <option value="20:00">20:00</option>
+                      <option value="20:30">20:30</option>
+                      <option value="21:00">21:00</option>
+                      <option value="21:30">21:30</option>
+                      <option value="22:00">22:00</option>
+                      <option value="22:30">22:30</option>
+                      <option value="23:00">23:00</option>
+                      <option value="23:30">23:30</option>
+                    </select>
+                  </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+              </div>
               <div class="col-md-1 ">
-                <button class="theme-search-area-submit theme-search-area-submit-curved theme-search-area-submit-primary">Change</button>
+                <button class="theme-search-area-submit theme-search-area-submit-curved theme-search-area-submit-primary" style="margin-top: 0px;">เปลี่ยน</button>
               </div>
             </div>
           </div>
+
+          <div class="theme-search-area-options _mob-h theme-search-area-options-white theme-search-area-options-center clearfix">
+            <div class="btn-group theme-search-area-options-list" data-toggle="buttons">
+
+              <label class="btn btn-primary ">
+                <input type="radio" name="car_options" value="0"  />ทั้งหมด
+              </label>
+
+
+              @if(isset($obj))
+              @foreach($obj as $u)
+              <label class="btn btn-primary @if($car_options == $u->id)
+              active
+              @endif">
+                <input type="radio" name="car_options" value="{{$u->id}}"
+                @if($car_options == $u->id)
+                checked
+                @endif
+                />{{$u->sub_name}}
+              </label>
+              @endforeach
+              @endif
+
+
+
+            </div>
+          </div>
+
+
         </div>
         <div class="theme-search-area-inline _desk-h theme-search-area-inline-white">
           <h4 class="theme-search-area-inline-title">New York Cars</h4>
@@ -150,7 +308,7 @@
                     </div>
                   </div>
                 </div>
-                <button class="theme-search-area-submit _mt-0 _tt-uc theme-search-area-submit-curved">Change</button>
+                <button class="theme-search-area-submit _mt-0 _tt-uc theme-search-area-submit-curved" >เปลี่ยน</button>
               </div>
             </div>
           </div>
