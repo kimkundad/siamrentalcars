@@ -19,6 +19,8 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/search/data', 'HomeController@search_data')->name('search_data');
 
+Route::post('/search_car', 'HomeController@search_car')->name('search_car');
+
 
 Route::group(['middleware' => ['UserRole:manager|employee']], function() {
     Route::get('admin/dashboard', 'DashboardController@index');

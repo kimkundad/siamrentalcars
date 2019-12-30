@@ -62,7 +62,7 @@
 
 
                   <div class="tab-pane active" id="SearchAreaTabs-4" role="tab-panel">
-                <form class=" search-form"  name="form1" method="POST" action="{{ url('Api/getTextSearch') }}" onsubmit="return false;">
+                <form class=" search-form"  name="form1" method="POST" action="{{ url('search_car/') }}" >
                   {{ csrf_field() }}
                     <!-- start form -->
 
@@ -77,24 +77,27 @@
                         <div class="row" data-gutter="none">
                           <div class="col-md-5 ">
                             <div class="row" data-gutter="none">
-                              <div class="col-md-6 ">
+                              <div class="col-md-12">
                                 <div class="theme-search-area-section first theme-search-area-section-fade-white
                                 theme-search-area-section-no-border theme-search-area-section-mr theme-search-area-section-sm
                                 theme-search-area-section-curved">
                                   <div class="theme-search-area-section-inner">
                                     <i class="theme-search-area-section-icon lin lin-location-pin"></i>
-                                    <input class="theme-search-area-section-input typeahead" type="text" placeholder="จุดรับรถ" data-provide="typeahead"/>
+                                    <input class="theme-search-area-section-input typeahead" type="text" name="start_point" placeholder="จุดรับรถ" data-provide="typeahead"/>
                                   </div>
                                 </div>
                               </div>
-                              <div class="col-md-6 ">
+                              <!--
+                               <div class="col-md-6 ">
                                 <div class="theme-search-area-section theme-search-area-section-fade-white theme-search-area-section-no-border theme-search-area-section-mr theme-search-area-section-sm theme-search-area-section-curved">
                                   <div class="theme-search-area-section-inner">
                                     <i class="theme-search-area-section-icon lin lin-location-pin"></i>
-                                    <input class="theme-search-area-section-input typeahead" type="text" placeholder="จุดคืนรถ" data-provide="typeahead"/>
+                                    <input class="theme-search-area-section-input typeahead" type="text" name="end_point" placeholder="จุดคืนรถ" data-provide="typeahead"/>
                                   </div>
                                 </div>
                               </div>
+
+                            -->
                             </div>
                           </div>
 
@@ -104,13 +107,14 @@
                             <div class="theme-search-area-section theme-search-area-section-fade-white theme-search-area-section-no-border theme-search-area-section-mr theme-search-area-section-sm theme-search-area-section-curved">
                               <div class="theme-search-area-section-inner">
                                 <i class="theme-search-area-section-icon lin lin-calendar"></i>
-                                <input class="theme-search-area-section-input datePickerStart _mob-h" value="Wed 06/27" type="text" placeholder="Check-in"/>
+                                <input class="theme-search-area-section-input datePickerStart _mob-h" name="start_dat" value="{{date('D')}} date("m")/{{date('d')}}" type="text" placeholder="Check-in"/>
                                 <input class="theme-search-area-section-input _desk-h mobile-picker" value="2018-06-27" type="date"/>
                               </div>
                             </div>
                           </div>
                           <div class="col-md-4 ">
-                            <div class="theme-search-area-section theme-search-area-section-fade-white theme-search-area-section-no-border theme-search-area-section-mr theme-search-area-section-sm theme-search-area-section-curved">
+                            <div class="theme-search-area-section theme-search-area-section-fade-white theme-search-area-section-no-border
+                            theme-search-area-section-mr theme-search-area-section-sm theme-search-area-section-curved">
                               <div class="theme-search-area-section-inner">
 
                                 <div class="theme-payment-page-form-item form-group">
@@ -120,7 +124,7 @@
                                         min-height: 1.5em;
                                       }
                                   </style>
-                                <select class="theme-search-area-section-input" style="padding-left: 8px;">
+                                <select class="theme-search-area-section-input" name="start_time" style="padding-left: 8px;">
                                   <option value="0:30:00">0:30</option>
                                   <option value="1:00:00">1:00</option>
                                   <option value="1:30:00">1:30</option>
@@ -182,7 +186,7 @@
                             <div class="theme-search-area-section theme-search-area-section-fade-white theme-search-area-section-no-border theme-search-area-section-mr theme-search-area-section-sm theme-search-area-section-curved">
                               <div class="theme-search-area-section-inner">
                                 <i class="theme-search-area-section-icon lin lin-calendar"></i>
-                                <input class="theme-search-area-section-input datePickerStart _mob-h" value="Wed 06/27" type="text" placeholder="Check-in"/>
+                                <input class="theme-search-area-section-input datePickerStart _mob-h" name="end_day" value="{{date('D')}} date("m")/{{date('d')}}" type="text" placeholder="Check-in"/>
                                 <input class="theme-search-area-section-input _desk-h mobile-picker" value="2018-06-27" type="date"/>
                               </div>
                             </div>
@@ -198,7 +202,7 @@
                                         min-height: 1.5em;
                                       }
                                   </style>
-                                <select class="theme-search-area-section-input" style="padding-left: 8px;">
+                                <select class="theme-search-area-section-input" name="end_time" style="padding-left: 8px;">
                                   <option value="0:30:00">0:30</option>
                                   <option value="1:00:00">1:00</option>
                                   <option value="1:30:00">1:30</option>
@@ -265,13 +269,13 @@
                         <div class="btn-group theme-search-area-options-list" data-toggle="buttons">
 
                           <label class="btn btn-primary active">
-                            <input type="radio" name="car-options" id="car-option-1" checked/>ทั้งหมด
+                            <input type="radio" name="car_options" value="0" id="car-option-1" checked/>ทั้งหมด
                           </label>
 
                           @if(isset($obj))
                           @foreach($obj as $u)
                           <label class="btn btn-primary">
-                            <input type="radio" name="{{$u->id}}" id="car-option-2"/>{{$u->sub_name}}
+                            <input type="radio" name="car_options" value="{{$u->id}}" id="car-option-2"/>{{$u->sub_name}}
                           </label>
                           @endforeach
                           @endif
@@ -321,8 +325,10 @@
 <script>
 
 function autocomplete() {
+
     $('.typeahead').typeahead({
         minLength: 1,
+        autoselect: false,
         showHintOnFocus: true,
         source: function(q, cb) {
             return $.ajax({
@@ -331,22 +337,33 @@ function autocomplete() {
                 url: '{{url('/search/data/?field2=')}}' + q,
                 chache: false,
                 success: function(data) {
-                    var res = [];
-                    $.each(data, function(index, val){
-                        if(val !== "%s") {
-                            res.push({
-                                id: index,
-                                name: val
-                            })
-                        }else{
-                          $(this).val("");
-                        }
-                    })
-                    cb(res);
+                  console.log(data);
+                    if(data){
+
+                      var res = [];
+                      $.each(data, function(index, val){
+                          if(val !== "%s") {
+                              res.push({
+                                  id: index,
+                                  name: val.name
+                              })
+                          }else{
+                            $(this).val('');
+                          //  $('.typeahead').typeahead('val','');
+                          }
+                      })
+                      cb(res);
+
+                    }else{
+                    //  $('.typeahead').typeahead('val','');
+                    }
+
+
                 }
             })
         }
     })
+
 }
 
 

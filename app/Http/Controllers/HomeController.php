@@ -32,6 +32,85 @@ class HomeController extends Controller
         return view('welcome', $data);
     }
 
+    public function search_car(Request $request){
+
+      $start_point = $request['start_point'];
+      $start_dat = $request['start_dat'];
+      $start_time = $request['start_time'];
+      $end_day = $request['end_day'];
+      $end_time = $request['end_time'];
+      $car_options = $request['car_options'];
+
+
+
+      //เงื่อนไขแรก
+
+      if($start_point != null){
+
+
+
+        //  dd($div[0]);
+          $div = explode(",",$start_point);
+          $get_provinces = DB::table('province')
+                        ->select(
+                        'province.PROVINCE_NAME',
+                        'province.PROVINCE_ID'
+                        )
+                        ->Where('province.PROVINCE_NAME', $div[0])
+                        ->first();
+
+
+
+
+        $get_count = DB::table('provi_partners')
+                      ->select(
+                      'provi_partners.id',
+                      'provi_partners.part_id'
+                      )
+                      ->Where('pro_id', $get_provinces->PROVINCE_ID)
+                      ->count();
+
+                      if($get_count > 0){
+
+                        $get_part_id = DB::table('provi_partners')
+                                      ->select(
+                                      'provi_partners.part_id'
+                                      )
+                                      ->Where('pro_id', $get_provinces->PROVINCE_ID)
+                                      ->get();
+
+
+                                      foreach($get_part_id as $u){
+
+                                        $get_car = DB::table('car_parts')
+                                                      ->select(
+                                                      'car_parts.cars_id',
+                                                      'cars.*'
+                                                      )
+                                                      ->leftjoin('cars', 'cars.id',  'car_parts.cars_id')
+                                                      ->Where('car_parts.partn_id', $u->part_id)
+                                                      ->get();
+                                      }
+
+                      }else{
+                        $get_car['data'] = null;
+                      }
+
+
+
+
+
+      }else{
+        $get_car['data'] = null;
+      }
+
+
+
+                    return view('search_car', $get_car);
+                  //  dd($get_car);
+
+    }
+
     public function search_data(Request $request){
 
       $this->validate($request, [
@@ -47,6 +126,8 @@ class HomeController extends Controller
                     )
                     ->Where('province.PROVINCE_NAME', 'LIKE', '%'.$field2.'%')
                     ->first();
+
+                  //  dd($get_provinces);
 
 
                     $get_count = DB::table('position_links')
@@ -71,11 +152,12 @@ class HomeController extends Controller
                       foreach($get_position as $x){
 
                         $admin[] =
-                          "$get_provinces->PROVINCE_NAME,$x->position_name";
+                            array('name' => $get_provinces->PROVINCE_NAME.','.$x->position_name, 'id_pro' => $get_provinces->PROVINCE_ID);
+                        //  'name' => "$get_provinces->PROVINCE_NAME,$x->position_name";
                         ;
                       }
                   }else{
-                    $admin[] = null;
+                    $admin[] = 'ไม่มีข้อมูล';
                   }
 
 
