@@ -29,6 +29,7 @@
                   <a href="#">รถเช่า</a>
                 </p>
               </li>
+              @if(isset($start_point))
               <li>
                 <p class="theme-breadcrumbs-item-title">
                   <a href="#">{{$result[0]}}</a>
@@ -41,6 +42,7 @@
                 </p>
 
               </li>
+              @endif
 
             </ul>
           </div>
