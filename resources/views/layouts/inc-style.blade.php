@@ -5,3 +5,10 @@
 <link rel="stylesheet" href="{{url('assets/home/css/weather-icons.css')}}"/>
 <link rel="stylesheet" href="{{url('assets/home/css/bootstrap.css')}}"/>
 <link rel="stylesheet" href="{{url('assets/home/css/styles.css')}}"/>
+<style>
+.theme-search-area-options-list .btn.active:before, .theme-search-area-options-list .btn:focus:before, .theme-search-area-options-list .btn:active:before {
+    background: #fff;
+    -webkit-box-shadow: 0 0 0 1px #0093d2;
+    box-shadow: 0 0 0 1px #0093d2;
+}
+</style>

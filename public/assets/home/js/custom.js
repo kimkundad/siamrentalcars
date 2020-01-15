@@ -236,12 +236,12 @@ function magnificLightbox() {
 function priceSlider() {
     $("#price-slider").ionRangeSlider({
         type: "double",
-        prefix: "$"
+        prefix: "฿"
     });
 
     $("#price-slider-mob").ionRangeSlider({
         type: "double",
-        prefix: "$"
+        prefix: "฿"
     });
 }
 

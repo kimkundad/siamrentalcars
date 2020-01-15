@@ -26,24 +26,8 @@
             <ul class="theme-breadcrumbs _mt-20">
               <li>
                 <p class="theme-breadcrumbs-item-title">
-                  <a href="#">รถเช่า</a>
                 </p>
               </li>
-              @if(isset($start_point))
-              <li>
-                <p class="theme-breadcrumbs-item-title">
-                  <a href="#">{{$result[0]}}</a>
-                </p>
-
-              </li>
-              <li>
-                <p class="theme-breadcrumbs-item-title">
-                  <a href="#">{{$result[1]}}</a>
-                </p>
-
-              </li>
-              @endif
-
             </ul>
           </div>
 
@@ -235,8 +219,12 @@
           <div class="theme-search-area-options _mob-h theme-search-area-options-white theme-search-area-options-center clearfix">
             <div class="btn-group theme-search-area-options-list" data-toggle="buttons">
 
-              <label class="btn btn-primary ">
-                <input type="radio" name="car_options" value="0"  />ทั้งหมด
+              <label class="btn btn-primary @if($car_options == 0)
+              active
+              @endif">
+                <input type="radio" name="car_options" value="0"  @if($car_options == 0)
+                checked
+                @endif/>ทั้งหมด
               </label>
 
 
@@ -343,12 +331,12 @@
           <div class="theme-search-results-sidebar">
 
             <div class="theme-search-results-sidebar-sections">
-              <div class="theme-search-results-sidebar-section">
+            <!--  <div class="theme-search-results-sidebar-section">
                 <h5 class="theme-search-results-sidebar-section-title">Price</h5>
                 <div class="theme-search-results-sidebar-section-price">
-                  <input id="price-slider" name="price-slider" data-min="100" data-max="500"/>
+                  <input id="price-slider" name="price-slider" data-min="800" data-max="5000"/>
                 </div>
-              </div>
+              </div> -->
               <div class="theme-search-results-sidebar-section">
                 <h5 class="theme-search-results-sidebar-section-title">Pickup Location</h5>
                 <div class="theme-search-results-sidebar-section-checkbox-list">
@@ -405,6 +393,8 @@
 
         </div>
       </div>
+
+
       <div class="col-md-6-5 ">
 
 
@@ -417,68 +407,63 @@
           </h5>
           <a class="btn theme-search-results-sign-in-btn btn-ghost btn-white" href="#">Sign in now</a>
         </div>
+
+
+
         <div class="theme-search-results">
           <div class="_mob-h">
+
+
+
+            @if(isset($data_car1))
+            @foreach($data_car1 as $j)
+            @foreach($j as $u)
             <div class="theme-search-results-item _mb-10 theme-search-results-item-">
               <div class="theme-search-results-item-preview">
                 <a class="theme-search-results-item-mask-link" href="#"></a>
                 <div class="row" data-gutter="20">
                   <div class="col-md-5 ">
                     <div class="theme-search-results-item-img-wrap">
-                      <img class="theme-search-results-item-img" src="./img/600x398.png" alt="Image Alternative text" title="Image Title"/>
+                      <img class="theme-search-results-item-img" src="{{url('assets/back/image/car/'.$u->image)}}" alt="{{$u->name}}" title="{{$u->name}}"/>
                     </div>
-                    <ul class="theme-search-results-item-car-feature-list">
-                      <li>
-                        <i class="fa fa-male"></i>
-                        <span>4</span>
-                      </li>
-                      <li>
-                        <i class="fa fa-suitcase"></i>
-                        <span>2</span>
-                      </li>
-                      <li>
-                        <i class="fa fa-cog"></i>
-                        <span>Auto</span>
-                      </li>
-                      <li>
-                        <i class="fa fa-snowflake-o"></i>
-                        <span>A/C</span>
-                      </li>
-                    </ul>
+
                   </div>
                   <div class="col-md-5 ">
-                    <h5 class="theme-search-results-item-title theme-search-results-item-title-lg">Toyota Yaris</h5>
+                    <h5 class="theme-search-results-item-title theme-search-results-item-title-lg">{{$u->name}}</h5>
                     <div class="theme-search-results-item-car-location">
-                      <i class="fa fa-plane theme-search-results-item-car-location-icon"></i>
+                      <i class="fa fa-building theme-search-results-item-car-location-icon"></i>
                       <div class="theme-search-results-item-car-location-body">
-                        <p class="theme-search-results-item-car-location-title">Newark Liberty International Airport</p>
-                        <p class="theme-search-results-item-car-location-subtitle">Shuttle to car</p>
+                        <p class="theme-search-results-item-car-location-title">{{$u->part_name}}</p>
+                        <p class="theme-search-results-item-car-location-subtitle">{{$u->PROVINCE_NAME}}</p>
                       </div>
                     </div>
                     <ul class="theme-search-results-item-car-list">
                       <li>
-                        <i class="fa fa-check"></i>Unlimited mileage
+                        <i class="fa fa-check"></i>{{$u->insurance}}
                       </li>
                       <li>
-                        <i class="fa fa-check"></i>Pay now
+                        <i class="fa fa-check"></i>{{$u->grear}}
                       </li>
                       <li>
-                        <i class="fa fa-check"></i>Free cancellation
+                        <i class="fa fa-check"></i>จำนวนผู้โดยสาร {{$u->total_p}}
                       </li>
                     </ul>
                   </div>
                   <div class="col-md-2 ">
                     <div class="theme-search-results-item-book">
                       <div class="theme-search-results-item-price">
-                        <p class="theme-search-results-item-price-tag">$16</p>
-                        <p class="theme-search-results-item-price-sign">per day</p>
+                        <p class="theme-search-results-item-price-tag">฿ {{$u->price}}</p>
+                        <p class="theme-search-results-item-price-sign">ต่อวัน</p>
                       </div>
-                      <a class="btn btn-primary-inverse btn-block theme-search-results-item-price-btn" href="#">Book Now</a>
+                      <a class="btn btn-primary-inverse btn-block theme-search-results-item-price-btn" href="#">เลือกคันนี้</a>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            @endforeach
+            @endforeach
+            @endif
 
 
 
@@ -547,12 +532,12 @@
             <div class="magnific-popup mfp-hide" id="MobileFilters">
               <div class="theme-search-results-sidebar">
                 <div class="theme-search-results-sidebar-sections">
-                  <div class="theme-search-results-sidebar-section">
+                <!--  <div class="theme-search-results-sidebar-section">
                     <h5 class="theme-search-results-sidebar-section-title">Price</h5>
                     <div class="theme-search-results-sidebar-section-price">
                       <input id="price-slider-mob" name="price-slider" data-min="100" data-max="500"/>
                     </div>
-                  </div>
+                  </div> -->
                   <div class="theme-search-results-sidebar-section">
                     <h5 class="theme-search-results-sidebar-section-title">Pickup Location</h5>
                     <div class="theme-search-results-sidebar-section-checkbox-list">
@@ -768,6 +753,8 @@
                           <span class="theme-search-results-sidebar-section-checkbox-list-amount">290</span>
                         </div>
                       </div>
+
+
                       <div class="collapse" id="mobile-SearchResultsCheckboxRentalAgency">
                         <div class="theme-search-results-sidebar-section-checkbox-list-items theme-search-results-sidebar-section-checkbox-list-items-expand">
                           <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">

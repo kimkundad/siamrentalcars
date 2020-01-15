@@ -35,11 +35,8 @@ class HomeController extends Controller
     public function search_car(Request $request){
 
       $obj = sub_category::all();
-
       //dd($obj);
       $data['obj'] = $obj;
-
-
 
       $start_point = $request['start_point'];
       $start_dat = $request['start_dat'];
@@ -54,6 +51,8 @@ class HomeController extends Controller
       $data['start_dat'] = $start_dat;
       $data['end_day'] = $end_day;
 
+      $data_car = null;
+
       $data['car_options'] = $car_options;
 
       $result = explode(",",$start_point);
@@ -66,54 +65,84 @@ class HomeController extends Controller
 
       if($start_point != null){
 
+        $div = explode(",",$start_point);
+        //if have value not null, please check count
 
-
-        //  dd($div[0]);
-          $div = explode(",",$start_point);
-          $get_provinces = DB::table('province')
-                        ->select(
-                        'province.PROVINCE_NAME',
-                        'province.PROVINCE_ID'
-                        )
-                        ->Where('province.PROVINCE_NAME', $div[0])
-                        ->first();
-
-
-
-
-        $get_count = DB::table('provi_partners')
+        $get_count_value = DB::table('province')
                       ->select(
-                      'provi_partners.id',
-                      'provi_partners.part_id'
+                      'province.PROVINCE_NAME',
+                      'province.PROVINCE_ID'
                       )
-                      ->Where('pro_id', $get_provinces->PROVINCE_ID)
+                      ->Where('province.PROVINCE_NAME', $div[0])
                       ->count();
 
-                      if($get_count > 0){
+          if($get_count_value != 0){
+            // if count > 0 data
 
-                        $get_part_id = DB::table('provi_partners')
-                                      ->select(
-                                      'provi_partners.part_id'
-                                      )
-                                      ->Where('pro_id', $get_provinces->PROVINCE_ID)
-                                      ->get();
+            // ค้าหาจังหวัด
+
+            $get_provinces = DB::table('province')
+                          ->select(
+                          'province.PROVINCE_NAME',
+                          'province.PROVINCE_ID'
+                          )
+                          ->Where('province.PROVINCE_NAME', $div[0])
+                          ->first();
+
+          $get_count = DB::table('provi_partners')
+                        ->select(
+                        'provi_partners.id',
+                        'provi_partners.part_id'
+                        )
+                        ->Where('pro_id', $get_provinces->PROVINCE_ID)
+                        ->count();
+
+                        // ค้าหา partner ว่าอยู่ในจังหวัดนั้นไหม
+
+                        if($get_count > 0){
+
+                          $get_part_id = DB::table('provi_partners')
+                                        ->select(
+                                        'provi_partners.part_id'
+                                        )
+                                        ->Where('pro_id', $get_provinces->PROVINCE_ID)
+                                        ->get();
 
 
-                                      foreach($get_part_id as $u){
+                                        foreach($get_part_id as $u){
 
-                                        $get_car = DB::table('car_parts')
-                                                      ->select(
-                                                      'car_parts.cars_id',
-                                                      'cars.*'
-                                                      )
-                                                      ->leftjoin('cars', 'cars.id',  'car_parts.cars_id')
-                                                      ->Where('car_parts.partn_id', $u->part_id)
-                                                      ->get();
-                                      }
+                                          $get_car2 = DB::table('car_parts')
+                                                        ->select(
+                                                        'car_parts.cars_id',
+                                                        'cars.*',
+                                                        'partners.*',
+                                                        'province.*'
+                                                        )
+                                                        ->leftjoin('cars', 'cars.id',  'car_parts.cars_id')
+                                                        ->leftjoin('partners', 'partners.id',  'car_parts.partn_id')
+                                                        ->leftjoin('province', 'province.PROVINCE_ID',  'car_parts.prov_id')
+                                                        ->Where('car_parts.partn_id', $u->part_id)
+                                                        ->get();
 
-                      }else{
-                        $data['data'] = null;
-                      }
+                                                        $data_car[] = $get_car2;
+                                        }
+
+                                        //$data_car = $get_part_id;
+
+                                      //  dd($get_part_id);
+
+                        }else{
+                          $data['data'] = null;
+                        }
+
+
+
+          }else{
+            // if count 0 data = null
+            $data['data'] = null;
+          }
+
+
 
 
 
@@ -123,6 +152,9 @@ class HomeController extends Controller
         $data['data'] = null;
       }
 
+        $data['data_car1'] = $data_car;
+
+      //  dd(($data_car));
 
 
                     return view('search_car', $data);
