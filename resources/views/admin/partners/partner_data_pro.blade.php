@@ -11,7 +11,7 @@
           <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
               <div class="card-body">
-                <h4 class="card-title">ข้อมูลจังหวัดของ {{$data_p->part_name}}</h4>
+                <h4 class="card-title">ข้อมูลจังหวัดของ {{$data_p->part_name}} </h4>
                 <div class="col-sm-12 col-md-6">
                   <a href="{{url('admin/partners/'.$id.'/province')}}" class="btn btn-primary btn-sm"><i class="icon-plus"></i> เพิ่ม จังหวัดให้บริการ</a>
                   <br /><br />

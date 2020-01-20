@@ -209,7 +209,15 @@ class PartnersController extends Controller
        $package->cars_price = $car_price;
        $package->save();
 
-       return redirect(url('admin/partner_dash_pro/'.$id))->with('add_success_car','คุณทำการแก้ไขอสังหา สำเร็จ');
+
+       $objs = DB::table('provi_partners')
+       ->where('part_id', $id)
+       ->where('pro_id', $prov_id)
+       ->first();
+
+
+
+       return redirect(url('admin/partner_dash_pro/'.$objs->id))->with('add_success_car','คุณทำการแก้ไขอสังหา สำเร็จ');
      }
 
      public function edit_cars_part(Request $request, $id){
@@ -291,13 +299,16 @@ class PartnersController extends Controller
 
       $obj = partner::find($id);
 
+
+    
+
       $objs = DB::table('provi_partners')->select(
               'province.*',
               'province.PROVINCE_ID as id_p',
               'provi_partners.*',
               'provi_partners.id as id_of'
               )
-          ->where('part_id', $id)
+          ->where('provi_partners.part_id', $id)
           ->leftjoin('province', 'province.PROVINCE_ID',  'provi_partners.pro_id')
           ->get();
 
@@ -306,6 +317,7 @@ class PartnersController extends Controller
 
             $count = DB::table('car_parts')
               ->where('prov_id', $u->id_p)
+              ->where('partn_id', $id)
               ->count();
 
               $u->count_car = $count;
@@ -329,6 +341,8 @@ class PartnersController extends Controller
       ->where('PROVINCE_ID', $objs->pro_id)
       ->first();
 
+    //  dd($pro);
+
       $name = DB::table('partners')
       ->where('id', $objs->part_id)
       ->first();
@@ -342,11 +356,13 @@ class PartnersController extends Controller
               )
       ->leftjoin('cars', 'cars.id',  'car_parts.cars_id')
       ->leftjoin('categories', 'categories.id',  'cars.cat_id')
+      ->where('car_parts.partn_id', $objs->part_id)
+      ->where('car_parts.prov_id', $objs->pro_id)
       ->get();
 
       $data['get_car'] = $get_car;
 
-      //dd($get_car);
+    //  dd($objs);
 
       $cars = DB::table('cars')
       ->select(

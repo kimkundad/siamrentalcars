@@ -7,7 +7,7 @@
 
 
 @section('stylesheet')
-
+<link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" />
 @stop('stylesheet')
 
 
@@ -58,11 +58,28 @@
 
 
 
-
+<style>
+.select2-container--default .select2-selection--single{
+  height: 45px;
+      padding: 7px;
+      padding-left: 22px;
+          background: none;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #fff;
+    line-height: 28px;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+    border-color: #fff transparent transparent transparent;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    top: 10px;
+}
+</style>
 
 
                   <div class="tab-pane active" id="SearchAreaTabs-4" role="tab-panel">
-                <form class=" search-form"  name="form1" method="POST" action="{{ url('search_car/') }}" >
+                <form class=" search-form"  id="uguu" name="form1" method="POST" action="{{ url('search_car/') }}" >
                   {{ csrf_field() }}
                     <!-- start form -->
 
@@ -83,7 +100,13 @@
                                 theme-search-area-section-curved">
                                   <div class="theme-search-area-section-inner">
                                     <i class="theme-search-area-section-icon lin lin-location-pin"></i>
-                                    <input class="theme-search-area-section-input typeahead" type="text" name="start_point" placeholder="จุดรับรถ" data-provide="typeahead"/>
+                                    <select class="theme-search-area-section-input js-example-basic-single" id="start_point" name="start_point" style="height: 45px!important; font-size: 14px !important;">
+                                        <option value="">เลือกจุดรับรถ</option>
+
+                                    </select>
+                                    <!--<input class="theme-search-area-section-input typeahead" type="text" name="start_point" placeholder="จุดรับรถ" data-provide="typeahead"/> -->
+
+
                                   </div>
                                 </div>
                               </div>
@@ -261,7 +284,7 @@
 
 
                           <div class="col-md-1 ">
-                            <button type="submit" class="theme-search-area-submit _mt-0 theme-search-area-submit-no-border theme-search-area-submit-white theme-search-area-submit-sm theme-search-area-submit-curved">ค้นหา</button>
+                            <button type="submit"  class="theme-search-area-submit _mt-0 theme-search-area-submit-no-border theme-search-area-submit-white theme-search-area-submit-sm theme-search-area-submit-curved">ค้นหา</button>
                           </div>
                         </div>
                       </div>
@@ -324,6 +347,53 @@
 
 <script>
 
+</script>
+
+
+<script src="{{url('js/select2.js')}}"></script>
+<script>
+
+$(document).ready(function() {
+
+
+
+
+  $("#uguu").submit(function() {
+
+    var set_size = jQuery("#start_point").val();
+
+    console.log(set_size)
+
+
+    if (set_size === "") {
+        alert("โปรดระบุข้อมูลให้ครบถ้วน");
+        return false;
+    }
+});
+
+  $('.js-example-basic-single').select2();
+
+
+  $(".js-example-basic-single").select2({
+ ajax: {
+  url: "{{url('/api/get_select2')}}",
+  type: "post",
+  dataType: 'json',
+  delay: 250,
+  data: function (params) {
+   return {
+     searchTerm: params.term // search term
+   };
+  },
+  processResults: function (response) {
+    return {
+       results: response
+    };
+  },
+  cache: true
+ }
+});
+
 function autocomplete() {
 
     $('.typeahead').typeahead({
@@ -365,7 +435,7 @@ function autocomplete() {
     })
 
 }
-
+});
 
 </script>
 

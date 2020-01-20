@@ -18,6 +18,11 @@
         <p class="card-description">
           กรอกข้อมูล ที่มีเครื่องหมาย (*) ให้ครบ
         </p>
+
+        @if($errors->any())
+    {{ implode('', $errors->all('<div>:message</div>')) }}
+@endif
+
         <form class="forms-sample" method="POST" action="{{$url}}" enctype="multipart/form-data">
           {{ method_field($method) }}
           {{ csrf_field() }}

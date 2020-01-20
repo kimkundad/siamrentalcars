@@ -28,7 +28,18 @@ class PositionController extends Controller
           ->count();
 
           $u->count_position = $obj1;
+
+
+          $obj2 = DB::table('car_parts')
+          ->where('prov_id', $u->PROVINCE_ID)
+          ->count();
+
+          $u->count_cars = $obj2;
+
+
         }
+
+        //dd($pro);
 
 
         $data['objs'] = $pro;

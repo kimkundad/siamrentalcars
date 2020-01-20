@@ -44,7 +44,7 @@
                   {{$u->count_position}}
                 </td>
                 <td>
-                0
+                {{$u->count_cars}}
                 </td>
                 <td>
                   <li class="nav-item dropdown d-none d-lg-flex nav-language">

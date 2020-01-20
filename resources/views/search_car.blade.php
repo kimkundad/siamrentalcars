@@ -5,6 +5,94 @@
 @stop
 
 @section('stylesheet')
+<link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" />
+<style>
+.lds-roller {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-roller div {
+  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  transform-origin: 40px 40px;
+}
+.lds-roller div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #fff;
+  margin: -4px 0 0 -4px;
+}
+.lds-roller div:nth-child(1) {
+  animation-delay: -0.036s;
+}
+.lds-roller div:nth-child(1):after {
+  top: 63px;
+  left: 63px;
+}
+.lds-roller div:nth-child(2) {
+  animation-delay: -0.072s;
+}
+.lds-roller div:nth-child(2):after {
+  top: 68px;
+  left: 56px;
+}
+.lds-roller div:nth-child(3) {
+  animation-delay: -0.108s;
+}
+.lds-roller div:nth-child(3):after {
+  top: 71px;
+  left: 48px;
+}
+.lds-roller div:nth-child(4) {
+  animation-delay: -0.144s;
+}
+.lds-roller div:nth-child(4):after {
+  top: 72px;
+  left: 40px;
+}
+.lds-roller div:nth-child(5) {
+  animation-delay: -0.18s;
+}
+.lds-roller div:nth-child(5):after {
+  top: 71px;
+  left: 32px;
+}
+.lds-roller div:nth-child(6) {
+  animation-delay: -0.216s;
+}
+.lds-roller div:nth-child(6):after {
+  top: 68px;
+  left: 24px;
+}
+.lds-roller div:nth-child(7) {
+  animation-delay: -0.252s;
+}
+.lds-roller div:nth-child(7):after {
+  top: 63px;
+  left: 17px;
+}
+.lds-roller div:nth-child(8) {
+  animation-delay: -0.288s;
+}
+.lds-roller div:nth-child(8):after {
+  top: 56px;
+  left: 12px;
+}
+@keyframes lds-roller {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+</style>
+
 
 @stop('stylesheet')
 
@@ -21,6 +109,15 @@
   <div class="theme-hero-area-body">
     <div class="container">
       <div class="_pb-100 _pt-150 _pv-mob-50">
+
+
+
+
+
+
+        <form class=" search-form" id="uguu" name="form1" method="POST" action="{{ url('search_car/') }}" >
+          {{ csrf_field() }}
+            <!-- start form -->
         <div class="theme-search-area _mob-h theme-search-area-stacked">
           <div class="theme-search-area-header _mb-20">
             <ul class="theme-breadcrumbs _mt-20">
@@ -32,7 +129,24 @@
           </div>
 
 
-
+          <style>
+          .select2-container--default .select2-selection--single{
+            height: 55px;
+                padding: 12px;
+                padding-left: 27px;
+                    background: none;
+          }
+          .select2-container--default .select2-selection--single .select2-selection__rendered {
+              color: #666;
+              line-height: 28px;
+          }
+          .select2-container--default .select2-selection--single .select2-selection__arrow b {
+              border-color: #fff transparent transparent transparent;
+          }
+          .select2-container--default .select2-selection--single .select2-selection__arrow {
+              top: 10px;
+          }
+          </style>
 
           <div class="theme-search-area-form" id="hero-search-form">
             <div class="row" data-gutter="none">
@@ -45,7 +159,12 @@
                     <div class="ttheme-search-area-section first theme-search-area-section-curved theme-search-area-section-bg-white theme-search-area-section-mr">
                       <div class="theme-search-area-section-inner">
                         <i class="theme-search-area-section-icon lin lin-location-pin"></i>
-                        <input class="theme-search-area-section-input typeahead" type="text" name="start_point" placeholder="จุดรับรถ" value="{{$start_point}}" data-provide="typeahead"/>
+
+                        <select class="theme-search-area-section-input js-example-basic-single" name="start_point" style="height: 45px!important; font-size: 14px !important;">
+                            <option value="{{$start_point}}" selected="selected">{{$show_text2}}, {{$show_text}}</option>
+
+                        </select>
+
                       </div>
                     </div>
                   </div>
@@ -249,6 +368,15 @@
 
 
         </div>
+
+
+      </form>
+<!-- endform -->
+
+
+
+
+
         <div class="theme-search-area-inline _desk-h theme-search-area-inline-white">
           <h4 class="theme-search-area-inline-title">New York Cars</h4>
           <p class="theme-search-area-inline-details">June 27 &rarr; July 02</p>
@@ -338,39 +466,27 @@
                 </div>
               </div> -->
               <div class="theme-search-results-sidebar-section">
-                <h5 class="theme-search-results-sidebar-section-title">Pickup Location</h5>
+                <h5 class="theme-search-results-sidebar-section-title">ฟิลเตอร์ ขนาดรถ</h5>
+
                 <div class="theme-search-results-sidebar-section-checkbox-list">
                   <div class="theme-search-results-sidebar-section-checkbox-list-items">
+                    <form id="formname1" method="get">
+                    @if(isset($get_value_2))
+                    @foreach($get_value_2 as $u)
                     <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
                       <label class="icheck-label">
-                        <input class="icheck" type="checkbox"/>
-                        <span class="icheck-title">LGA: LaGuardia</span>
+                        <input class="icheck checkbox-buy" type="checkbox" name="option_in[]" value="{{$u->id_sub_cat_2}}" />
+                        <span class="icheck-title">{{$u->sub_name}}</span>
                       </label>
-                      <span class="theme-search-results-sidebar-section-checkbox-list-amount">139</span>
+                      <span class="theme-search-results-sidebar-section-checkbox-list-amount">{{$u->count_car}}</span>
                     </div>
-                    <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
-                      <label class="icheck-label">
-                        <input class="icheck" type="checkbox"/>
-                        <span class="icheck-title">EWR: Newark</span>
-                      </label>
-                      <span class="theme-search-results-sidebar-section-checkbox-list-amount">276</span>
-                    </div>
-                    <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
-                      <label class="icheck-label">
-                        <input class="icheck" type="checkbox"/>
-                        <span class="icheck-title">JFK: John F. Ken...</span>
-                      </label>
-                      <span class="theme-search-results-sidebar-section-checkbox-list-amount">360</span>
-                    </div>
-                    <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
-                      <label class="icheck-label">
-                        <input class="icheck" type="checkbox"/>
-                        <span class="icheck-title">Non-airport</span>
-                      </label>
-                      <span class="theme-search-results-sidebar-section-checkbox-list-amount">113</span>
-                    </div>
+                    @endforeach
+                    @endif
+                    </form>
+
                   </div>
                 </div>
+
               </div>
 
 
@@ -411,9 +527,17 @@
 
 
         <div class="theme-search-results">
-          <div class="_mob-h">
+          <div class="_mob-h" >
 
+            <div class="text-center" id="get_load">
+              <br><br>
+              <div>
+            <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+            </div>
+            <br><br>
+            </div>
 
+            <div id="targeted">
 
             @if(isset($data_car1))
             @foreach($data_car1 as $j)
@@ -430,6 +554,7 @@
                   </div>
                   <div class="col-md-5 ">
                     <h5 class="theme-search-results-item-title theme-search-results-item-title-lg">{{$u->name}}</h5>
+                    <p class="theme-search-results-item-car-location-subtitle">size : {{$u->sub_name}}</p>
                     <div class="theme-search-results-item-car-location">
                       <i class="fa fa-building theme-search-results-item-car-location-icon"></i>
                       <div class="theme-search-results-item-car-location-body">
@@ -490,7 +615,7 @@
 
 
 
-
+            </div>
 
 
 
@@ -573,274 +698,12 @@
                       </div>
                     </div>
                   </div>
-                  <div class="theme-search-results-sidebar-section">
-                    <h5 class="theme-search-results-sidebar-section-title">Passengers</h5>
-                    <div class="theme-search-results-sidebar-section-checkbox-list">
-                      <div class="theme-search-results-sidebar-section-checkbox-list-items">
-                        <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
-                          <label class="icheck-label">
-                            <input class="icheck" type="checkbox"/>
-                            <span class="icheck-title">1 to 2 passengers</span>
-                          </label>
-                          <span class="theme-search-results-sidebar-section-checkbox-list-amount">140</span>
-                        </div>
-                        <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
-                          <label class="icheck-label">
-                            <input class="icheck" type="checkbox"/>
-                            <span class="icheck-title">3 to 5 passengers</span>
-                          </label>
-                          <span class="theme-search-results-sidebar-section-checkbox-list-amount">214</span>
-                        </div>
-                        <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
-                          <label class="icheck-label">
-                            <input class="icheck" type="checkbox"/>
-                            <span class="icheck-title">6 or more</span>
-                          </label>
-                          <span class="theme-search-results-sidebar-section-checkbox-list-amount">213</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="theme-search-results-sidebar-section">
-                    <h5 class="theme-search-results-sidebar-section-title">Bags</h5>
-                    <div class="theme-search-results-sidebar-section-checkbox-list">
-                      <div class="theme-search-results-sidebar-section-checkbox-list-items">
-                        <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
-                          <label class="icheck-label">
-                            <input class="icheck" type="checkbox"/>
-                            <span class="icheck-title">1 to 2 bags</span>
-                          </label>
-                          <span class="theme-search-results-sidebar-section-checkbox-list-amount">199</span>
-                        </div>
-                        <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
-                          <label class="icheck-label">
-                            <input class="icheck" type="checkbox"/>
-                            <span class="icheck-title">3 to 4 bags</span>
-                          </label>
-                          <span class="theme-search-results-sidebar-section-checkbox-list-amount">221</span>
-                        </div>
-                        <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
-                          <label class="icheck-label">
-                            <input class="icheck" type="checkbox"/>
-                            <span class="icheck-title">5 or more</span>
-                          </label>
-                          <span class="theme-search-results-sidebar-section-checkbox-list-amount">148</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="theme-search-results-sidebar-section">
-                    <h5 class="theme-search-results-sidebar-section-title">Car Type</h5>
-                    <div class="theme-search-results-sidebar-section-checkbox-list">
-                      <div class="theme-search-results-sidebar-section-checkbox-list-items">
-                        <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
-                          <label class="icheck-label">
-                            <input class="icheck" type="checkbox"/>
-                            <span class="icheck-title">Small</span>
-                          </label>
-                          <span class="theme-search-results-sidebar-section-checkbox-list-amount">223</span>
-                        </div>
-                        <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
-                          <label class="icheck-label">
-                            <input class="icheck" type="checkbox"/>
-                            <span class="icheck-title">Large</span>
-                          </label>
-                          <span class="theme-search-results-sidebar-section-checkbox-list-amount">348</span>
-                        </div>
-                        <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
-                          <label class="icheck-label">
-                            <input class="icheck" type="checkbox"/>
-                            <span class="icheck-title">Medium</span>
-                          </label>
-                          <span class="theme-search-results-sidebar-section-checkbox-list-amount">355</span>
-                        </div>
-                        <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
-                          <label class="icheck-label">
-                            <input class="icheck" type="checkbox"/>
-                            <span class="icheck-title">SUV</span>
-                          </label>
-                          <span class="theme-search-results-sidebar-section-checkbox-list-amount">146</span>
-                        </div>
-                        <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
-                          <label class="icheck-label">
-                            <input class="icheck" type="checkbox"/>
-                            <span class="icheck-title">Van</span>
-                          </label>
-                          <span class="theme-search-results-sidebar-section-checkbox-list-amount">471</span>
-                        </div>
-                        <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
-                          <label class="icheck-label">
-                            <input class="icheck" type="checkbox"/>
-                            <span class="icheck-title">Commercial</span>
-                          </label>
-                          <span class="theme-search-results-sidebar-section-checkbox-list-amount">127</span>
-                        </div>
-                        <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
-                          <label class="icheck-label">
-                            <input class="icheck" type="checkbox"/>
-                            <span class="icheck-title">Luxury</span>
-                          </label>
-                          <span class="theme-search-results-sidebar-section-checkbox-list-amount">499</span>
-                        </div>
-                        <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
-                          <label class="icheck-label">
-                            <input class="icheck" type="checkbox"/>
-                            <span class="icheck-title">Pickup truck</span>
-                          </label>
-                          <span class="theme-search-results-sidebar-section-checkbox-list-amount">366</span>
-                        </div>
-                        <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
-                          <label class="icheck-label">
-                            <input class="icheck" type="checkbox"/>
-                            <span class="icheck-title">Convertable</span>
-                          </label>
-                          <span class="theme-search-results-sidebar-section-checkbox-list-amount">296</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="theme-search-results-sidebar-section">
-                    <h5 class="theme-search-results-sidebar-section-title">Payment Type</h5>
-                    <div class="theme-search-results-sidebar-section-checkbox-list">
-                      <div class="theme-search-results-sidebar-section-checkbox-list-items">
-                        <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
-                          <label class="icheck-label">
-                            <input class="icheck" type="checkbox"/>
-                            <span class="icheck-title">Pay now</span>
-                          </label>
-                          <span class="theme-search-results-sidebar-section-checkbox-list-amount">320</span>
-                        </div>
-                        <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
-                          <label class="icheck-label">
-                            <input class="icheck" type="checkbox"/>
-                            <span class="icheck-title">Pay at counter</span>
-                          </label>
-                          <span class="theme-search-results-sidebar-section-checkbox-list-amount">169</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="theme-search-results-sidebar-section">
-                    <h5 class="theme-search-results-sidebar-section-title">Rental Agency</h5>
-                    <div class="theme-search-results-sidebar-section-checkbox-list">
-                      <div class="theme-search-results-sidebar-section-checkbox-list-items">
-                        <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
-                          <label class="icheck-label">
-                            <input class="icheck" type="checkbox"/>
-                            <span class="icheck-title">Ace</span>
-                          </label>
-                          <span class="theme-search-results-sidebar-section-checkbox-list-amount">456</span>
-                        </div>
-                        <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
-                          <label class="icheck-label">
-                            <input class="icheck" type="checkbox"/>
-                            <span class="icheck-title">Action</span>
-                          </label>
-                          <span class="theme-search-results-sidebar-section-checkbox-list-amount">411</span>
-                        </div>
-                        <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
-                          <label class="icheck-label">
-                            <input class="icheck" type="checkbox"/>
-                            <span class="icheck-title">Advantage</span>
-                          </label>
-                          <span class="theme-search-results-sidebar-section-checkbox-list-amount">109</span>
-                        </div>
-                        <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
-                          <label class="icheck-label">
-                            <input class="icheck" type="checkbox"/>
-                            <span class="icheck-title">Alamo</span>
-                          </label>
-                          <span class="theme-search-results-sidebar-section-checkbox-list-amount">290</span>
-                        </div>
-                      </div>
 
 
-                      <div class="collapse" id="mobile-SearchResultsCheckboxRentalAgency">
-                        <div class="theme-search-results-sidebar-section-checkbox-list-items theme-search-results-sidebar-section-checkbox-list-items-expand">
-                          <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
-                            <label class="icheck-label">
-                              <input class="icheck" type="checkbox"/>
-                              <span class="icheck-title">Avis</span>
-                            </label>
-                            <span class="theme-search-results-sidebar-section-checkbox-list-amount">293</span>
-                          </div>
-                          <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
-                            <label class="icheck-label">
-                              <input class="icheck" type="checkbox"/>
-                              <span class="icheck-title">Budget</span>
-                            </label>
-                            <span class="theme-search-results-sidebar-section-checkbox-list-amount">228</span>
-                          </div>
-                          <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
-                            <label class="icheck-label">
-                              <input class="icheck" type="checkbox"/>
-                              <span class="icheck-title">Dollar</span>
-                            </label>
-                            <span class="theme-search-results-sidebar-section-checkbox-list-amount">377</span>
-                          </div>
-                          <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
-                            <label class="icheck-label">
-                              <input class="icheck" type="checkbox"/>
-                              <span class="icheck-title">Enterprise</span>
-                            </label>
-                            <span class="theme-search-results-sidebar-section-checkbox-list-amount">301</span>
-                          </div>
-                          <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
-                            <label class="icheck-label">
-                              <input class="icheck" type="checkbox"/>
-                              <span class="icheck-title">Hertz</span>
-                            </label>
-                            <span class="theme-search-results-sidebar-section-checkbox-list-amount">495</span>
-                          </div>
-                          <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
-                            <label class="icheck-label">
-                              <input class="icheck" type="checkbox"/>
-                              <span class="icheck-title">National</span>
-                            </label>
-                            <span class="theme-search-results-sidebar-section-checkbox-list-amount">359</span>
-                          </div>
-                          <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
-                            <label class="icheck-label">
-                              <input class="icheck" type="checkbox"/>
-                              <span class="icheck-title">Payless</span>
-                            </label>
-                            <span class="theme-search-results-sidebar-section-checkbox-list-amount">375</span>
-                          </div>
-                          <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
-                            <label class="icheck-label">
-                              <input class="icheck" type="checkbox"/>
-                              <span class="icheck-title">Prestige Car Rental</span>
-                            </label>
-                            <span class="theme-search-results-sidebar-section-checkbox-list-amount">263</span>
-                          </div>
-                          <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
-                            <label class="icheck-label">
-                              <input class="icheck" type="checkbox"/>
-                              <span class="icheck-title">Special rate</span>
-                            </label>
-                            <span class="theme-search-results-sidebar-section-checkbox-list-amount">241</span>
-                          </div>
-                          <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
-                            <label class="icheck-label">
-                              <input class="icheck" type="checkbox"/>
-                              <span class="icheck-title">Thrifty</span>
-                            </label>
-                            <span class="theme-search-results-sidebar-section-checkbox-list-amount">356</span>
-                          </div>
-                          <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
-                            <label class="icheck-label">
-                              <input class="icheck" type="checkbox"/>
-                              <span class="icheck-title">U-Save</span>
-                            </label>
-                            <span class="theme-search-results-sidebar-section-checkbox-list-amount">383</span>
-                          </div>
-                        </div>
-                      </div>
-                      <a class="theme-search-results-sidebar-section-checkbox-list-expand-link" role="button" data-toggle="collapse" href="#mobile-SearchResultsCheckboxRentalAgency" aria-expanded="false">Show more
-                        <i class="fa fa-angle-down"></i>
-                      </a>
-                    </div>
-                  </div>
+
+
+
+
                 </div>
               </div>
             </div>
@@ -879,6 +742,106 @@
 @section('scripts')
 
 <script>
+
+$(document).ready(function(){
+
+
+  $("#uguu").submit(function() {
+
+    var set_size = jQuery("#start_point").val();
+
+    console.log(set_size)
+
+
+    if (set_size === "") {
+        alert("โปรดระบุข้อมูลให้ครบถ้วน");
+        return false;
+    }
+});
+
+
+
+$("#get_load").hide();
+var numArray = [];
+var arrayLength = 0;
+$("input").on('ifChecked', function(event){
+    numArray.push($(this).val());
+    /*arrayLength = numArray.length;
+    $(".set_item").hide();
+    for (var i = 0; i < arrayLength; i++) {
+    $(".item-car-"+numArray[i]).show();
+  }
+    console.log($(".item-car-"+$(this).val()).show());
+
+    */
+
+    $.ajax({
+    type: "POST",
+    headers: {'X-CSRF-TOKEN': '{{ csrf_token() }}' },
+    data: {
+            "data_car" : numArray,
+            "get_prov_2" : {{$get_prov_2}}
+          },
+    url: "{{url('/api/search_new')}}",
+    success: function(data) {
+
+        $('#get_load').html("<div class='lds-roller'><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>");
+
+        $("#get_load").show();
+        $('#targeted').html("");
+
+        setTimeout(function(){
+          $("#get_load").hide();
+        $('#targeted').html(data.data.html);
+      }, 2000);
+
+    }
+    });
+
+    console.log(numArray);
+});
+
+$("input").on('ifUnchecked', function(event){
+    var index = numArray.indexOf($(this).val());
+    if (index > -1) {
+        numArray.splice(index, 1);
+    }
+
+
+    $.ajax({
+    type: "POST",
+    headers: {'X-CSRF-TOKEN': '{{ csrf_token() }}' },
+    data: {
+            "data_car" : numArray,
+            "get_prov_2" : {{$get_prov_2}}
+          },
+    url: "{{url('/api/search_new')}}",
+    success: function(data) {
+
+      $("#get_load").show();
+
+      $('#targeted').html("");
+
+      setTimeout(function(){
+        $("#get_load").hide();
+        $('#targeted').html(data.data.html);
+      }, 2000);
+    }
+    });
+    /*
+    $(".set_item").hide();
+    $(".item-car-"+$(this).val()).hide();
+    for (var i = 0; i < arrayLength; i++) {
+    $(".item-car-"+numArray[i]).show();
+  }*/
+  console.log(numArray);
+
+});
+
+
+});
+
+
 
 function autocomplete() {
 
@@ -923,6 +886,39 @@ function autocomplete() {
 }
 
 
+</script>
+
+
+<script src="{{url('js/select2.js')}}"></script>
+
+<script>
+$(document).ready(function() {
+
+  $('.js-example-basic-single').select2();
+
+
+
+
+  $(".js-example-basic-single").select2({
+ ajax: {
+  url: "{{url('/api/get_select2')}}",
+  type: "post",
+  dataType: 'json',
+  delay: 250,
+  data: function (params) {
+   return {
+     searchTerm: params.term // search term
+   };
+  },
+  processResults: function (response) {
+    return {
+       results: response
+    };
+  },
+  cache: true
+ }
+});
+});
 </script>
 
 @stop('scripts')

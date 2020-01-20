@@ -89,7 +89,7 @@ class CarsController extends Controller
 
         $image = $request->file('image');
         $this->validate($request, [
-             'image' => 'required|max:8048',
+             'image' => 'required',
              'name' => 'required',
              'cat_id' => 'required',
              'price' => 'required',
