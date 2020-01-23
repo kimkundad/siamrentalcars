@@ -131,7 +131,7 @@
                               <div class="theme-search-area-section-inner">
                                 <i class="theme-search-area-section-icon lin lin-calendar"></i>
                                 <input class="theme-search-area-section-input datePickerStart _mob-h" name="start_dat" value="{{date('D')}} date("m")/{{date('d')}}" type="text" placeholder="Check-in"/>
-                                <input class="theme-search-area-section-input _desk-h mobile-picker" value="2018-06-27" type="date"/>
+                                <input class="theme-search-area-section-input _desk-h mobile-picker" value="{{date('Y')}}-{{date('m')}}-{{date('d')}}" type="date"/>
                               </div>
                             </div>
                           </div>
@@ -210,7 +210,7 @@
                               <div class="theme-search-area-section-inner">
                                 <i class="theme-search-area-section-icon lin lin-calendar"></i>
                                 <input class="theme-search-area-section-input datePickerStart _mob-h" name="end_day" value="{{date('D')}} date("m")/{{date('d')}}" type="text" placeholder="Check-in"/>
-                                <input class="theme-search-area-section-input _desk-h mobile-picker" value="2018-06-27" type="date"/>
+                                <input class="theme-search-area-section-input _desk-h mobile-picker" value="{{date('Y')}}-{{date('m')}}-{{date('d')+1}}" type="date"/>
                               </div>
                             </div>
                           </div>
