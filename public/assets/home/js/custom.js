@@ -132,12 +132,12 @@ function mobileFilters() {
         var footer =  $('#mainFooter');
 
         if(filters.offset().top + filters.height() > footer.offset().top - 10 || !$(document).scrollTop()) {
-            filters.removeClass('active');
+          //  filters.removeClass('active');
         } else {
             filters.addClass('active');
         }
 
-        if($(document).scrollTop + window.innerHeight > footer.offset().top) {
+        if($(document).scrollTop + window.innerHeight > footer.offset().top -20) {
             filters.addClass('active');
         }
     }
@@ -272,27 +272,25 @@ function BSTabsActions() {
 function datePickers() {
 
     $('.datePickerSingle').datetimepicker({
-        format: 'ddd, MMM D'
+        format: 'DD/MM/YYYY'
     });
 
 
     $('.datePickerStart').datetimepicker({
-        format: 'ddd M/D'
-    }).on('dp.change', function(e){
-        var parent = $($(this).parents('.row')[0]),
-            endDate = parent.find('.datePickerEnd');
-        endDate.data("DateTimePicker").minDate(e.date).show();
-    });
+        format: 'DD/MM/YYYY'
+    })
 
     $('.datePickerEnd').datetimepicker({
-        format: 'ddd M/D',
-        useCurrent: false
-    }).on('dp.change', function(e){
-        var parent = $($(this).parents('.row')[0]),
-            startDate = parent.find('.datePickerStart');
-        startDate.data("DateTimePicker").maxDate(e.date);
-    });
+        format: 'DD/MM/YYYY'
+    })
 
+}
+
+function getFormattedDate(date) {
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear().toString().slice(2);
+    return day + '-' + month + '-' + year;
 }
 
 

@@ -19,6 +19,9 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/search/data', 'HomeController@search_data')->name('search_data');
 
+
+Route::get('/car_detail/{id}', 'HomeController@car_detail')->name('car_detail');
+
 Route::post('/api/get_select2', 'HomeController@get_select2')->name('get_select2');
 
 Route::post('/api/search_new', 'HomeController@search_new')->name('search_new');

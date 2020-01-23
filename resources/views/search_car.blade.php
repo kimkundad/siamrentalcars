@@ -180,7 +180,6 @@
                   <div class="theme-search-area-section-inner">
                     <i class="theme-search-area-section-icon lin lin-calendar"></i>
                     <input class="theme-search-area-section-input datePickerStart _mob-h" name="start_dat" value="{{$start_dat}}" type="text" placeholder="Check-in"/>
-                    <input class="theme-search-area-section-input _desk-h mobile-picker" value="2018-06-27" type="date"/>
                   </div>
                 </div>
               </div>
@@ -258,7 +257,6 @@
                   <div class="theme-search-area-section-inner">
                     <i class="theme-search-area-section-icon lin lin-calendar"></i>
                     <input class="theme-search-area-section-input datePickerStart _mob-h" name="end_day" value="{{$end_day}}" type="text" placeholder="Check-in"/>
-                    <input class="theme-search-area-section-input _desk-h mobile-picker" value="2018-06-27" type="date"/>
                   </div>
                 </div>
               </div>
@@ -378,57 +376,189 @@
 
 
         <div class="theme-search-area-inline _desk-h theme-search-area-inline-white">
-          <h4 class="theme-search-area-inline-title">New York Cars</h4>
-          <p class="theme-search-area-inline-details">June 27 &rarr; July 02</p>
+          <h4 class="theme-search-area-inline-title">{{$show_text2}}, {{$show_text}}</h4>
+          <p class="theme-search-area-inline-details">{{$start_dat}} &rarr; {{$end_day}}</p>
           <a class="theme-search-area-inline-link magnific-inline" href="#searchEditModal">
             <i class="fa fa-pencil"></i>Edit
           </a>
           <div class="magnific-popup magnific-popup-sm mfp-hide" id="searchEditModal">
             <div class="theme-search-area theme-search-area-vert">
               <div class="theme-search-area-header">
-                <h1 class="theme-search-area-title theme-search-area-title-sm">Edit your Search</h1>
-                <p class="theme-search-area-subtitle">Prices might be different from current results</p>
+                <h1 class="theme-search-area-title theme-search-area-title-sm">แก้ไขข้อมูลการค้นหา</h1>
+                <p class="theme-search-area-subtitle">ราคาอาจแตกต่างจากผลลัพธ์ปัจจุบัน</p>
               </div>
+
+
+              <form class=" search-form" id="uguu" name="form2" method="POST" action="{{ url('search_car/') }}" >
+                {{ csrf_field() }}
+
+
               <div class="theme-search-area-form">
+
                 <div class="theme-search-area-section first theme-search-area-section-curved">
-                  <label class="theme-search-area-section-label">Pick Up</label>
+                  <label class="theme-search-area-section-label">เลือกจุดรับรถ</label>
                   <div class="theme-search-area-section-inner">
                     <i class="theme-search-area-section-icon lin lin-location-pin"></i>
-                    <input class="theme-search-area-section-input typeahead" value="New York" type="text" placeholder="Pick up location" data-provide="typeahead"/>
+                    <select class="theme-search-area-section-input js-example-basic-single" name="start_point" style="height: 45px!important; width:100% font-size: 14px !important;">
+                        <option value="{{$start_point}}" selected="selected">{{$show_text2}}, {{$show_text}}</option>
+
+                    </select>
                   </div>
                 </div>
-                <div class="theme-search-area-section theme-search-area-section-curved">
-                  <label class="theme-search-area-section-label">Drop Off</label>
-                  <div class="theme-search-area-section-inner">
-                    <i class="theme-search-area-section-icon lin lin-location-pin"></i>
-                    <input class="theme-search-area-section-input typeahead" value="New York" type="text" placeholder="Drop off location" data-provide="typeahead"/>
-                  </div>
-                </div>
+
+
                 <div class="row" data-gutter="10">
                   <div class="col-md-6 ">
                     <div class="theme-search-area-section theme-search-area-section-curved">
-                      <label class="theme-search-area-section-label">Check In</label>
+                      <label class="theme-search-area-section-label">วันรับรถ</label>
                       <div class="theme-search-area-section-inner">
                         <i class="theme-search-area-section-icon lin lin-calendar"></i>
-                        <input class="theme-search-area-section-input datePickerStart _mob-h" value="Wed 06/27" type="text" placeholder="Check-in"/>
-                        <input class="theme-search-area-section-input _desk-h mobile-picker" value="2018-06-27" type="date"/>
+                        <input class="theme-search-area-section-input _desk-h datePickerStart" name="start_dat" value="{{$start_dat}}" type="text"/>
                       </div>
                     </div>
                   </div>
+
                   <div class="col-md-6 ">
                     <div class="theme-search-area-section theme-search-area-section-curved">
-                      <label class="theme-search-area-section-label">Check Out</label>
+                      <label class="theme-search-area-section-label">เวลารับ</label>
                       <div class="theme-search-area-section-inner">
-                        <i class="theme-search-area-section-icon lin lin-calendar"></i>
-                        <input class="theme-search-area-section-input datePickerEnd _mob-h" value="Mon 07/02" type="text" placeholder="Check-out"/>
-                        <input class="theme-search-area-section-input _desk-h mobile-picker" value="2018-07-02" type="date"/>
+                        <select class="theme-search-area-section-input" name="start_time" style="padding-left: 8px;">
+                          <option selected="selected" value="{{$start_time}}">{{$start_time}}</option>
+                          <option value="0:30">0:30</option>
+                          <option value="1:00">1:00</option>
+                          <option value="1:30">1:30</option>
+                          <option value="2:00">2:00</option>
+                          <option value="2:30">2:30</option>
+                          <option value="3:00">3:00</option>
+                          <option value="3:30">3:30</option>
+                          <option value="4:00">4:00</option>
+                          <option value="4:30">4:30</option>
+                          <option value="5:00">5:00</option>
+                          <option value="5:30">5:30</option>
+                          <option value="6:00">6:00</option>
+                          <option value="6:30">6:30</option>
+                          <option value="7:00">7:00</option>
+                          <option value="7:30">7:30</option>
+                          <option value="8:00">8:00</option>
+                          <option value="8:30">8:30</option>
+                          <option value="9:00">9:00</option>
+                          <option value="9:30">9:30</option>
+                          <option value="10:00">10:00</option>
+                          <option value="10:30">10:30</option>
+                          <option value="11:00">11:00</option>
+                          <option value="11:30">11:30</option>
+                          <option value="12:00">12:00</option>
+                          <option value="12:30">12:30</option>
+                          <option value="13:00">13:00</option>
+                          <option value="13:30">13:30</option>
+                          <option value="14:00">14:00</option>
+                          <option value="14:30">14:30</option>
+                          <option value="15:00">15:00</option>
+                          <option value="15:30">15:30</option>
+                          <option value="16:00">16:00</option>
+                          <option value="16:30">16:30</option>
+                          <option value="17:00">17:00</option>
+                          <option value="17:30">17:30</option>
+                          <option value="18:00">18:00</option>
+                          <option value="18:30">18:30</option>
+                          <option value="19:00">19:00</option>
+                          <option value="19:30">19:30</option>
+                          <option value="20:00">20:00</option>
+                          <option value="20:30">20:30</option>
+                          <option value="21:00">21:00</option>
+                          <option value="21:30">21:30</option>
+                          <option value="22:00">22:00</option>
+                          <option value="22:30">22:30</option>
+                          <option value="23:00">23:00</option>
+                          <option value="23:30">23:30</option>
+                        </select>
                       </div>
                     </div>
                   </div>
+
+
+                  <div class="col-md-6 ">
+                    <div class="theme-search-area-section theme-search-area-section-curved">
+                      <label class="theme-search-area-section-label">วันส่งรถ</label>
+                      <div class="theme-search-area-section-inner">
+                        <i class="theme-search-area-section-icon lin lin-calendar"></i>
+                        <input class="theme-search-area-section-input _desk-h datePickerStart" name="end_day" value="{{$end_day}}" type="text"/>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="col-md-6 ">
+                    <div class="theme-search-area-section theme-search-area-section-curved">
+                      <label class="theme-search-area-section-label">เวลาส่ง</label>
+                      <div class="theme-search-area-section-inner">
+                        <select class="theme-search-area-section-input" name="end_time" >
+                          <option selected="selected" value="{{$end_time}}">{{$end_time}}</option>
+                          <option value="0:30">0:30</option>
+                          <option value="1:00">1:00</option>
+                          <option value="1:30">1:30</option>
+                          <option value="2:00">2:00</option>
+                          <option value="2:30">2:30</option>
+                          <option value="3:00">3:00</option>
+                          <option value="3:30">3:30</option>
+                          <option value="4:00">4:00</option>
+                          <option value="4:30">4:30</option>
+                          <option value="5:00">5:00</option>
+                          <option value="5:30">5:30</option>
+                          <option value="6:00">6:00</option>
+                          <option value="6:30">6:30</option>
+                          <option value="7:00">7:00</option>
+                          <option value="7:30">7:30</option>
+                          <option value="8:00">8:00</option>
+                          <option value="8:30">8:30</option>
+                          <option value="9:00">9:00</option>
+                          <option value="9:30">9:30</option>
+                          <option value="10:00">10:00</option>
+                          <option value="10:30">10:30</option>
+                          <option value="11:00">11:00</option>
+                          <option value="11:30">11:30</option>
+                          <option value="12:00">12:00</option>
+                          <option value="12:30">12:30</option>
+                          <option value="13:00">13:00</option>
+                          <option value="13:30">13:30</option>
+                          <option value="14:00">14:00</option>
+                          <option value="14:30">14:30</option>
+                          <option value="15:00">15:00</option>
+                          <option value="15:30">15:30</option>
+                          <option value="16:00">16:00</option>
+                          <option value="16:30">16:30</option>
+                          <option value="17:00">17:00</option>
+                          <option value="17:30">17:30</option>
+                          <option value="18:00">18:00</option>
+                          <option value="18:30">18:30</option>
+                          <option value="19:00">19:00</option>
+                          <option value="19:30">19:30</option>
+                          <option value="20:00">20:00</option>
+                          <option value="20:30">20:30</option>
+                          <option value="21:00">21:00</option>
+                          <option value="21:30">21:30</option>
+                          <option value="22:00">22:00</option>
+                          <option value="22:30">22:30</option>
+                          <option value="23:00">23:00</option>
+                          <option value="23:30">23:30</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+
                 </div>
-                <button class="theme-search-area-submit _mt-0 _tt-uc theme-search-area-submit-curved" >เปลี่ยน</button>
+                <button type="submit" class="theme-search-area-submit _mt-0 _tt-uc theme-search-area-submit-curved" >เปลี่ยน</button>
               </div>
+
+
+
+              <!--  end-->
             </div>
+
+            </form>
+
+
           </div>
         </div>
       </div>
@@ -470,7 +600,7 @@
 
                 <div class="theme-search-results-sidebar-section-checkbox-list">
                   <div class="theme-search-results-sidebar-section-checkbox-list-items">
-                    <form id="formname1" method="get">
+                    <form id="formname1" name="formname1" method="get">
                     @if(isset($get_value_2))
                     @foreach($get_value_2 as $u)
                     <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
@@ -544,7 +674,7 @@
             @foreach($j as $u)
             <div class="theme-search-results-item _mb-10 theme-search-results-item-">
               <div class="theme-search-results-item-preview">
-                <a class="theme-search-results-item-mask-link" href="#"></a>
+                <a class="theme-search-results-item-mask-link" href="{{url('car_detail/'.$u->id_car)}}"></a>
                 <div class="row" data-gutter="20">
                   <div class="col-md-5 ">
                     <div class="theme-search-results-item-img-wrap">
@@ -580,7 +710,7 @@
                         <p class="theme-search-results-item-price-tag">฿ {{$u->price}}</p>
                         <p class="theme-search-results-item-price-sign">ต่อวัน</p>
                       </div>
-                      <a class="btn btn-primary-inverse btn-block theme-search-results-item-price-btn" href="#">เลือกคันนี้</a>
+                      <a class="btn btn-primary-inverse btn-block theme-search-results-item-price-btn" href="{{url('car_detail/'.$u->id_car)}}">เลือกคันนี้</a>
                     </div>
                   </div>
                 </div>
@@ -589,28 +719,6 @@
             @endforeach
             @endforeach
             @endif
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -624,25 +732,52 @@
 
 
 
-
-
-
-
-
-
-
           <div class="_desk-h">
 
 
+            <div id="targeted2">
+
+            @if(isset($data_car1))
+            @foreach($data_car1 as $j)
+            @foreach($j as $u)
+            <div class="theme-search-results-item _br-3 _mb-20 _bsh-xl theme-search-results-item-grid">
+              <div class="_h-30vh theme-search-results-item-img-wrap-inner">
+                <img class="theme-search-results-item-img" src="{{url('assets/back/image/car/'.$u->image)}}" alt="{{$u->name}}" title="{{$u->name}}"/>
+              </div>
+              <div class="theme-search-results-item-grid-body _pt-0">
+                <a class="theme-search-results-item-mask-link" href="{{url('car_detail/'.$u->id_car)}}"></a>
+                <div class="theme-search-results-item-grid-header">
+                  <h5 class="theme-search-results-item-title _fs">{{$u->name}}</h5>
+                </div>
+                <div class="theme-search-results-item-grid-caption">
+                  <div class="row" data-gutter="10">
+                    <div class="col-xs-9 ">
+                      <div class="theme-search-results-item-car-location">
+                        <i class="fa fa-building theme-search-results-item-car-location-icon"></i>
+                        <div class="theme-search-results-item-car-location-body">
+                          <p class="theme-search-results-item-car-location-title">{{$u->part_name}}</p>
+                          <p class="theme-search-results-item-car-location-subtitle">{{$u->PROVINCE_NAME}}</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xs-3 ">
+                      <div class="theme-search-results-item-price">
+                        <p class="theme-search-results-item-price-tag">฿ {{$u->price}}</p>
+                        <p class="theme-search-results-item-price-sign">ต่อวัน</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            @endforeach
+            @endforeach
+            @endif
 
 
 
 
-
-
-
-
-
+            </div>
 
 
 
@@ -667,34 +802,25 @@
                     <h5 class="theme-search-results-sidebar-section-title">Pickup Location</h5>
                     <div class="theme-search-results-sidebar-section-checkbox-list">
                       <div class="theme-search-results-sidebar-section-checkbox-list-items">
+
+
+                        <form id="formname2" name="formname2" method="get">
+                        @if(isset($get_value_2))
+                        @foreach($get_value_2 as $u)
                         <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
                           <label class="icheck-label">
-                            <input class="icheck" type="checkbox"/>
-                            <span class="icheck-title">LGA: LaGuardia</span>
+                            <input class="icheck checkbox-buy" type="checkbox" name="option_in[]" value="{{$u->id_sub_cat_2}}" />
+                            <span class="icheck-title">{{$u->sub_name}}</span>
                           </label>
-                          <span class="theme-search-results-sidebar-section-checkbox-list-amount">224</span>
+                          <span class="theme-search-results-sidebar-section-checkbox-list-amount">{{$u->count_car}}</span>
                         </div>
-                        <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
-                          <label class="icheck-label">
-                            <input class="icheck" type="checkbox"/>
-                            <span class="icheck-title">EWR: Newark</span>
-                          </label>
-                          <span class="theme-search-results-sidebar-section-checkbox-list-amount">215</span>
-                        </div>
-                        <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
-                          <label class="icheck-label">
-                            <input class="icheck" type="checkbox"/>
-                            <span class="icheck-title">JFK: John F. Ken...</span>
-                          </label>
-                          <span class="theme-search-results-sidebar-section-checkbox-list-amount">487</span>
-                        </div>
-                        <div class="checkbox theme-search-results-sidebar-section-checkbox-list-item">
-                          <label class="icheck-label">
-                            <input class="icheck" type="checkbox"/>
-                            <span class="icheck-title">Non-airport</span>
-                          </label>
-                          <span class="theme-search-results-sidebar-section-checkbox-list-amount">307</span>
-                        </div>
+                        @endforeach
+                        @endif
+                        </form>
+
+
+
+
                       </div>
                     </div>
                   </div>
@@ -789,10 +915,12 @@ $("input").on('ifChecked', function(event){
 
         $("#get_load").show();
         $('#targeted').html("");
+        $('#targeted2').html("");
 
         setTimeout(function(){
           $("#get_load").hide();
         $('#targeted').html(data.data.html);
+        $('#targeted2').html(data.data.html2);
       }, 2000);
 
     }
@@ -821,10 +949,12 @@ $("input").on('ifUnchecked', function(event){
       $("#get_load").show();
 
       $('#targeted').html("");
+      $('#targeted2').html("");
 
       setTimeout(function(){
         $("#get_load").hide();
         $('#targeted').html(data.data.html);
+        $('#targeted2').html(data.data.html2);
       }, 2000);
     }
     });

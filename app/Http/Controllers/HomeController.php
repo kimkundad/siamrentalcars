@@ -128,6 +128,9 @@ class HomeController extends Controller
       $start_point = $get_prov_fi->prov_id;
       $data['show_text'] = $get_prov_fi->position_name;
 
+      $start_dat2 = $request['start_dat2'];
+      $end_day2 = $request['end_day2'];
+
       $start_dat = $request['start_dat'];
       $start_time = $request['start_time'];
       $end_day = $request['end_day'];
@@ -137,8 +140,19 @@ class HomeController extends Controller
       $data['start_point'] = $request['start_point'];
       $data['start_time'] = $start_time;
       $data['end_time'] = $end_time;
-      $data['start_dat'] = $start_dat;
-      $data['end_day'] = $end_day;
+
+      if($start_dat == null){
+
+        $data['start_dat'] = $start_dat2;
+        $data['end_day'] = $end_day2;
+
+      }else{
+
+        $data['start_dat'] = $start_dat;
+        $data['end_day'] = $end_day;
+
+      }
+
 
       $data_car = null;
       $get_sort_2 = null;
@@ -228,6 +242,7 @@ class HomeController extends Controller
                                                           ->select(
                                                           'car_parts.cars_id',
                                                           'cars.*',
+                                                          'cars.id as id_car',
                                                           'partners.*',
                                                           'partners.id as id_part',
                                                           'province.*',
@@ -249,6 +264,7 @@ class HomeController extends Controller
                                                           ->select(
                                                           'car_parts.cars_id',
                                                           'cars.*',
+                                                          'cars.id as id_car',
                                                           'partners.*',
                                                           'partners.id as id_part',
                                                           'province.*',
@@ -361,6 +377,35 @@ class HomeController extends Controller
 
     }
 
+    public function car_detail($id){
+
+      $get_car = DB::table('cars')
+                    ->select(
+                    'cars.*',
+                    'car_parts.cars_id',
+                    'cars.id as id_car',
+                    'partners.*',
+                    'partners.id as id_part',
+                    'province.*',
+                    'categories.*',
+                    'sub_categories.sub_name'
+                    )
+                    ->leftjoin('car_parts', 'car_parts.cars_id', 'cars.id')
+                    ->leftjoin('partners', 'partners.id',  'car_parts.partn_id')
+                    ->leftjoin('province', 'province.PROVINCE_ID',  'car_parts.prov_id')
+                    ->leftjoin('sub_categories', 'sub_categories.id',  'cars.sub_cat_id')
+                    ->leftjoin('categories', 'categories.id',  'cars.cat_id')
+                    ->Where('cars.id', $id)
+                    ->Where('cars.status', 1)
+                    ->first();
+
+                  //  dd($get_car);
+                  $data['objs'] = $get_car;
+
+                  return view('car_detail', $data);
+
+    }
+
 
     public function search_new(Request $request){
 
@@ -368,11 +413,13 @@ class HomeController extends Controller
       $get_prov_2 = $request['get_prov_2'];
 
       $tag_html = null;
+      $tag_html2 = null;
 
       $get_car2 = DB::table('car_parts')
                     ->select(
                     'car_parts.cars_id',
                     'cars.*',
+                    'cars.id as id_car',
                     'partners.*',
                     'partners.id as id_part',
                     'province.*',
@@ -412,7 +459,7 @@ class HomeController extends Controller
 
                       $tag_html .=  "<div class='theme-search-results-item _mb-10 theme-search-results-item-'>
                           <div class='theme-search-results-item-preview'>
-                            <a class='theme-search-results-item-mask-link' href='#'></a>
+                            <a class='theme-search-results-item-mask-link' href='".url('car_detail/'.$u->id_car)."'></a>
                             <div class='row' data-gutter='20'>
                               <div class='col-md-5'>
                                 <div class='theme-search-results-item-img-wrap'>
@@ -460,12 +507,47 @@ class HomeController extends Controller
                                     </p>
                                     <p class='theme-search-results-item-price-sign'>ต่อวัน</p>
                                   </div>
-                                  <a class='btn btn-primary-inverse btn-block theme-search-results-item-price-btn' href='#'>เลือกคันนี้</a>
+                                  <a class='btn btn-primary-inverse btn-block theme-search-results-item-price-btn' href='".url('car_detail/'.$u->id_car)."'>เลือกคันนี้</a>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>";
+
+
+                        $tag_html2 .= '<div class="theme-search-results-item _br-3 _mb-20 _bsh-xl theme-search-results-item-grid">
+                          <div class="_h-30vh theme-search-results-item-img-wrap-inner">
+                            <img class="theme-search-results-item-img" src='.url('assets/back/image/car/'.$u->image).' alt="'.$u->name.'" title="'.$u->name.'"/>
+                          </div>
+                          <div class="theme-search-results-item-grid-body _pt-0">
+                            <a class="theme-search-results-item-mask-link" href="'.url('car_detail/'.$u->id_car).'"></a>
+                            <div class="theme-search-results-item-grid-header">
+                              <h5 class="theme-search-results-item-title _fs">'.$u->name.'</h5>
+                            </div>
+                            <div class="theme-search-results-item-grid-caption">
+                              <div class="row" data-gutter="10">
+                                <div class="col-xs-9 ">
+                                  <div class="theme-search-results-item-car-location">
+                                    <i class="fa fa-building theme-search-results-item-car-location-icon"></i>
+                                    <div class="theme-search-results-item-car-location-body">
+                                      <p class="theme-search-results-item-car-location-title">'.$u->part_name.'</p>
+                                      <p class="theme-search-results-item-car-location-subtitle">'.$u->PROVINCE_NAME.'</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-xs-3 ">
+                                  <div class="theme-search-results-item-price">
+                                    <p class="theme-search-results-item-price-tag">฿ '.$u->price.'</p>
+                                    <p class="theme-search-results-item-price-sign">ต่อวัน</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>';
+
+
+
 
                       }
 
@@ -483,6 +565,7 @@ class HomeController extends Controller
       return response()->json([
       'data' => [
         'html' => $tag_html,
+        'html2' => $tag_html2,
         'count' => $get_count
       ]
     ]);
