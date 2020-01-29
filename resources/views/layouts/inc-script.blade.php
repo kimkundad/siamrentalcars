@@ -19,3 +19,4 @@
 <script src="{{url('assets/home/js/fitvid.js')}}"></script>
 <script src="{{url('assets/home/js/youtube-bg.js')}}"></script>
 <script src="{{url('assets/home/js/custom.js')}}"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

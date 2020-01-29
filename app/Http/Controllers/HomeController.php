@@ -7,6 +7,7 @@ use App\sub_category;
 use Response;
 use App\province;
 use Illuminate\Support\Facades\DB;
+use Session;
 
 class HomeController extends Controller
 {
@@ -169,6 +170,8 @@ class HomeController extends Controller
       $start_point = $get_prov_fi->prov_id;
       $data['show_text'] = $get_prov_fi->position_name;
 
+      Session::put('position2', $get_prov_fi->position_name);
+
       $start_dat2 = $request['start_dat2'];
       $end_day2 = $request['end_day2'];
 
@@ -179,6 +182,8 @@ class HomeController extends Controller
       $car_options = $request['car_options'];
 
       $data['start_point'] = $request['start_point'];
+
+
       $data['start_time'] = $start_time;
       $data['end_time'] = $end_time;
 
@@ -193,6 +198,11 @@ class HomeController extends Controller
         $data['end_day'] = $end_day;
 
       }
+
+      Session::put('start_dat', $data['start_dat']);
+      Session::put('end_day',   $data['end_day']);
+      Session::put('end_time', $end_time);
+      Session::put('start_time', $start_time);
 
 
       $data_car = null;
@@ -246,6 +256,8 @@ class HomeController extends Controller
 
                         $data['get_prov_2'] = $get_provinces->PROVINCE_ID;
                         $data['show_text2'] = $get_provinces->PROVINCE_NAME;
+
+                        Session::put('position1', $get_provinces->PROVINCE_NAME);
 
                         // ค้าหา partner ว่าอยู่ในจังหวัดนั้นไหม
 
@@ -411,7 +423,7 @@ class HomeController extends Controller
 
                       $data['get_value_2'] = $get_value_2;
 
-
+                  //    dd(session()->all());
 
                     return view('search_car', $data);
 
