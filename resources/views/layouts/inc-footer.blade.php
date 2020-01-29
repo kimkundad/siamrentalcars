@@ -7,94 +7,77 @@
             <img src="{{url('assets/home/img/logo-black.png')}}" alt="Image Alternative text" title="Image Title"/>
           </a>
           <div class="theme-footer-brand-text">
-            <p>Ante justo taciti vehicula ridiculus rutrum dis mauris convallis erat convallis class maecenas praesent sapien</p>
-            <p>In suspendisse proin ut lorem convallis tortor felis arcu tempus nam nisi metus bibendum vivamus</p>
+            <h4>Siamrentalcars.com</h4>
+            <p>ที่อยู่: 507/2 ถ.อภิบาลบัญชา ต.ในเมือง อ.เมือง จ.นครพนม 48000</p>
+            <p style="font-size:14px;"><b class="text-success"><i class="fa fa-phone" aria-hidden="true"></i></b> 082-841-6945</p>
+            <p style="font-size:14px;"><b class="text-success"><i class="fa fa-phone" aria-hidden="true"></i></b> 081-872-1215</p>
+            <p style="font-size:14px;"><a href="" target="_blank"><b class="text-success"><i class="fa fa-commenting" aria-hidden="true"></i></b> @Siamrentalcars</a></p>
           </div>
+
         </div>
       </div>
       <div class="col-md-5">
         <div class="row">
           <div class="col-md-4">
             <div class="theme-footer-section theme-footer-">
-              <h5 class="theme-footer-section-title">Travel Mate</h5>
+              <h5 class="theme-footer-section-title">เกี่ยวกับเรา</h5>
               <ul class="theme-footer-section-list">
                 <li>
-                  <a href="#">About Travel Mate</a>
+                  <a href="#">บริการของเรา</a>
                 </li>
                 <li>
-                  <a href="#">Mobile App</a>
+                  <a href="#">ประเภทรถเช่า</a>
                 </li>
                 <li>
-                  <a href="#">Customer Support</a>
+                  <a href="#">บทความ</a>
                 </li>
                 <li>
-                  <a href="#">Advertising</a>
+                  <a href="#">ติดต่อเรา</a>
                 </li>
                 <li>
-                  <a href="#">Jobs</a>
+                  <a href="#">ร่วมเป็นพันธมิตรกับเรา</a>
                 </li>
-                <li>
-                  <a href="#">Privacy Policy</a>
-                </li>
-                <li>
-                  <a href="#">Terms of Use</a>
-                </li>
+
               </ul>
             </div>
           </div>
           <div class="col-md-4">
             <div class="theme-footer-section theme-footer-">
-              <h5 class="theme-footer-section-title">Explore</h5>
+              <h5 class="theme-footer-section-title">บริการของเรา</h5>
               <ul class="theme-footer-section-list">
                 <li>
-                  <a href="#">Countries</a>
+                  <a href="#">เช่ารถระยะสั้น</a>
                 </li>
                 <li>
-                  <a href="#">Regions</a>
+                  <a href="#">เช่ารถระยะยาว</a>
                 </li>
                 <li>
-                  <a href="#">Cities</a>
+                  <a href="#">เช่ารถพร้อมคนขับ</a>
                 </li>
                 <li>
-                  <a href="#">Districs</a>
+                  <a href="#">เช่ารถไม่ใช้บัตรเครดิต</a>
                 </li>
-                <li>
-                  <a href="#">Airports</a>
-                </li>
-                <li>
-                  <a href="#">Hotels</a>
-                </li>
-                <li>
-                  <a href="#">Places of Interest</a>
-                </li>
+
               </ul>
             </div>
           </div>
           <div class="col-md-4">
             <div class="theme-footer-section theme-footer-">
-              <h5 class="theme-footer-section-title">Book</h5>
+              <h5 class="theme-footer-section-title">ความช่วยเหลือ</h5>
               <ul class="theme-footer-section-list">
                 <li>
-                  <a href="#">Apartments</a>
+                  <a href="#">วิธีการจอง</a>
                 </li>
                 <li>
-                  <a href="#">Resorts</a>
+                  <a href="#">เอกสารเช่ารถ</a>
                 </li>
                 <li>
-                  <a href="#">Villas</a>
+                  <a href="#">ประกันภัย</a>
                 </li>
                 <li>
-                  <a href="#">Hostels</a>
+                  <a href="#">ตวามช่วยเหลือเพิ่มเติม</a>
                 </li>
-                <li>
-                  <a href="#">B&Bs</a>
-                </li>
-                <li>
-                  <a href="#">Guesthouses</a>
-                </li>
-                <li>
-                  <a href="#">Hotel Chains</a>
-                </li>
+
               </ul>
             </div>
           </div>
@@ -124,8 +107,8 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <p class="theme-copyright-text">Copyright &copy; 2018
-          <a href="#">Bookify</a>. All rights reserved.
+        <p class="theme-copyright-text"><a href="#">Bookify</a>. &copy; 2020
+          <a href="#" style="font-weight: 200; font-size:11px;">ข้อตกลงและเงื่อนไข</a> <a href="#" style="font-weight: 200; font-size:11px;">นโยบายความเป็นส่วนตัว</a>
         </p>
       </div>
       <div class="col-md-6">

@@ -16,10 +16,45 @@
         <ul class="nav navbar-nav">
 
 
+          <li class="{{ (Request::is('/about_us') ? 'active' : '') }} dropdown">
+            <a href="{{url('/about_us')}}" >เกี่ยวกับเรา</a>
+          </li>
+          <li class="{{ (Request::is('/contact_us') ? 'active' : '') }} dropdown">
+            <a href="{{url('/contact_us')}}" >ติดต่อเรา</a>
+          </li>
           <li class="{{ (Request::is('/') ? 'active' : '') }} dropdown">
-            <a href="{{url('/')}}" >Pages</a>
+            <a class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ความช่วยเหลือ</a>
+            <div class="dropdown-menu dropdown-menu-full">
+              <div class="row">
+                <div class="col-md-6">
+
+                  <ul class="dropdown-meganav-list-items">
+                    <li>
+                      <a href="{{url('/')}}">วิธีการจอง</a>
+                    </li>
+                    <li>
+                      <a href="{{url('/')}}">เอกสารเช่ารถ</a>
+                    </li>
+                    <li>
+                      <a href="{{url('/')}}">ประกันภัย</a>
+                    </li>
+                    <li>
+                      <a href="{{url('/')}}">ตวามช่วยเหลือเพิ่มเติม</a>
+                    </li>
+
+                  </ul>
+                </div>
 
 
+              </div>
+            </div>
+          </li>
+
+          <li class="">
+            <a href="{{url('/')}}" ><b><i class="fa fa-phone" aria-hidden="true"></i></b> 082-841-6945</a>
+          </li>
+          <li class="">
+            <a href="{{url('/')}}" ><b><i class="fa fa-commenting" aria-hidden="true"></i></b> @Siamrentalcars</a>
           </li>
 
 
