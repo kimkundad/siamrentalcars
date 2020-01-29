@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\sub_category;
 use Response;
+use App\province;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -30,6 +31,46 @@ class HomeController extends Controller
         $obj = sub_category::all();
         $data['obj'] = $obj;
         return view('welcome', $data);
+    }
+
+    public function about_us(){
+
+      $obj1 = DB::table('province')
+          ->where('GEO_ID', 2)
+          ->get();
+
+          $obj2 = DB::table('province')
+              ->where('GEO_ID', 3)
+              ->get();
+
+              $obj3 = DB::table('province')
+
+                  ->where('GEO_ID', 1)
+                  ->get();
+
+                  $obj4 = DB::table('province')
+                      ->where('GEO_ID', 6)
+                      ->get();
+
+                      $obj5 = DB::table('province')
+                          ->where('GEO_ID', 4)
+                          ->get();
+
+                          $obj6 = DB::table('province')
+                              ->where('GEO_ID', 5)
+                              ->get();
+
+
+
+      $data['objs1'] = $obj1;
+      $data['objs2'] = $obj2;
+      $data['objs3'] = $obj3;
+      $data['objs4'] = $obj4;
+      $data['objs5'] = $obj5;
+      $data['objs6'] = $obj6;
+
+
+      return view('about_us', $data);
     }
 
     public function get_select2(Request $request){
