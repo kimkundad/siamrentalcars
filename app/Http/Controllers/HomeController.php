@@ -8,6 +8,11 @@ use Response;
 use App\province;
 use Illuminate\Support\Facades\DB;
 use Session;
+use App\contact;
+use Mail;
+use Swift_Transport;
+use Swift_Message;
+use Swift_Mailer;
 
 class HomeController extends Controller
 {
@@ -33,6 +38,12 @@ class HomeController extends Controller
         $data['obj'] = $obj;
         return view('welcome', $data);
     }
+
+    public function contact_us(){
+
+      return view('contact_us');
+    }
+
 
     public function about_us(){
 
@@ -72,6 +83,152 @@ class HomeController extends Controller
 
 
       return view('about_us', $data);
+    }
+
+    public function add_my_contact(Request $request){
+
+
+      $secret="6LdBOl8UAAAAAM-iNnghy4tPxFpCOPG6J1Hg8xLu";
+    //  $response = $request['captcha'];
+
+      $captcha = "";
+      if (isset($request["g-recaptcha-response"]))
+        $captcha = $request["g-recaptcha-response"];
+
+    //  $verify=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$response");
+      $response = json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secret."&response=".$captcha."&remoteip=".$_SERVER["REMOTE_ADDR"]), true);
+      //$captcha_success=json_decode($verify);
+
+    //  dd($captcha_success);
+
+      if($response["success"] == false) {
+
+        return response()->json([
+          'data' => [
+            'status' => 100,
+            'msg' => 'This user was not verified by recaptcha.',
+            'data' => "https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$response"
+          ]
+        ]);
+
+      }else{
+
+        $obj = DB::table('contacts')->insert(
+             [
+               'name' => $request['name'],
+               'email' => $request['email'],
+               'phone' => $request['phone'],
+               'detail' => $request['msg'],
+               'created_at' => new \DateTime()
+             ]
+           );
+
+
+        $message = $request['name'].", ".$request['phone'].", ข้อความ : ".$request['msg'];
+        $lineapi = 'v98WKt3jvUVSKxGz1uLTGZ9ikEIOYd77PtIi66DLfDL';
+
+        $mms =  trim($message);
+        $chOne = curl_init();
+        curl_setopt($chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify");
+        curl_setopt($chOne, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($chOne, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($chOne, CURLOPT_POST, 1);
+        curl_setopt($chOne, CURLOPT_POSTFIELDS, "message=$mms");
+        curl_setopt($chOne, CURLOPT_FOLLOWLOCATION, 1);
+        $headers = array('Content-type: application/x-www-form-urlencoded', 'Authorization: Bearer '.$lineapi.'',);
+        curl_setopt($chOne, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($chOne, CURLOPT_RETURNTRANSFER, 1);
+        $result = curl_exec($chOne);
+        if(curl_error($chOne)){
+        echo 'error:' . curl_error($chOne);
+        }else{
+        $result_ = json_decode($result, true);
+    //    echo "status : ".$result_['status'];
+    //    echo "message : ". $result_['message'];
+        }
+        curl_close($chOne);
+
+
+
+
+
+           // send email
+             $data_toview = array();
+           //  $data_toview['pathToImage'] = "assets/image/email-head.jpg";
+             date_default_timezone_set("Asia/Bangkok");
+             $data_toview['name'] = $request['name'];
+             $data_toview['email'] = $request['email'];
+             $data_toview['phone'] = $request['phone'];
+             $data_toview['detail'] = $request['msg'];
+             $data_toview['datatime'] = date("d-m-Y H:i:s");
+
+             $email_sender   = env('m_u');
+             $email_pass     = env('m_p');
+
+         /*    $email_sender   = 'info@acmeinvestor.com';
+             $email_pass     = 'Iaminfoacmeinvestor';  */
+           //  $email_to       =  'siri@sirispace.com';
+           $email_to       =  'info@nakhonkoratcarrent.com';
+             //echo $admins[$idx]['email'];
+             // Backup your default mailer
+             $backup = \Mail::getSwiftMailer();
+
+             try{
+
+                         //https://accounts.google.com/DisplayUnlockCaptcha
+                         // Setup your gmail mailer
+                         $transport = new \Swift_SmtpTransport('smtp.gmail.com', 465, 'SSL');
+                         $transport->setUsername($email_sender);
+                         $transport->setPassword($email_pass);
+
+                         // Any other mailer configuration stuff needed...
+                         $gmail = new Swift_Mailer($transport);
+
+                         // Set the mailer as gmail
+                         \Mail::setSwiftMailer($gmail);
+
+                         $data['emailto'] = $email_to;
+
+                         //dd($data['emailto']);
+                         $data['sender'] = $email_sender;
+                         //Sender dan Reply harus sama
+
+                         Mail::send('mail.contact', $data_toview, function($message) use ($data)
+                         {
+                             $message->from($data['sender'], 'มีข้อความจาก nakhonkoratcarrent');
+                             $message->to($data['emailto'])
+                             ->replyTo($data['emailto'], 'มีข้อความจาก nakhonkoratcarrent.')
+                             ->subject('มีข้อความจาก nakhonkoratcarrent.com เข้าสู่ะบบ');
+
+                             //echo 'Confirmation email after registration is completed.';
+                         });
+
+
+
+             }catch(\Swift_TransportException $e){
+                 $response = $e->getMessage() ;
+                 echo $response;
+
+             }
+
+
+             // Restore your original mailer
+             Mail::setSwiftMailer($backup);
+             // send email
+
+
+
+        return response()->json([
+          'data' => [
+            'status' => 200,
+            'msg' => 'This user is verified by recaptcha.'
+          ]
+        ]);
+
+      }
+
+
+
     }
 
     public function get_select2(Request $request){

@@ -27,7 +27,7 @@
 @section('content')
 
 
-<div class="theme-page-section theme-page-section-xl theme-page-section-gray">
+<div class="theme-page-section">
   <div class="container">
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
@@ -39,6 +39,7 @@
               <div class="col-md-12">
                 <div class="theme-about-us-section-body">
                   <h2 class="theme-page-header-title">เกี่ยวกับ Siamrentalcars</h2>
+                  <hr>
                   <p>Siamrentalcars คือ เว็บไซต์ผู้นำด้านการจองรถเช่า ที่อำนวยความสะดวกทั้งด้านการจองรถ คุณภาพรถ การเลือกรถอย่างอิสระ และการค้นหารถเช่าราคาที่ดีที่สุด</p>
                   <p>Siamrentalcars ได้รวบรวมบริษัทรถเช่านานาชาติ(ตามเคาน์เตอร์สนามบิน) และบริษัทรถเช่าท้องถิ่นจากทั่วประเทศ มากกว่า 500 บริษัท ไว้ภายในเว็บไซต์ซึ่งรถเช่าภายในเว็บไซต์มีมากกว่า 5000 คัน
                     ให้ลูกค้าสามารถเปรียบเทียบและค้นหารถเช่าราคาที่ดีที่สุด ผ่านเว็บไซต์ไดรฟ์ฮับ โดยเราไม่มีนโยบายเก็บค่าธรรมเนียมการจอง
@@ -56,8 +57,10 @@
 
 
               <div class="col-md-12">
+                <br><br>
                 <h4>จังหวัดที่ให้บริการ</h4>
                 <p>ด้วยบริการรถเช่ามากกว่า 500 บริษัทเช่ารถจากกว่า 30 จังหวัดทั่วประเทศ</p>
+                <hr>
 
                 <div class="col-md-2">
                   <p class="card-description">ภาคกลาง</p>
@@ -138,6 +141,8 @@
             @endforeach
         </div>
       </div>
+
+      <br><br>
               </div>
 
 

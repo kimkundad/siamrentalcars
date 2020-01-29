@@ -265,7 +265,7 @@
 
 @section('scripts')
 <script src="{{url('js/moment.js')}}"></script>
-<script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.6/dist/loadingoverlay.min.js"></script>
+
 <script>
 
     var sum_mon = {{$objs->price}};
