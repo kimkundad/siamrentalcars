@@ -45,6 +45,15 @@ class HomeController extends Controller
     }
 
 
+    public function terms(){
+      return view('terms');
+    }
+
+    public function privacy(){
+      return view('privacy');
+    }
+
+
     public function about_us(){
 
       $obj1 = DB::table('province')
@@ -326,6 +335,8 @@ class HomeController extends Controller
 
       $start_point = $get_prov_fi->prov_id;
       $data['show_text'] = $get_prov_fi->position_name;
+
+      Session::put('pro_v', $get_prov_fi->prov_id);
 
       Session::put('position2', $get_prov_fi->position_name);
 

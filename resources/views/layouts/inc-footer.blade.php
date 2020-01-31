@@ -108,7 +108,7 @@
     <div class="row">
       <div class="col-md-6">
         <p class="theme-copyright-text"><a href="#">Bookify</a>. &copy; 2020
-          <a href="#" style="font-weight: 200; font-size:11px;">ข้อตกลงและเงื่อนไข</a> <a href="#" style="font-weight: 200; font-size:11px;">นโยบายความเป็นส่วนตัว</a>
+          <a href="{{url('terms')}}" style="font-weight: 200; font-size:11px;">ข้อตกลงและเงื่อนไข</a> <a href="{{url('privacy')}}" style="font-weight: 200; font-size:11px;">นโยบายความเป็นส่วนตัว</a>
         </p>
       </div>
       <div class="col-md-6">

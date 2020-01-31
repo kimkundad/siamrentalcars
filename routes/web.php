@@ -18,6 +18,11 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/about_us', 'HomeController@about_us')->name('about_us');
+Route::get('/terms', 'HomeController@terms')->name('terms');
+
+Route::get('/privacy', 'HomeController@privacy')->name('privacy');
+
+
 Route::get('/contact_us', 'HomeController@contact_us')->name('contact_us');
 Route::post('/api/add_my_contact', 'HomeController@add_my_contact')->name('add_my_contact');
 

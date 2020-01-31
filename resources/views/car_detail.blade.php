@@ -123,6 +123,10 @@
 
             <input type="hidden" name="part_id" id="part_id" value="{{$objs->id_part}}" >
 
+            <input type="hidden" name="id_car" id="id_car" value="{{$objs->id_car}}" >
+
+            <input type="hidden" name="pro_v" id="pro_v" value="{{Session::get('pro_v')}}" >
+
             <input type="hidden" name="total_price" id="total_buy" value="" >
             <input type="hidden" name="total_day" id="total_day" value="" >
 

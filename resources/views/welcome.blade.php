@@ -209,7 +209,7 @@
                             <div class="theme-search-area-section theme-search-area-section-fade-white theme-search-area-section-no-border theme-search-area-section-mr theme-search-area-section-sm theme-search-area-section-curved">
                               <div class="theme-search-area-section-inner">
                                 <i class="theme-search-area-section-icon lin lin-calendar"></i>
-                                <input class="theme-search-area-section-input datePickerStart " name="end_day" value="{{date('d')+1}}-{{date('m')}}-{{date('Y')}}" type="text" placeholder="วันส่งรถ"/>
+                                <input class="theme-search-area-section-input datePickerStart " name="end_day" value="{{date('d')}}-{{date('m')}}-{{date('Y')}}" type="text" placeholder="วันส่งรถ"/>
 
                               </div>
                             </div>
