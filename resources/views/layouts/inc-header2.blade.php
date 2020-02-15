@@ -26,7 +26,7 @@
             <a class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ความช่วยเหลือ</a>
             <div class="dropdown-menu dropdown-menu-full">
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
 
                   <ul class="dropdown-meganav-list-items">
                     <li>
@@ -51,10 +51,10 @@
           </li>
 
           <li class="">
-            <a href="{{url('/')}}" ><b><i class="fa fa-phone" aria-hidden="true"></i></b> 082-841-6945</a>
+            <a href="#" ><b><i class="fa fa-phone" aria-hidden="true"></i></b> 082-841-6945</a>
           </li>
           <li class="">
-            <a href="{{url('/')}}" ><b><i class="fa fa-commenting" aria-hidden="true"></i></b> @Siamrentalcars</a>
+            <a href="http://line.me/ti/p/kL8POWgHU9" target="_blank"><b><i class="fa fa-commenting" aria-hidden="true"></i></b> @Siamrentalcars</a>
           </li>
 
 

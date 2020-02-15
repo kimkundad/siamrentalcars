@@ -146,6 +146,9 @@
           .select2-container--default .select2-selection--single .select2-selection__arrow {
               top: 10px;
           }
+          .select2-containe{
+            width: 100% !important;
+          }
           </style>
 
           <div class="theme-search-area-form" id="hero-search-form">
@@ -378,9 +381,9 @@
         <div class="theme-search-area-inline _desk-h theme-search-area-inline-white">
           <h4 class="theme-search-area-inline-title">{{$show_text2}}, {{$show_text}}</h4>
           <p class="theme-search-area-inline-details">{{$start_dat}} &rarr; {{$end_day}}</p>
-          <a class="theme-search-area-inline-link magnific-inline" href="#searchEditModal">
+        <!--  <a class="theme-search-area-inline-link magnific-inline" href="#searchEditModal">
             <i class="fa fa-pencil"></i>Edit
-          </a>
+          </a> -->
           <div class="magnific-popup magnific-popup-sm mfp-hide" id="searchEditModal">
             <div class="theme-search-area theme-search-area-vert">
               <div class="theme-search-area-header">
@@ -395,20 +398,22 @@
 
               <div class="theme-search-area-form">
 
-                <div class="theme-search-area-section first theme-search-area-section-curved">
-                  <label class="theme-search-area-section-label">เลือกจุดรับรถ</label>
-                  <div class="theme-search-area-section-inner">
-                    <i class="theme-search-area-section-icon lin lin-location-pin"></i>
-                    <select class="theme-search-area-section-input js-example-basic-single" name="start_point" style="height: 45px!important; width:100% font-size: 14px !important;">
-                        <option value="{{$start_point}}" selected="selected">{{$show_text2}}, {{$show_text}}</option>
 
-                    </select>
-                  </div>
-                </div>
 
 
                 <div class="row" data-gutter="10">
+
                   <div class="col-md-6 ">
+                    <div class="theme-search-area-section first theme-search-area-section-curved">
+                      <label class="theme-search-area-section-label">เลือกจุดรับรถ</label>
+                      <div class="theme-search-area-section-inner">
+                        <i class="theme-search-area-section-icon lin lin-location-pin"></i>
+                        <select class="theme-search-area-section-input js-example-basic-single2" name="start_point" style="height: 45px!important; width:100% font-size: 14px !important;">
+                            <option value="{{$start_point}}" selected="selected">{{$show_text2}}, {{$show_text}}</option>
+
+                        </select>
+                      </div>
+                    </div>
                     <div class="theme-search-area-section theme-search-area-section-curved">
                       <label class="theme-search-area-section-label">วันรับรถ</label>
                       <div class="theme-search-area-section-inner">
@@ -872,6 +877,7 @@
 $(document).ready(function(){
 
 
+
   $("#uguu").submit(function() {
 
     var set_size = jQuery("#start_point").val();
@@ -1026,9 +1032,6 @@ $(document).ready(function() {
 
   $('.js-example-basic-single').select2();
 
-
-
-
   $(".js-example-basic-single").select2({
  ajax: {
   url: "{{url('/api/get_select2')}}",
@@ -1048,6 +1051,30 @@ $(document).ready(function() {
   cache: true
  }
 });
+
+
+$('.js-example-basic-single2').select2();
+
+$(".js-example-basic-single2").select2({
+ajax: {
+url: "{{url('/api/get_select2')}}",
+type: "post",
+dataType: 'json',
+delay: 250,
+data: function (params) {
+ return {
+   searchTerm: params.term // search term
+ };
+},
+processResults: function (response) {
+  return {
+     results: response
+  };
+},
+cache: true
+}
+});
+
 });
 </script>
 

@@ -39,6 +39,38 @@ class HomeController extends Controller
         return view('welcome', $data);
     }
 
+
+    public function payment_success($id){
+
+      $objs = DB::table('orders')
+        ->where('order_ids', $id)
+        ->first();
+
+        $part = DB::table('partners')
+          ->where('id', $objs->part_id)
+          ->first();
+
+          $car = DB::table('cars')
+            ->where('id', $objs->pro_id)
+            ->first();
+
+            $position = DB::table('position_links')
+                ->select(
+                'position_links.*',
+                'province.*'
+                )
+              ->leftjoin('province', 'province.PROVINCE_ID',  'position_links.prov_id')
+              ->where('position_links.id', $objs->position_id)
+              ->first();
+
+
+        $data['position'] = $position;
+        $data['car'] = $car;
+        $data['part'] = $part;
+        $data['objs'] = $objs;
+        return view('payment_success', $data);
+    }
+
     public function contact_us(){
 
       return view('contact_us');
@@ -339,6 +371,7 @@ class HomeController extends Controller
       Session::put('pro_v', $get_prov_fi->prov_id);
 
       Session::put('position2', $get_prov_fi->position_name);
+      Session::put('position_id', $request['start_point']);
 
       $start_dat2 = $request['start_dat2'];
       $end_day2 = $request['end_day2'];

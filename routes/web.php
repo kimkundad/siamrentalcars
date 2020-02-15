@@ -39,6 +39,8 @@ Route::post('/search_car', 'HomeController@search_car')->name('search_car');
 
 Route::post('/api/add_my_order', 'ApiController@add_my_order')->name('add_my_order');
 
+Route::get('/payment_success/{id}', 'HomeController@payment_success')->name('payment_success');
+
 
 
 Route::group(['middleware' => ['UserRole:manager|employee']], function() {

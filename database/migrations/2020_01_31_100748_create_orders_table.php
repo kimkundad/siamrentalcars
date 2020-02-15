@@ -15,16 +15,20 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('order_ids')->nullable();
             $table->integer('user_id')->default('0');
             $table->integer('pro_id');
+            $table->integer('position_id');
             $table->integer('prov_id');
             $table->integer('part_id');
             $table->integer('day');
             $table->integer('total');
-            $table->string('detail')->nullable();
-            $table->string('remark')->nullable();
+            $table->text('detail')->nullable();
+            $table->text('remark')->nullable();
             $table->string('re_car')->nullable();
             $table->string('se_car')->nullable();
+            $table->string('re_car_time')->nullable();
+            $table->string('se_car_time')->nullable();
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
             $table->string('name')->nullable();

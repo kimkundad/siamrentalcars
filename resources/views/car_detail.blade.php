@@ -120,6 +120,7 @@
             <input type="hidden" name="end_day" id="end_day" value="{{Session::get('end_day')}}" >
             <input type="hidden" name="start_time" id="start_time" value="{{Session::get('start_time')}}" >
             <input type="hidden" name="end_time" id="end_time" value="{{Session::get('end_time')}}" >
+            <input type="hidden" name="position_id" id="position_id" value="{{Session::get('position_id')}}" >
 
             <input type="hidden" name="part_id" id="part_id" value="{{$objs->id_part}}" >
 
@@ -343,6 +344,7 @@
     var get_position = document.getElementById("get_position").value;
     var cus_name = document.getElementById("cus_name").value;
     var cus_lname = document.getElementById("cus_lname").value;
+    var position_id = document.getElementById("position_id").value;
 
 
     var cus_email = document.getElementById("cus_email").value;
@@ -383,7 +385,7 @@
 
 
             setTimeout(function(){
-              //    window.location.replace("{{url('clients/success_payment/')}}/"+data.data.value);
+                  window.location.replace("{{url('payment_success')}}/"+data.data.value);
             }, 3000);
 
             }else{

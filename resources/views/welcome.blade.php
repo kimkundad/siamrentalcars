@@ -22,11 +22,11 @@
 
 <div class="theme-hero-area">
   <div class="theme-hero-area-bg-wrap">
-    <div class="theme-hero-area-bg-pattern theme-hero-area-bg-pattern-ultra-light" style="background-image:url(img/patterns/travel/5.png);"></div>
-    <div class="theme-hero-area-grad-mask theme-hero-area-grad-mask-i"></div>
+    <div class="theme-hero-area-bg" style="background-image:url(img/o7qk1vqy3p0_1500x800.jpeg);"></div>
+    <div class="theme-hero-area-mask theme-hero-area-mask-strong"></div>
   </div>
   <div class="theme-hero-area-body">
-    <div class="theme-page-section _pt-150 _pb-100 _pv-mob-50">
+    <div class="theme-page-section _pt-150 _pb-100 _pv-mob-50" style="padding-bottom: 140px !important; padding-top: 170px !important;">
       <div class="container">
         <div class="row">
           <div class="col-md-10 col-md-offset-1">
@@ -74,6 +74,9 @@
 }
 .select2-container--default .select2-selection--single .select2-selection__arrow {
     top: 10px;
+}
+.select2-containe{
+  width: 100% !important;
 }
 </style>
 
@@ -333,10 +336,122 @@
 
 <div class="theme-page-section theme-page-section-xxl theme-page-section-gray">
   <div class="container">
-    <div class="theme-page-section-header">
-      <h5 class="theme-page-section-title">Explore Popular Routes</h5>
+    <div class="theme-page-section-header" style="margin-bottom: 10px;">
+      <h5 class="theme-page-section-title">จุดหมายปลายทางยอดนิยม</h5>
+      <p class="theme-page-section-subtitle">เมืองที่ได้รับความนิยมที่สุดในการเดินทางในเดือนนี้</p>
     </div>
 
+
+    <div class="tabbable">
+
+
+      <div class="tab-content _pt-20" style="padding:20px;">
+        <div class="tab-pane active" id="TravelRoute-1" role="tab-panel">
+          <div class="row row-col-gap" data-gutter="10">
+            <div class="col-md-4 ">
+              <div class="banner _h-40vh _br-3 banner-animate banner-animate-mask-in">
+                <div class="banner-bg" style="background-image:url({{url('img/sbk40fdkbag_650x600.jpeg')}});"></div>
+                <div class="banner-mask"></div>
+                <a class="banner-link" href="#"></a>
+                <div class="banner-caption _pt-120 banner-caption-bottom banner-caption-grad">
+                  <h5 class="banner-title">Tokyo</h5>
+                  <p class="banner-subtitle">Japan</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-8 ">
+              <div class="banner _h-40vh _br-3 banner-animate banner-animate-mask-in">
+                <div class="banner-bg" style="background-image:url({{url('img/big-ben-bridge-castle-city-460672_850x400.jpg')}});"></div>
+                <div class="banner-mask"></div>
+                <a class="banner-link" href="#"></a>
+                <div class="banner-caption _pt-120 banner-caption-bottom banner-caption-grad">
+                  <h5 class="banner-title">London</h5>
+                  <p class="banner-subtitle">United Kindom</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 ">
+              <div class="banner _h-33vh _br-3 banner-animate banner-animate-mask-in">
+                <div class="banner-bg" style="background-image:url({{url('img/kvlxfxfleuo_600x600.jpeg')}});"></div>
+                <div class="banner-mask"></div>
+                <a class="banner-link" href="#"></a>
+                <div class="banner-caption _pt-120 banner-caption-bottom banner-caption-grad">
+                  <h5 class="banner-title">Rome</h5>
+                  <p class="banner-subtitle">Italy</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 ">
+              <div class="banner _h-33vh _br-3 banner-animate banner-animate-mask-in">
+                <div class="banner-bg" style="background-image:url({{url('img/bridge-california-cliff-golden-gate-bridge-7653_600x600.jpeg')}});"></div>
+                <div class="banner-mask"></div>
+                <a class="banner-link" href="#"></a>
+                <div class="banner-caption _pt-120 banner-caption-bottom banner-caption-grad">
+                  <h5 class="banner-title">Amsterdam</h5>
+                  <p class="banner-subtitle">Netherlands</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 ">
+              <div class="banner _h-33vh _br-3 banner-animate banner-animate-mask-in">
+                <div class="banner-bg" style="background-image:url({{url('img/pbrqvukjqf8_600x600.jpeg')}});"></div>
+                <div class="banner-mask"></div>
+                <a class="banner-link" href="#"></a>
+                <div class="banner-caption _pt-120 banner-caption-bottom banner-caption-grad">
+                  <h5 class="banner-title">San Francisco</h5>
+                  <p class="banner-subtitle">United States</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 ">
+              <div class="banner _h-33vh _br-3 banner-animate banner-animate-mask-in">
+                <div class="banner-bg" style="background-image:url({{url('img/ypkiwlvhopi_600x600.jpeg')}});"></div>
+                <div class="banner-mask"></div>
+                <a class="banner-link" href="#"></a>
+                <div class="banner-caption _pt-120 banner-caption-bottom banner-caption-grad">
+                  <h5 class="banner-title">Syndey</h5>
+                  <p class="banner-subtitle">Australia</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="theme-hero-area">
+  <div class="theme-hero-area-bg-wrap">
+    <div class="theme-hero-area-bg" style="background-image:url({{url('img/beige-volkswagen-beetle-144171_1800x500.jpeg')}});"></div>
+    <div class="theme-hero-area-mask theme-hero-area-mask-strong"></div>
+  </div>
+  <div class="theme-hero-area-body">
+    <div class="theme-page-section theme-page-section-xxl">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <div class="theme-hero-text theme-hero-text-white theme-hero-text-center">
+              <div class="theme-hero-text-header">
+                <h2 class="theme-hero-text-title">Save Up to 70%</h2>
+                <p class="theme-hero-text-subtitle">Subscribe now and unlock our secret deals. Save up to 70% by getting access to our special offers for hotels, flights, cars, vacation rentals and travel experiences.</p>
+              </div>
+              <a class="btn _mt-20 _tt-uc btn-white btn-ghost btn-lg" href="#">Sign up now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
