@@ -32,7 +32,7 @@
           <div class="col-md-10 col-md-offset-1">
             <div class="theme-search-area-tabs">
               <div class="theme-search-area-tabs-header _c-w _ta-c _mb-20">
-                <h1 class="theme-search-area-tabs-title theme-search-area-tabs-title-sm">รับจองรถเช่า</h1>
+                <h1 class="theme-search-area-tabs-title theme-search-area-tabs-title-sm">รับจัดหารถเช่า</h1>
                 <p class="theme-search-area-subtitle">จากผู้ให้บริการรถเช่าคุณภาพ เลือกวันและเวลา ที่ต้องการใช้รถและคืนรถ</p>
               </div>
               <div class="tabbable">
@@ -350,67 +350,62 @@
           <div class="row row-col-gap" data-gutter="10">
             <div class="col-md-4 ">
               <div class="banner _h-40vh _br-3 banner-animate banner-animate-mask-in">
-                <div class="banner-bg" style="background-image:url({{url('img/sbk40fdkbag_650x600.jpeg')}});"></div>
+                <div class="banner-bg" style="background-image:url({{url('img/bangkok.jpg')}});"></div>
                 <div class="banner-mask"></div>
                 <a class="banner-link" href="#"></a>
                 <div class="banner-caption _pt-120 banner-caption-bottom banner-caption-grad">
-                  <h5 class="banner-title">Tokyo</h5>
-                  <p class="banner-subtitle">Japan</p>
+                  <h5 class="banner-title">กรุงเทพฯ</h5>
+
                 </div>
               </div>
             </div>
             <div class="col-md-8 ">
               <div class="banner _h-40vh _br-3 banner-animate banner-animate-mask-in">
-                <div class="banner-bg" style="background-image:url({{url('img/big-ben-bridge-castle-city-460672_850x400.jpg')}});"></div>
+                <div class="banner-bg" style="background-image:url({{url('img/chiangmai.jpg')}});"></div>
                 <div class="banner-mask"></div>
                 <a class="banner-link" href="#"></a>
                 <div class="banner-caption _pt-120 banner-caption-bottom banner-caption-grad">
-                  <h5 class="banner-title">London</h5>
-                  <p class="banner-subtitle">United Kindom</p>
+                  <h5 class="banner-title">เชียงใหม่</h5>
                 </div>
               </div>
             </div>
             <div class="col-md-3 ">
               <div class="banner _h-33vh _br-3 banner-animate banner-animate-mask-in">
-                <div class="banner-bg" style="background-image:url({{url('img/kvlxfxfleuo_600x600.jpeg')}});"></div>
+                <div class="banner-bg" style="background-image:url({{url('img/kvlxfxfleuo_600x600.jpg')}});"></div>
                 <div class="banner-mask"></div>
                 <a class="banner-link" href="#"></a>
                 <div class="banner-caption _pt-120 banner-caption-bottom banner-caption-grad">
-                  <h5 class="banner-title">Rome</h5>
-                  <p class="banner-subtitle">Italy</p>
+                  <h5 class="banner-title">นครพนม</h5>
                 </div>
               </div>
             </div>
             <div class="col-md-3 ">
               <div class="banner _h-33vh _br-3 banner-animate banner-animate-mask-in">
-                <div class="banner-bg" style="background-image:url({{url('img/bridge-california-cliff-golden-gate-bridge-7653_600x600.jpeg')}});"></div>
+                <div class="banner-bg" style="background-image:url({{url('img/b5d46df4ab8beeb34d28dd45007a3b52.jpg')}});"></div>
                 <div class="banner-mask"></div>
                 <a class="banner-link" href="#"></a>
                 <div class="banner-caption _pt-120 banner-caption-bottom banner-caption-grad">
-                  <h5 class="banner-title">Amsterdam</h5>
-                  <p class="banner-subtitle">Netherlands</p>
+                  <h5 class="banner-title">ภูเก็ต</h5>
                 </div>
               </div>
             </div>
             <div class="col-md-3 ">
               <div class="banner _h-33vh _br-3 banner-animate banner-animate-mask-in">
-                <div class="banner-bg" style="background-image:url({{url('img/pbrqvukjqf8_600x600.jpeg')}});"></div>
+                <div class="banner-bg" style="background-image:url({{url('img/kvlxfxfleuo2552_600x600.jpg')}});"></div>
                 <div class="banner-mask"></div>
                 <a class="banner-link" href="#"></a>
                 <div class="banner-caption _pt-120 banner-caption-bottom banner-caption-grad">
-                  <h5 class="banner-title">San Francisco</h5>
-                  <p class="banner-subtitle">United States</p>
+                  <h5 class="banner-title">นครศรีธรรมราช</h5>
                 </div>
               </div>
             </div>
             <div class="col-md-3 ">
               <div class="banner _h-33vh _br-3 banner-animate banner-animate-mask-in">
-                <div class="banner-bg" style="background-image:url({{url('img/ypkiwlvhopi_600x600.jpeg')}});"></div>
+                <div class="banner-bg" style="background-image:url({{url('img/43720290_2238417152900041_633235551327092736_n.jpg')}});"></div>
                 <div class="banner-mask"></div>
                 <a class="banner-link" href="#"></a>
                 <div class="banner-caption _pt-120 banner-caption-bottom banner-caption-grad">
-                  <h5 class="banner-title">Syndey</h5>
-                  <p class="banner-subtitle">Australia</p>
+                  <h5 class="banner-title">กระบี่</h5>
                 </div>
               </div>
             </div>
@@ -443,10 +438,10 @@
           <div class="col-md-6 col-md-offset-3">
             <div class="theme-hero-text theme-hero-text-white theme-hero-text-center">
               <div class="theme-hero-text-header">
-                <h2 class="theme-hero-text-title">Save Up to 70%</h2>
-                <p class="theme-hero-text-subtitle">Subscribe now and unlock our secret deals. Save up to 70% by getting access to our special offers for hotels, flights, cars, vacation rentals and travel experiences.</p>
+                <h2 class="theme-hero-text-title">ประหยัดสูงสุด 10%</h2>
+                <p class="theme-hero-text-subtitle">สมัครสมาชิกตอนนี้และปลดล็อคข้อตกลงของเรา ประหยัดสูงสุด 10% ด้วยการเข้าถึงข้อเสนอพิเศษของเราสำหรับรถยนต์เช่า ไปยังจุดหมายปลายทางและประสบการณ์การเดินทาง</p>
               </div>
-              <a class="btn _mt-20 _tt-uc btn-white btn-ghost btn-lg" href="#">Sign up now</a>
+              <a class="btn _mt-20 _tt-uc btn-white btn-ghost btn-lg" href="#">สมัครสมาชิก</a>
             </div>
           </div>
         </div>
@@ -454,6 +449,56 @@
     </div>
   </div>
 </div>
+
+
+<style>
+.feature-title {
+    margin-bottom: 15px;
+    margin-top: 0;
+    font-weight: normal;
+    line-height: 1.2em;
+    font-size: 17px;
+}
+</style>
+
+<div class="theme-page-section theme-page-section-xxl theme-page-section-gray">
+      <div class="container">
+        <div class="row row-col-mob-gap" data-gutter="60">
+          <div class="col-md-3 ">
+            <div class="feature feature-white feature-center">
+              <i class="feature-icon feature-icon-line feature-icon-box feature-icon-round lin lin-globe-alt"></i>
+              <div class="feature-caption">
+                <h5 class="feature-title">มีบริการครอบคลุมทั่วประเทศไทย มากกว่า 35 จังหวัด</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 ">
+            <div class="feature feature-white feature-center">
+              <i class="feature-icon feature-icon-line feature-icon-box feature-icon-round lin lin-badge"></i>
+              <div class="feature-caption">
+                <h5 class="feature-title">รับประกันราคาดีที่สุด จองฟรีไม่มีค่าธรรมเนียมใดๆ</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 ">
+            <div class="feature feature-white feature-center">
+              <i class="feature-icon feature-icon-line feature-icon-box feature-icon-round lin lin-wallet"></i>
+              <div class="feature-caption">
+                <h5 class="feature-title">มีหรือไม่มีบัตรเครดิตก็เช่าได้ ปลอดภัยตั้งแต่เริ่มจองจนสิ้นสุดการเช่า</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 ">
+            <div class="feature feature-white feature-center">
+              <i class="feature-icon feature-icon-line feature-icon-box feature-icon-round lin lin-earphones-alt"></i>
+              <div class="feature-caption">
+                <h5 class="feature-title">บริการตลอด 24 ชั่วโมง มีเจ้าหน้าที่คอยให้บริการตลอดการเช่า</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
 @endsection

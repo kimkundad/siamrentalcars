@@ -103,7 +103,7 @@
 
 <div class="theme-hero-area front">
   <div class="theme-hero-area-bg-wrap">
-    <div class="theme-hero-area-bg" style="background-image:url({{url('assets/home/img/1500x400.png')}});" id="hero-banner"></div>
+    <div class="theme-hero-area-bg" style="background-image:url(img/cover_search.jpg);" id="hero-banner"></div>
     <div class="theme-hero-area-mask theme-hero-area-mask-half"></div>
   </div>
   <div class="theme-hero-area-body">
