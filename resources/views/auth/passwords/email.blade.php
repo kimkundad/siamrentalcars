@@ -1,47 +1,130 @@
-@extends('layouts.app')
+
+
+
+
+@extends('layouts.template2')
+
+@section('title')
+
+@stop
+
+
+
+@section('stylesheet')
+
+<style>
+.theme-page-header-title {
+    font-size: 30px;
+    margin-top: 0;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+.theme-about-us-section-body > p {
+    font-size: 14px;
+    line-height: 1.6em;
+    margin-bottom: 20px;
+}
+ul, li {
+    margin: 0px;
+    list-style-type: none;
+}
+.p-t-2 {
+    padding-top: 2px;
+}
+.list-01 li {
+    text-indent: -11px;
+    padding-left: 22px;
+}
+.p-b-6 {
+    padding-bottom: 6px;
+}
+.list-01 li::before {
+    color: #233785;
+}
+.list-01 li::before {
+    content: "\f058";
+    font-family: FontAwesome;
+    font-size: 15px;
+    color: #233785;
+    display: inline-block;
+    margin-right: 5px;
+}
+.s-txt2 {
+    font-family: Roboto-Regular;
+    font-size: 15px;
+    line-height: 1.618;
+    color: #555555;
+}
+.theme-page-section-xl {
+    padding: 150px 0;
+}
+.help-block {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: #F44336;
+}
+</style>
+
+@stop('stylesheet')
 
 @section('content')
-<div class="container">
+
+
+<div class="theme-page-section theme-page-section-xl theme-page-section-gray">
+  <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
+      <div class="col-md-4 col-md-offset-4">
 
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+        <div class="theme-login">
+          <div class="theme-login-header">
+            <h1 class="theme-login-title">Password Reset</h1>
+            <p class="theme-login-subtitle">Restore your forgotten password</p>
+          </div>
+          <div class="theme-login-box">
+            <div class="theme-login-box-inner">
+              <p class="theme-login-pwd-reset-text">Enter the email associated with your account in the field below and we'll email you a link to reset your password.</p>
 
-                    <form class="form-horizontal" method="POST" action="{{ route('password.email') }}">
-                        {{ csrf_field() }}
+              @if (session('status'))
+              <br />
+                  <div class="alert alert-success">
+                      {{ session('status') }}
+                  </div>
+                  <br />
+              @endif
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+              <form class="form-horizontal" method="POST" action="{{ route('password.email') }}">
+              {{ csrf_field() }}
+              <div class="form-group theme-login-form-group">
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}"  placeholder="Email Adress" required>
 
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+                @if ($errors->has('email'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('email') }}</strong>
+                    </span>
+                @endif
+              </div>
+              <button type="submit" class="btn btn-uc btn-dark btn-block btn-lg" >Reset Password</button>
+              <a class="theme-login-pwd-reset-back" href="#">Remember the password?</a>
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Send Password Reset Link
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+              </form>
             </div>
+          </div>
         </div>
+
+
+      </div>
     </div>
+  </div>
 </div>
+
+
+
+
 @endsection
+
+@section('scripts')
+
+
+@stop('scripts')

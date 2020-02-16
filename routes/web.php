@@ -22,6 +22,8 @@ Route::get('/terms', 'HomeController@terms')->name('terms');
 
 Route::get('/privacy', 'HomeController@privacy')->name('privacy');
 
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset.get');
+Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.reset.post');
 
 Route::get('/contact_us', 'HomeController@contact_us')->name('contact_us');
 Route::post('/api/add_my_contact', 'HomeController@add_my_contact')->name('add_my_contact');
@@ -37,7 +39,11 @@ Route::post('/api/search_new', 'HomeController@search_new')->name('search_new');
 
 Route::post('/search_car', 'HomeController@search_car')->name('search_car');
 
+Route::get('/search_car', 'HomeController@search_car')->name('search_car');
+
 Route::post('/api/add_my_order', 'ApiController@add_my_order')->name('add_my_order');
+Route::post('/api/subscribe', 'ApiController@subscribe')->name('subscribe');
+
 
 Route::get('/payment_success/{id}', 'HomeController@payment_success')->name('payment_success');
 

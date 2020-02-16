@@ -76,9 +76,17 @@
               <i class="fa fa-user-circle-o navbar-nav-item-user-icon"></i>เข้าสู่ระบบ
             </a>
             @else
-            <a  href="{{url('/')}}" >
+            <a lass="dropdown-toggle" href="{{url('/')}}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
               <i class="fa fa-user-circle-o navbar-nav-item-user-icon"></i> {{ Auth::user()->name }}
             </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="account-history.html">ประวัติการใช้บริการ</a>
+              </li>
+              <li>
+                <a href="{{url('logout')}}">ออกจากรับบ</a>
+              </li>
+            </ul>
             @endif
           </li>
 

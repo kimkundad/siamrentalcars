@@ -352,7 +352,7 @@
               <div class="banner _h-40vh _br-3 banner-animate banner-animate-mask-in">
                 <div class="banner-bg" style="background-image:url({{url('img/bangkok.jpg')}});"></div>
                 <div class="banner-mask"></div>
-                <a class="banner-link" href="#"></a>
+                <a class="banner-link" href="{{url('search_car/?start_point=2&car_options=0')}}"></a>
                 <div class="banner-caption _pt-120 banner-caption-bottom banner-caption-grad">
                   <h5 class="banner-title">กรุงเทพฯ</h5>
 
@@ -363,7 +363,7 @@
               <div class="banner _h-40vh _br-3 banner-animate banner-animate-mask-in">
                 <div class="banner-bg" style="background-image:url({{url('img/chiangmai.jpg')}});"></div>
                 <div class="banner-mask"></div>
-                <a class="banner-link" href="#"></a>
+                <a class="banner-link" href="{{url('search_car/?start_point=19&car_options=0')}}"></a>
                 <div class="banner-caption _pt-120 banner-caption-bottom banner-caption-grad">
                   <h5 class="banner-title">เชียงใหม่</h5>
                 </div>
@@ -373,7 +373,7 @@
               <div class="banner _h-33vh _br-3 banner-animate banner-animate-mask-in">
                 <div class="banner-bg" style="background-image:url({{url('img/kvlxfxfleuo_600x600.jpg')}});"></div>
                 <div class="banner-mask"></div>
-                <a class="banner-link" href="#"></a>
+                <a class="banner-link" href="{{url('search_car/?start_point=24&car_options=0')}}"></a>
                 <div class="banner-caption _pt-120 banner-caption-bottom banner-caption-grad">
                   <h5 class="banner-title">นครพนม</h5>
                 </div>
@@ -383,7 +383,7 @@
               <div class="banner _h-33vh _br-3 banner-animate banner-animate-mask-in">
                 <div class="banner-bg" style="background-image:url({{url('img/b5d46df4ab8beeb34d28dd45007a3b52.jpg')}});"></div>
                 <div class="banner-mask"></div>
-                <a class="banner-link" href="#"></a>
+                <a class="banner-link" href="{{url('search_car/?start_point=27&car_options=0')}}"></a>
                 <div class="banner-caption _pt-120 banner-caption-bottom banner-caption-grad">
                   <h5 class="banner-title">ภูเก็ต</h5>
                 </div>
@@ -393,7 +393,7 @@
               <div class="banner _h-33vh _br-3 banner-animate banner-animate-mask-in">
                 <div class="banner-bg" style="background-image:url({{url('img/kvlxfxfleuo2552_600x600.jpg')}});"></div>
                 <div class="banner-mask"></div>
-                <a class="banner-link" href="#"></a>
+                <a class="banner-link" href="{{url('search_car/?start_point=26&car_options=0')}}"></a>
                 <div class="banner-caption _pt-120 banner-caption-bottom banner-caption-grad">
                   <h5 class="banner-title">นครศรีธรรมราช</h5>
                 </div>
@@ -403,7 +403,7 @@
               <div class="banner _h-33vh _br-3 banner-animate banner-animate-mask-in">
                 <div class="banner-bg" style="background-image:url({{url('img/43720290_2238417152900041_633235551327092736_n.jpg')}});"></div>
                 <div class="banner-mask"></div>
-                <a class="banner-link" href="#"></a>
+                <a class="banner-link" href="{{url('search_car/?start_point=1&car_options=0')}}"></a>
                 <div class="banner-caption _pt-120 banner-caption-bottom banner-caption-grad">
                   <h5 class="banner-title">กระบี่</h5>
                 </div>
@@ -441,7 +441,7 @@
                 <h2 class="theme-hero-text-title">ประหยัดสูงสุด 10%</h2>
                 <p class="theme-hero-text-subtitle">สมัครสมาชิกตอนนี้และปลดล็อคข้อตกลงของเรา ประหยัดสูงสุด 10% ด้วยการเข้าถึงข้อเสนอพิเศษของเราสำหรับรถยนต์เช่า ไปยังจุดหมายปลายทางและประสบการณ์การเดินทาง</p>
               </div>
-              <a class="btn _mt-20 _tt-uc btn-white btn-ghost btn-lg" href="#">สมัครสมาชิก</a>
+              <a class="btn _mt-20 _tt-uc btn-white btn-ghost btn-lg" href="{{url('register')}}">สมัครสมาชิก</a>
             </div>
           </div>
         </div>

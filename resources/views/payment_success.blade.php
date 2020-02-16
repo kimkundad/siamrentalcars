@@ -55,8 +55,8 @@
                   <li>อีเมล
                     <span>{{$objs->email}}</span>
                   </li>
-                  <li>รายละเอียด
-                    <span>{{$objs->detail}}</span>
+                  <li style="height: 100px;">รายละเอียด
+                    <span style="width: 80%;">{{$objs->detail}}</span>
                   </li>
                   <li>สถานที่รับรถ
                     <span>{{$position->position_name}} , {{$position->PROVINCE_NAME}}</span>

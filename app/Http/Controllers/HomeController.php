@@ -349,13 +349,6 @@ class HomeController extends Controller
 
       $obj = sub_category::all();
 
-
-
-
-
-        //  dd($get_sort);
-
-      //dd($obj);
       $data['obj'] = $obj;
 
     //  $start_point = $request['start_point'];
@@ -373,13 +366,26 @@ class HomeController extends Controller
       Session::put('position2', $get_prov_fi->position_name);
       Session::put('position_id', $request['start_point']);
 
-      $start_dat2 = $request['start_dat2'];
-      $end_day2 = $request['end_day2'];
+      if($request['start_dat'] != null){
 
-      $start_dat = $request['start_dat'];
-      $start_time = $request['start_time'];
-      $end_day = $request['end_day'];
-      $end_time = $request['end_time'];
+        $start_dat = $request['start_dat'];
+        $start_time = $request['start_time'];
+        $end_day = $request['end_day'];
+        $end_time = $request['end_time'];
+
+      }else{
+
+        $start_dat = date('d').'-'.date('m').'-'.date('Y');
+        $start_time = '10:00';
+        $end_day = date('d').'-'.date('m').'-'.date('Y');
+        $end_time = '10:00';
+
+      }
+
+
+
+
+
       $car_options = $request['car_options'];
 
       $data['start_point'] = $request['start_point'];
@@ -388,17 +394,8 @@ class HomeController extends Controller
       $data['start_time'] = $start_time;
       $data['end_time'] = $end_time;
 
-      if($start_dat == null){
-
-        $data['start_dat'] = $start_dat2;
-        $data['end_day'] = $end_day2;
-
-      }else{
-
-        $data['start_dat'] = $start_dat;
-        $data['end_day'] = $end_day;
-
-      }
+      $data['start_dat'] = $start_dat;
+      $data['end_day'] = $end_day;
 
       Session::put('start_dat', $data['start_dat']);
       Session::put('end_day',   $data['end_day']);
