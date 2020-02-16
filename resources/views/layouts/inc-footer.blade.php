@@ -87,7 +87,7 @@
         <div class="theme-footer-section theme-footer-section-subscribe bg-grad _mt-mob-30">
           <div class="theme-footer-section-subscribe-bg" style="background-image:url({{url('assets/home/img/footer/footer_subscribe_bg.png')}});"></div>
           <div class="theme-footer-section-subscribe-content">
-            <h5 class="theme-footer-section-title">ประหยัดสูงสุดถึง 50% สำหรับการเดินทางครั้งต่อไปของคุณ</h5>
+            <h5 class="theme-footer-section-title">ประหยัดสูงสุดถึง 10% สำหรับการเดินทางครั้งต่อไปของคุณ</h5>
             <p class="text-muted">สมัครสมาชิกเพื่อปลดล็อกข้อตกลงลับของเรา</p>
             <form>
               <div class="form-group">
