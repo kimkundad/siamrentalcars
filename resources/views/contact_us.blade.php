@@ -190,6 +190,7 @@ if(name == '' || msg == '' || email == '' || phone == ''){
 
   $.ajax({
       url: "{{url('/api/add_my_contact')}}",
+      headers: {'X-CSRF-TOKEN': '{{ csrf_token() }}' },
       data: formData,
       processData: false,
       contentType: false,

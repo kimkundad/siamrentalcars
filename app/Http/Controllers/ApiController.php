@@ -25,7 +25,7 @@ class ApiController extends Controller
     $email = $request['email'];
 
     $count = DB::table('subscribes')
-      ->where('email', $id)
+      ->where('email', $email)
       ->count();
 
       if($count > 0){

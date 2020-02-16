@@ -21,3 +21,82 @@
 <script src="{{url('assets/home/js/custom.js')}}"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.6/dist/loadingoverlay.min.js"></script>
+
+
+<script>
+$(document).on('click','#add_sub',function (event) {
+  event.preventDefault();
+  var form = $('#add_sub_form')[0];
+  var formData = new FormData(form);
+
+  $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="token"]').attr('value')
+    }
+});
+
+var email_sub = document.getElementById("email_sub").value;
+
+
+if(email_sub == ''){
+
+  swal("กรูณา ป้อนอีเมลให้ถูกต้อง");
+
+}else{
+
+  $.LoadingOverlay("show", {
+    background  : "rgba(255, 255, 255, 0.4)",
+    image       : "",
+    fontawesome : "fa fa-cog fa-spin"
+  });
+
+
+$.ajax({
+    url: "{{url('/api/subscribe')}}",
+    headers: {'X-CSRF-TOKEN': '{{ csrf_token() }}' },
+    data: formData,
+    processData: false,
+    contentType: false,
+    cache:false,
+    type: 'POST',
+    success: function (data) {
+
+    //  console.log(data.data.status)
+        if(data.data.status == 200){
+
+
+          setTimeout(function(){
+              $.LoadingOverlay("hide");
+          }, 0);
+
+          swal("สำเร็จ!", data.data.msg, "success");
+
+          $("#email_sub").val('');
+
+
+        }else{
+
+
+
+          setTimeout(function(){
+              $.LoadingOverlay("hide");
+          }, 0);
+
+          swal(data.data.msg);
+          $("#email_sub").val('');
+
+        }
+    },
+    error: function () {
+
+    }
+});
+
+}
+
+
+//  console.log(formData);
+
+});
+
+</script>

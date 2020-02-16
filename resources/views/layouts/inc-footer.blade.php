@@ -23,16 +23,14 @@
               <h5 class="theme-footer-section-title">เกี่ยวกับเรา</h5>
               <ul class="theme-footer-section-list">
                 <li>
-                  <a href="#">บริการของเรา</a>
+                  <a href="{{url('about_us')}}">บริการของเรา</a>
                 </li>
                 <li>
                   <a href="#">ประเภทรถเช่า</a>
                 </li>
+
                 <li>
-                  <a href="#">บทความ</a>
-                </li>
-                <li>
-                  <a href="#">ติดต่อเรา</a>
+                  <a href="{{url('contact_us')}}">ติดต่อเรา</a>
                 </li>
                 <li>
                   <a href="#">ร่วมเป็นพันธมิตรกับเรา</a>
@@ -89,11 +87,11 @@
           <div class="theme-footer-section-subscribe-content">
             <h5 class="theme-footer-section-title">ประหยัดสูงสุดถึง 10% สำหรับการเดินทางครั้งต่อไปของคุณ</h5>
             <p class="text-muted">สมัครสมาชิกเพื่อปลดล็อกข้อตกลงลับของเรา</p>
-            <form>
+            <form name="sub" id="add_sub_form">
               <div class="form-group">
-                <input class="form-control theme-footer-subscribe-form-control" type="email" placeholder="พิมพ์อีเมลของคุณที่นี่"/>
+                <input class="form-control theme-footer-subscribe-form-control" name="email" id="email_sub" type="email" placeholder="พิมพ์อีเมลของคุณที่นี่"/>
               </div>
-              <button class="btn btn-primary-invert btn-shadow text-upcase theme-footer-subscribe-btn" type="submit">รับข้อตกลง</button>
+              <a id="add_sub" class=" btn btn-primary-invert btn-shadow text-upcase theme-footer-subscribe-btn" type="submit">รับข้อตกลง</a>
             </form>
           </div>
         </div>
