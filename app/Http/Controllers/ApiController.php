@@ -8,6 +8,8 @@ use Response;
 use App\province;
 use App\order;
 use App\subscribe;
+use App\regis_partner_prov;
+use App\regis_partner;
 use Illuminate\Support\Facades\DB;
 use Auth;
 use Session;
@@ -55,6 +57,45 @@ class ApiController extends Controller
       }
 
     }
+
+    public function add_partner_register(Request $request){
+
+      $package = new regis_partner();
+      $package->company = $request['company'];
+      $package->owner = $request['owner'];
+      $package->number_phone = $request['number_phone'];
+      $package->email = $request['email'];
+      $package->num_car = $request['num_car'];
+      $package->address = $request['address'];
+      $package->save();
+
+      $id = $package->id;
+
+      $gallary = $request['get_prov'];
+
+      if (sizeof($gallary) > 0) {
+          for ($i = 0; $i < sizeof($gallary); $i++) {
+
+            $admins[] = [
+                'regis_partner_id' => $id,
+                'prov_id' => $gallary[$i]
+            ];
+          }
+          regis_partner_prov::insert($admins);
+        }
+
+
+      return response()->json([
+              'data' => [
+                'status' => 200,
+                'msg' => 'ขอบคุณที่ร่วมเป็นส่วนหนึ่งกับเรา เราจะทำการส่งโปรโมชั่น ใหม่ๆ ไปให้ท่านทางอีเมล'
+              ]
+            ]);
+
+    }
+
+
+
     public function add_my_order(Request $request){
 
       $randomSixDigitInt = (\random_int(100000, 999999));

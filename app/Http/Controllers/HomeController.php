@@ -39,6 +39,13 @@ class HomeController extends Controller
         return view('welcome', $data);
     }
 
+    public function partner_register(){
+
+      $obj = province::all();
+      $data['objs'] = $obj;
+      return view('partner_register', $data);
+    }
+
 
     public function payment_success($id){
 

@@ -33,7 +33,7 @@
                   <a href="{{url('contact_us')}}">ติดต่อเรา</a>
                 </li>
                 <li>
-                  <a href="#">ร่วมเป็นพันธมิตรกับเรา</a>
+                  <a href="{{ url('partner_register') }}">ร่วมเป็นพันธมิตรกับเรา</a>
                 </li>
 
               </ul>

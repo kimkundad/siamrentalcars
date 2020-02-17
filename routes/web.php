@@ -22,11 +22,15 @@ Route::get('/terms', 'HomeController@terms')->name('terms');
 
 Route::get('/privacy', 'HomeController@privacy')->name('privacy');
 
+Route::get('/partner_register', 'HomeController@partner_register')->name('partner_register');
+
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset.get');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.reset.post');
 
 Route::get('/contact_us', 'HomeController@contact_us')->name('contact_us');
 Route::post('/api/add_my_contact', 'HomeController@add_my_contact')->name('add_my_contact');
+
+Route::post('/api/add_partner_register', 'ApiController@add_partner_register')->name('add_partner_register');
 
 Route::get('/search/data', 'HomeController@search_data')->name('search_data');
 
