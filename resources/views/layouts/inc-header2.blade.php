@@ -30,17 +30,15 @@
 
                   <ul class="dropdown-meganav-list-items">
                     <li>
-                      <a href="{{url('/')}}">วิธีการจอง</a>
+                      <a href="{{url('/how_to_book')}}">วิธีการจอง</a>
                     </li>
                     <li>
-                      <a href="{{url('/')}}">เอกสารเช่ารถ</a>
+                      <a href="{{url('/document_to_book')}}">เอกสารเช่ารถ</a>
                     </li>
                     <li>
-                      <a href="{{url('/')}}">ประกันภัย</a>
+                      <a href="{{url('/insurance')}}">ประกันภัย</a>
                     </li>
-                    <li>
-                      <a href="{{url('/')}}">ตวามช่วยเหลือเพิ่มเติม</a>
-                    </li>
+
 
                   </ul>
                 </div>
@@ -51,7 +49,7 @@
           </li>
 
           <li class="">
-            <a href="#" ><b><i class="fa fa-phone" aria-hidden="true"></i></b> 082-841-6945</a>
+            <a href="#" ><b><i class="fa fa-phone" aria-hidden="true"></i></b> 089-059-1794</a>
           </li>
           <li class="">
             <a href="http://line.me/ti/p/kL8POWgHU9" target="_blank"><b><i class="fa fa-commenting" aria-hidden="true"></i></b> @Siamrentalcars</a>
@@ -81,7 +79,13 @@
             </a>
             <ul class="dropdown-menu">
               <li>
-                <a href="account-history.html">ประวัติการใช้บริการ</a>
+                <a href="{{url('preferences')}}">การตั้งค่า</a>
+              </li>
+              <li>
+                <a href="{{url('account_history')}}">ประวัติการใช้บริการ</a>
+              </li>
+              <li>
+                <a href="{{url('account_bookmarks')}}">Booking cars</a>
               </li>
               <li>
                 <a href="{{url('logout')}}">ออกจากรับบ</a>

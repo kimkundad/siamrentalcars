@@ -22,6 +22,14 @@ Route::get('/terms', 'HomeController@terms')->name('terms');
 
 Route::get('/privacy', 'HomeController@privacy')->name('privacy');
 
+Route::get('/how_to_book', 'HomeController@how_to_book')->name('how_to_book');
+
+Route::get('/document_to_book', 'HomeController@document_to_book')->name('document_to_book');
+Route::get('/insurance', 'HomeController@insurance')->name('insurance');
+
+
+
+
 Route::get('/partner_register', 'HomeController@partner_register')->name('partner_register');
 
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset.get');
@@ -52,11 +60,31 @@ Route::post('/api/subscribe', 'ApiController@subscribe')->name('subscribe');
 Route::get('/payment_success/{id}', 'HomeController@payment_success')->name('payment_success');
 
 
+Route::group(['middleware' => ['UserRole:manager|employee|customer']], function() {
+
+Route::get('/account_history', 'ProfileController@account_history')->name('account_history');
+Route::post('/api/add_web_promotion', 'ProfileController@add_web_promotion')->name('add_web_promotion');
+
+
+Route::get('/preferences', 'ProfileController@preferences')->name('preferences');
+Route::get('/account_bookmarks', 'ProfileController@account_bookmarks')->name('account_bookmarks');
+
+});
 
 Route::group(['middleware' => ['UserRole:manager|employee']], function() {
     Route::get('admin/dashboard', 'DashboardController@index');
     Route::get('admin/users', 'StudentController@index');
     Route::resource('admin/partners', 'PartnersController');
+
+    Route::resource('admin/partners', 'PartnersController');
+    Route::resource('admin/promotion', 'PromotionController');
+    Route::get('admin/promotion_del/{id}', 'PromotionController@destroy');
+
+    Route::get('admin/promotion_add/{id}', 'PromotionController@destroy_add');
+
+
+
+
     Route::resource('admin/car_rent', 'CarsController');
     Route::resource('admin/order', 'OrderController');
     Route::resource('admin/contact_admin', 'ContactController');

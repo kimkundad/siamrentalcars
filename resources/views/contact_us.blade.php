@@ -41,18 +41,18 @@
             <div class="theme-contact-info">
               <div class="row row-no-gutter">
                 <div class="col-md-5">
-                  <address class="theme-contact-address">ที่อยู่: 507/2
-                    <br/> ถ.อภิบาลบัญชา ต.ในเมือง
-                    <br/>อ.เมือง จ.นครพนม 48000
+                  <address class="theme-contact-address">ที่อยู่ 222/57 หมู่ 10
+                    <br/> ถนนกาญจนาภิเษก ต.บางแก้ว อำเภอบางพลี
+                    <br/>สมุทรปราการ 10540
                   </address>
                 </div>
                 <div class="col-md-4">
                   <ul class="theme-contact-info-list">
                     <li>
-                      <i class="fa fa-phone"></i>082-841-6945
+                      <i class="fa fa-phone"></i>089-059-1794
                     </li>
                     <li>
-                      <i class="fa fa-phone"></i>081-872-1215
+                      <i class="fa fa-phone"></i>090-921-0135
                     </li>
                     <li>
                       <a href="#">

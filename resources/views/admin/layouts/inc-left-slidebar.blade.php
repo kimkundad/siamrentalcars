@@ -34,7 +34,7 @@
           <ul class="submenu-item">
             <li class="nav-item"><a class="nav-link" href="{{url('admin/type_cars')}}">ประเภทรถ</a></li>
             <li class="nav-item"><a class="nav-link" href="{{url('admin/brand_cars')}}">ยี่ห้อรถ</a></li>
-
+            <li class="nav-item"><a class="nav-link" href="{{url('admin/promotion')}}">Promotion</a></li>
           </ul>
         </div>
       </li>

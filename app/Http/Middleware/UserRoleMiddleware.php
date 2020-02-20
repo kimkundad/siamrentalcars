@@ -15,6 +15,10 @@ class UserRoleMiddleware
      */
      public function handle($request, Closure $next, $roles)
      {
+
+       if($request->user() == null){
+         return redirect(url('/'));
+       }
        $request->user()->authorizeRoles(explode("|", $roles));
        return $next($request);
      }

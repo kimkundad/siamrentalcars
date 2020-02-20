@@ -34,6 +34,44 @@ class HomeController extends Controller
      */
     public function index()
     {
+      $promo = DB::table('promotions')
+            ->where('promotion_status', 1)
+            ->get();
+
+            if(isset($promo)){
+              foreach($promo as $u){
+
+
+                $get_prov1 = DB::table('promotion_provs')
+                      ->where('promotion_id', $u->id)
+                      ->get();
+                      $exp = array();
+
+                      if(isset($get_prov1)){
+                        foreach($get_prov1 as $j){
+                          $exp[] = $j->prov_id;
+                        }
+
+                      }
+
+
+                      $get_prov = DB::table('province')
+                            ->whereIn('PROVINCE_ID', $exp)
+                            ->get();
+
+
+                      $u->get_pro = $get_prov;
+
+
+
+              }
+            }
+
+          //  dd($promo);
+
+            $data['promo'] = $promo;
+
+
         $obj = sub_category::all();
         $data['obj'] = $obj;
         return view('welcome', $data);
@@ -45,6 +83,21 @@ class HomeController extends Controller
       $data['objs'] = $obj;
       return view('partner_register', $data);
     }
+
+
+    public function how_to_book(){
+      return view('how_to_book');
+    }
+
+    public function document_to_book(){
+      return view('document_to_book');
+    }
+
+    public function insurance(){
+      return view('insurance');
+    }
+
+
 
 
     public function payment_success($id){

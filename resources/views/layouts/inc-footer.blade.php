@@ -8,9 +8,9 @@
           </a>
           <div class="theme-footer-brand-text">
             <h4>Siamrentalcars.com</h4>
-            <p>ที่อยู่: 507/2 ถ.อภิบาลบัญชา ต.ในเมือง อ.เมือง จ.นครพนม 48000</p>
-            <p style="font-size:14px;"><b class="text-success"><i class="fa fa-phone" aria-hidden="true"></i></b> 082-841-6945</p>
-            <p style="font-size:14px;"><b class="text-success"><i class="fa fa-phone" aria-hidden="true"></i></b> 081-872-1215</p>
+            <p>ที่อยู่ 222/57 หมู่ 10 ถนนกาญจนาภิเษก ต.บางแก้ว อำเภอบางพลี สมุทรปราการ 10540</p>
+            <p style="font-size:14px;"><b class="text-success"><i class="fa fa-phone" aria-hidden="true"></i></b> 089-059-1794</p>
+            <p style="font-size:14px;"><b class="text-success"><i class="fa fa-phone" aria-hidden="true"></i></b> 090-921-0135</p>
             <p style="font-size:14px;"><a href="" target="_blank"><b class="text-success"><i class="fa fa-commenting" aria-hidden="true"></i></b> @Siamrentalcars</a></p>
           </div>
 
@@ -52,9 +52,7 @@
                 <li>
                   <a href="#">เช่ารถพร้อมคนขับ</a>
                 </li>
-                <li>
-                  <a href="#">เช่ารถไม่ใช้บัตรเครดิต</a>
-                </li>
+                
 
               </ul>
             </div>
@@ -64,17 +62,15 @@
               <h5 class="theme-footer-section-title">ความช่วยเหลือ</h5>
               <ul class="theme-footer-section-list">
                 <li>
-                  <a href="#">วิธีการจอง</a>
+                  <a href="{{url('/how_to_book')}}">วิธีการจอง</a>
                 </li>
                 <li>
-                  <a href="#">เอกสารเช่ารถ</a>
+                  <a href="{{url('document_to_book')}}">เอกสารเช่ารถ</a>
                 </li>
                 <li>
-                  <a href="#">ประกันภัย</a>
+                  <a href="{{url('insurance')}}">ประกันภัย</a>
                 </li>
-                <li>
-                  <a href="#">ตวามช่วยเหลือเพิ่มเติม</a>
-                </li>
+
 
               </ul>
             </div>

@@ -501,6 +501,37 @@
     </div>
 
 
+
+    <div class="theme-page-section theme-page-section-xl">
+      <div class="container">
+        <div class="theme-page-section-header">
+          <h5 class="theme-page-section-title">ข้อเสนอยอดนิยม</h5>
+          <p class="theme-page-section-subtitle">ประหยัดมากขึ้นด้วยข้อเสนอที่ดีที่สุดของเรา</p>
+        </div>
+        <div class="row row-col-mob-gap" data-gutter="20">
+
+          @if(isset($promo))
+          @foreach($promo as $u)
+          <div class="col-md-4 ">
+            <div class="banner _h-33vh _br-5 banner-">
+              <div class="banner-bg" style="background-image:url({{url('assets/back/image/promotion/'.$u->promotion_image)}});"></div>
+              <div class="banner-mask banner-mask-half"></div>
+
+              <div class="banner-caption _ta-c banner-caption-bottom">
+                <h5 class="banner-title _tt-uc">{{$u->promotion_name}}</h5>
+                <a data-value="{{$u->id}}" id="{{$u->id}}" class="add_promotion btn _mt-20 _tt-uc btn-white btn-ghost" >กดเพื่อรับส่วนลดของเรา</a>
+              </div>
+            </div>
+          </div>
+          @endforeach
+          @endif
+
+
+        </div>
+      </div>
+    </div>
+
+
 @endsection
 
 @section('scripts')
@@ -515,6 +546,42 @@
 
 $(document).ready(function() {
 
+
+  $('.add_promotion').on('click', function () {
+
+
+    @if (Auth::guest())
+
+      swal("กรุณาทำการ Login ก่อนเพื่อรับส่วนลดนี้");
+
+    @else
+
+    var ea_number = this.id;
+    console.log(ea_number);
+        $.ajax({
+          type: "POST",
+          headers: {'X-CSRF-TOKEN': '{{ csrf_token() }}' },
+          data: {
+            "ea_number" : ea_number
+          },
+          url: "{{url('/api/add_web_promotion')}}",
+          success: function(data) {
+
+            if(data.data.status == 200){
+              swal("ยินดีด้วย!", "คุณได้รับโปรโมชั่นนี้แล้ว เริ่มจองรถกันเลยค่ะ", "success");
+            }else{
+              swal("คุณมีโปรโมชั่นนี้อยู่แล้ว");
+            }
+
+          }
+        });
+
+
+      @endif
+
+
+
+  });
 
 
 
