@@ -501,7 +501,7 @@
     </div>
 
 
-
+@if(isset($promo))
     <div class="theme-page-section theme-page-section-xl">
       <div class="container">
         <div class="theme-page-section-header">
@@ -510,7 +510,7 @@
         </div>
         <div class="row row-col-mob-gap" data-gutter="20">
 
-          @if(isset($promo))
+
           @foreach($promo as $u)
           <div class="col-md-4 ">
             <div class="banner _h-33vh _br-5 banner-">
@@ -524,13 +524,13 @@
             </div>
           </div>
           @endforeach
-          @endif
+
 
 
         </div>
       </div>
     </div>
-
+@endif
 
 @endsection
 
