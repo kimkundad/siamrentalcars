@@ -809,6 +809,7 @@ class HomeController extends Controller
                     }else{
                       $cupon = 0;
                       $cupon_data = null;
+                      $cupon_id = 0;
                     }
 
                   //  dd($cupon);
