@@ -62,8 +62,15 @@
                     <span>{{$position->position_name}} , {{$position->PROVINCE_NAME}}</span>
                   </li>
                   <li>จำนวนวันที่เช่า
-                    <span>{{$objs->day}} บาท</span>
+                    <span>{{$objs->day}} วัน</span>
                   </li>
+
+                  @if($objs->promotion_id != 0)
+                  <li>ส่วนลด ที่ได้รับ ({{$get_pro->promotion_name}})
+                    <span>{{number_format($get_pro->promotion_amount, 2)}} บาท</span>
+                  </li>
+                  @else
+                  @endif
 
                   <li>ราคารวม
                     <span>{{number_format($objs->total, 2)}}</span>

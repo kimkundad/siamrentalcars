@@ -16,6 +16,15 @@
     display: block;
     width: auto;
 }
+.bg-grad1 {
+
+    background: linear-gradient(to right, #E91E63, #c11751) !important;
+}
+.text-grad1{
+  color: #d11a58;
+  font-weight: 500;
+
+}
 </style>
 @stop('stylesheet')
 
@@ -27,13 +36,37 @@
     <div class="row row-col-static row-col-mob-gap" id="sticky-parent" data-gutter="60">
       <div class="col-md-8 ">
         <div class="theme-payment-page-sections">
+
+
+          @if (Auth::guest())
           <div class="theme-search-results-sign-in _mob-h bg-grad">
           <i class="theme-search-results-sign-in-icon fa fa-unlock-alt"></i>
           <h5 class="theme-search-results-sign-in-title">Sign in to unlock our secret delas. Save up to
             <b>50%</b>
           </h5>
-          <a class="btn theme-search-results-sign-in-btn btn-ghost btn-white" href="#">Sign in now</a>
-        </div>
+          <a class="btn theme-search-results-sign-in-btn btn-ghost btn-white" href="{{url('login')}}">Sign in now</a>
+          </div>
+          @else
+
+          @if($cupon == 0)
+          <div class="theme-search-results-sign-in _mob-h bg-grad1">
+          <i class="theme-search-results-sign-in-icon fa fa-heart"></i>
+          <h5 class="theme-search-results-sign-in-title">คุณสามารถ กดรับสิทธิพิเศษ ส่วนลดต่างๆได้อีกมากมาย
+
+          </h5>
+          <a class="btn theme-search-results-sign-in-btn btn-ghost btn-white" href="{{url('promotion')}}">เลือกดู Promotion</a>
+          </div>
+          @else
+          <div class="theme-search-results-sign-in _mob-h bg-grad1">
+          <i class="theme-search-results-sign-in-icon fa fa-heart"></i>
+          <h5 class="theme-search-results-sign-in-title">คุณสามารถใช้ส่วนลดกับบริการนี้ได้ (<b>{{$cupon_data}}</b>)
+
+          </h5>
+          <a class="btn theme-search-results-sign-in-btn btn-ghost btn-white" >ส่วนลด {{$cupon}} บาท</a>
+          </div>
+          @endif
+
+          @endif
 
         <div class="_mob-h"><br><br></div>
 
@@ -115,6 +148,7 @@
             <h3 class="theme-payment-page-sections-item-title">กรอกข้อมูล ผู้จองรถเช่า <br>
               <span class="text-danger" style="font-size:12px;">* ผู้ใช้งานจำเป็นต้องกรอกข้อมูลให้ครบทุกช่อง</span></h3>
 
+              <input type="hidden" name="promotion_id" id="promotion_id" value="{{$cupon_id}}" >
 
             <input type="hidden" name="start_dat" id="start_dat" value="{{Session::get('start_dat')}}" >
             <input type="hidden" name="end_day" id="end_day" value="{{Session::get('end_day')}}" >
@@ -226,6 +260,11 @@
                   <p class="theme-sidebar-section-charges-item-subtitle"></p>
                   <p class="theme-sidebar-section-charges-item-price">00.00</p>
                 </li>
+                <li class="theme-sidebar-section-charges-item text-grad1">
+                  <h5 class="theme-sidebar-section-charges-item-title">ได้รับส่วนลด</h5>
+                  <p class="theme-sidebar-section-charges-item-subtitle">{{$cupon_data}}</p>
+                  <p class="theme-sidebar-section-charges-item-price">฿ {{number_format($cupon ,2)}}</p>
+                </li>
               </ul>
               <p class="theme-sidebar-section-charges-total">Total
                 <span id="sum-muney">{{number_format($objs->price ,2)}}</span>
@@ -273,6 +312,7 @@
 
 <script>
 
+    var cupon = {{$cupon}};
     var sum_mon = {{$objs->price}};
     var input = "{{Session::get('start_dat')}}";
     var res = input.split("/", 1);
@@ -310,9 +350,9 @@
     document.getElementById('total_day').value = total
 
 
-    $("#sum-muney").html('฿'+addCommas((sum_mon * total)+over_time));
-    $("#sum-muney2").html('฿'+addCommas((sum_mon * total)+over_time));
-    document.getElementById('total_buy').value = (sum_mon * total)+over_time;
+    $("#sum-muney").html('฿'+addCommas(((sum_mon * total)+over_time)-cupon));
+    $("#sum-muney2").html('฿'+addCommas(((sum_mon * total)+over_time)-cupon));
+    document.getElementById('total_buy').value = ((sum_mon * total)+over_time)-cupon;
 
 
 
@@ -345,7 +385,7 @@
     var cus_name = document.getElementById("cus_name").value;
     var cus_lname = document.getElementById("cus_lname").value;
     var position_id = document.getElementById("position_id").value;
-
+    var promotion_id = document.getElementById("promotion_id").value;
 
     var cus_email = document.getElementById("cus_email").value;
     var cus_phone = document.getElementById("cus_phone").value;

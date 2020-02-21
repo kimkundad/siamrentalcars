@@ -123,6 +123,7 @@ class ApiController extends Controller
       $package->phone = $request['cus_phone'];
       $package->email = $request['cus_email'];
       $package->name = $request['cus_name']." ".$request['cus_lname'];
+      $package->promotion_id = $request['promotion_id'];
       $package->save();
 
 

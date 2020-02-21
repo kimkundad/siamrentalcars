@@ -9,6 +9,7 @@ use App\province;
 use Illuminate\Support\Facades\DB;
 use Session;
 use App\contact;
+use Auth;
 use Mail;
 use Swift_Transport;
 use Swift_Message;
@@ -105,6 +106,12 @@ class HomeController extends Controller
       $objs = DB::table('orders')
         ->where('order_ids', $id)
         ->first();
+
+        $get_pro = DB::table('promotions')
+          ->where('id', $objs->promotion_id)
+          ->first();
+
+          $data['get_pro'] = $get_pro;
 
         $part = DB::table('partners')
           ->where('id', $objs->part_id)
@@ -690,11 +697,14 @@ class HomeController extends Controller
 
     public function car_detail($id){
 
+
+
       $get_car = DB::table('cars')
                     ->select(
                     'cars.*',
                     'car_parts.cars_id',
                     'cars.id as id_car',
+                    'car_parts.prov_id as prov_ids',
                     'partners.*',
                     'partners.id as id_part',
                     'province.*',
@@ -709,6 +719,104 @@ class HomeController extends Controller
                     ->Where('cars.id', $id)
                     ->Where('cars.status', 1)
                     ->first();
+
+
+                //    dd($get_car->prov_ids);
+
+
+
+
+                    if (Auth::check()) {
+
+                      $check_data = DB::table('promotion_users')
+                            ->leftjoin('promotions', 'promotions.id', 'promotion_users.promotion_id')
+                            ->leftjoin('promotion_provs', 'promotion_provs.promotion_id', 'promotion_users.promotion_id')
+                            ->where('promotion_users.user_id', Auth::user()->id)
+                            ->where('promotion_provs.prov_id', $get_car->prov_ids)
+                            ->where('promotions.promotion_type', 1)
+                            ->where('promotion_users.get_status', 0)
+                            ->count();
+
+                            // check all provi
+
+                            if($check_data > 0){
+
+                              $get_data_cu = DB::table('promotion_users')
+                                    ->select(
+                                    'promotion_users.*',
+                                    'promotions.*',
+                                    'promotions.id as id_p',
+                                    'promotion_provs.*'
+                                    )
+                                    ->leftjoin('promotions', 'promotions.id', 'promotion_users.promotion_id')
+                                    ->leftjoin('promotion_provs', 'promotion_provs.promotion_id', 'promotion_users.promotion_id')
+                                    ->where('promotion_users.user_id', Auth::user()->id)
+                                    ->where('promotion_provs.prov_id', $get_car->prov_ids)
+                                    ->where('promotions.promotion_type', 1)
+                                    ->where('promotion_users.get_status', 0)
+                                    ->first();
+
+                              $cupon = $get_data_cu->promotion_amount;
+                              $cupon_data = $get_data_cu->promotion_name;
+                              $cupon_id = $get_data_cu->id_p;
+
+                            }else{
+
+                              $check_data2 = DB::table('promotion_users')
+                                    ->leftjoin('promotions', 'promotions.id', 'promotion_users.promotion_id')
+                                    ->leftjoin('promotion_provs', 'promotion_provs.promotion_id', 'promotion_users.promotion_id')
+                                    ->where('promotion_users.user_id', Auth::user()->id)
+                                    ->where('promotions.promotion_type', 0)
+                                    ->where('promotion_users.get_status', 0)
+                                    ->count();
+
+                                    if($check_data2 > 0){
+
+                                      $get_data_cu1 = DB::table('promotion_users')
+                                            ->select(
+                                            'promotion_users.*',
+                                            'promotions.*',
+                                            'promotions.id as id_p',
+                                            'promotion_provs.*'
+                                            )
+                                            ->leftjoin('promotions', 'promotions.id', 'promotion_users.promotion_id')
+                                            ->leftjoin('promotion_provs', 'promotion_provs.promotion_id', 'promotion_users.promotion_id')
+                                            ->where('promotion_users.user_id', Auth::user()->id)
+                                            ->where('promotions.promotion_type', 0)
+                                            ->where('promotion_users.get_status', 0)
+                                            ->first();
+
+                                            $cupon = $get_data_cu1->promotion_amount;
+                                            $cupon_data = $get_data_cu1->promotion_name;
+                                            $cupon_id = $get_data_cu1->id_p;
+
+                                    }else{
+
+                                      $cupon = 0;
+                                      $cupon_data = null;
+                                      $cupon_id = 0;
+
+                                    }
+
+
+
+                            }
+
+                            // check all provi
+
+
+
+                    }else{
+                      $cupon = 0;
+                      $cupon_data = null;
+                    }
+
+                  //  dd($cupon);
+
+                  $data['cupon'] = $cupon;
+                  $data['cupon_data'] = $cupon_data;
+                  $data['cupon_id'] = $cupon_id;
+
 
                   //  dd($get_car);
                   $data['objs'] = $get_car;
