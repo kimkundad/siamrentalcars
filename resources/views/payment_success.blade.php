@@ -35,10 +35,10 @@
                     <span>#{{$objs->order_ids}}</span>
                   </li>
                   <li>วันที่รับรถ
-                    <span>{{$objs->re_car}} {{$objs->se_car}}</span>
+                    <span>{{$objs->re_car}} {{$objs->re_car_time}} </span>
                   </li>
                   <li>วันที่คืนรถ
-                    <span>{{$objs->re_car_time}} {{$objs->se_car_time}}</span>
+                    <span>{{$objs->se_car}} {{$objs->se_car_time}}</span>
                   </li>
                   <li>บริษัทรถเช่า
                     <span>{{$part->part_name}} </span>
