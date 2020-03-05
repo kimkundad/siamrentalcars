@@ -4,14 +4,14 @@
       <div class="col-md-3">
         <div class="theme-footer-section theme-footer-">
           <a class="theme-footer-brand _mb-mob-30" href="#">
-            <img src="{{url('assets/home/img/logo-black.png')}}" alt="Image Alternative text" title="Image Title"/>
+            <img src="{{url('img/logo_my_website.png')}}" alt="Image Alternative text" title="Image Title"/>
           </a>
           <div class="theme-footer-brand-text">
             <h4>Siamrentalcars.com</h4>
             <p>ที่อยู่ 222/57 หมู่ 10 ถนนกาญจนาภิเษก ต.บางแก้ว อำเภอบางพลี สมุทรปราการ 10540</p>
             <p style="font-size:14px;"><b class="text-success"><i class="fa fa-phone" aria-hidden="true"></i></b> 089-059-1794</p>
             <p style="font-size:14px;"><b class="text-success"><i class="fa fa-phone" aria-hidden="true"></i></b> 090-921-0135</p>
-            <p style="font-size:14px;"><a href="" target="_blank"><b class="text-success"><i class="fa fa-commenting" aria-hidden="true"></i></b> @Siamrentalcars</a></p>
+            <p style="font-size:14px;"><a href="https://line.me/ti/p/NSOhMGmpsW" target="_blank"><b class="text-success"><i class="fa fa-commenting" aria-hidden="true"></i></b> @Siamrentalcars</a></p>
           </div>
 
         </div>
@@ -52,7 +52,7 @@
                 <li>
                   <a href="#">เช่ารถพร้อมคนขับ</a>
                 </li>
-                
+
 
               </ul>
             </div>

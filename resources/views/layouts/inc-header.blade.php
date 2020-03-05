@@ -8,11 +8,11 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="{{url('/')}}">
-          <img src="{{url('assets/home/img/logo.png')}}" alt="Image Alternative text" title="Image Title"/>
+        <a class="navbar-brand" href="{{url('/')}}" style="height: 70px;">
+          <img src="{{url('img/logo_my_website2.png')}}" alt="Siamrentalcars จองรถเช่าออนไลน์" title="Image Title"/>
         </a>
       </div>
-      <div class="collapse navbar-collapse" id="navbar-main">
+      <div class="collapse navbar-collapse" id="navbar-main" style="padding-top: 10px;">
         <ul class="nav navbar-nav">
 
 
@@ -53,7 +53,7 @@
             <a href="#" ><b><i class="fa fa-phone" aria-hidden="true"></i></b> 089-059-1794</a>
           </li>
           <li class="">
-            <a href="http://line.me/ti/p/kL8POWgHU9" target="_blank"><b><i class="fa fa-commenting" aria-hidden="true"></i></b> @Siamrentalcars</a>
+            <a href="https://line.me/ti/p/NSOhMGmpsW" target="_blank"><b><i class="fa fa-commenting" aria-hidden="true"></i></b> @Siamrentalcars</a>
           </li>
 
 

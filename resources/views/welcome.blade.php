@@ -438,10 +438,10 @@
           <div class="col-md-6 col-md-offset-3">
             <div class="theme-hero-text theme-hero-text-white theme-hero-text-center">
               <div class="theme-hero-text-header">
-                <h2 class="theme-hero-text-title">ประหยัดสูงสุด 10%</h2>
-                <p class="theme-hero-text-subtitle">สมัครสมาชิกตอนนี้และปลดล็อคข้อตกลงของเรา ประหยัดสูงสุด 10% ด้วยการเข้าถึงข้อเสนอพิเศษของเราสำหรับรถยนต์เช่า ไปยังจุดหมายปลายทางและประสบการณ์การเดินทาง</p>
+                <h2 class="theme-hero-text-title">ประหยัดสูงสุด 30%</h2>
+                <p class="theme-hero-text-subtitle">สมัครสมาชิกตอนนี้และปลดล็อคข้อตกลงของเรา ประหยัดสูงสุด 30% ด้วยการเข้าถึงข้อเสนอพิเศษของเราสำหรับรถยนต์เช่า ไปยังจุดหมายปลายทางและประสบการณ์การเดินทาง</p>
               </div>
-              <a class="btn _mt-20 _tt-uc btn-white btn-ghost btn-lg" href="{{url('register')}}">สมัครสมาชิก</a>
+              <a class="btn _mt-20 _tt-uc btn-white btn-ghost btn-lg" href="{{url('promotion')}}">ดูส่วนลดทั้งหมด</a>
             </div>
           </div>
         </div>

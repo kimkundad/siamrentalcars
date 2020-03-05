@@ -22,6 +22,8 @@ class ResetPassword extends Mailable
  {
    $this->token = $token;
    $this->notifiable = $notifiable;
+
+
  }
 
     /**
@@ -31,8 +33,9 @@ class ResetPassword extends Mailable
      */
      public function build()
  {
+
    return $this->markdown('emails.resetpassword', [
-   'url' => url(config('app.url').route('password.reset', $this->token, false)),
+   'url' => url(config('app.url').'password/reset/'.$this->token),
    'token' => $this->token,
    'name' => $this->notifiable->name,
    ]);
