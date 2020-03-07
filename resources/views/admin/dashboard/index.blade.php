@@ -11,8 +11,8 @@
           <div class="col-md-6 col-lg-3">
             <div class="d-flex justify-content-between border-right card-statistics-item">
               <div>
-                <h1>28893</h1>
-                <p class="text-muted mb-0">Total invoices</p>
+                <h1>{{$count_order}}</h1>
+                <p class="text-muted mb-0">ออเดอร์ทั้งหมด</p>
               </div>
               <i class="icon-layers text-primary icon-lg"></i>
             </div>
@@ -20,8 +20,8 @@
           <div class="col-md-6 col-lg-3">
             <div class="d-flex justify-content-between border-right card-statistics-item">
               <div>
-                <h1>217</h1>
-                <p class="text-muted mb-0">New users</p>
+                <h1>{{$count_user}}</h1>
+                <p class="text-muted mb-0">จำนวนสมาชิก</p>
               </div>
               <i class="icon-people text-primary icon-lg"></i>
             </div>
@@ -29,8 +29,8 @@
           <div class="col-md-6 col-lg-3">
             <div class="d-flex justify-content-between border-right card-statistics-item">
               <div>
-                <h1>6875</h1>
-                <p class="text-muted mb-0">Unique visits</p>
+                <h1>{{$position_links}}</h1>
+                <p class="text-muted mb-0">สถานที่รับรถ</p>
               </div>
               <i class="icon-pin text-primary icon-lg"></i>
             </div>
@@ -38,10 +38,10 @@
           <div class="col-md-6 col-lg-3">
             <div class="d-flex justify-content-between card-statistics-item">
               <div>
-                <h1>45596</h1>
-                <p class="text-muted mb-0">Sales</p>
+                <h1>{{$cars}}</h1>
+                <p class="text-muted mb-0">รถเช่า</p>
               </div>
-              <i class="icon-refresh text-primary icon-lg"></i>
+              <i class="fa fa-car text-primary icon-lg"></i>
             </div>
           </div>
         </div>

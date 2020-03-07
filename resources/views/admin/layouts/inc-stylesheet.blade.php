@@ -3,6 +3,8 @@
 <link rel="stylesheet" href="{{url('assets/back/vendors/iconfonts/ti-icons/css/themify-icons.css')}}">
 <link rel="stylesheet" href="{{url('assets/back/vendors/css/vendor.bundle.base.css')}}">
 <link rel="stylesheet" href="{{url('assets/back/vendors/css/vendor.bundle.addons.css')}}">
+
+<link rel="stylesheet" href="{{url('assets/back/vendors/iconfonts/font-awesome/css/font-awesome.min.css')}}">
 <!-- endinject -->
 <!-- plugin css for this page -->
 <link rel="stylesheet" href="{{url('assets/back/vendors/lightgallery/css/lightgallery.css')}}">

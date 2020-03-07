@@ -2,172 +2,118 @@
 
 @section('admin.content')
 
+<style>
+.table td, .jsgrid .jsgrid-table td, .table th, .jsgrid .jsgrid-table th {
+
+    font-size: 12px;
+
+}
+</style>
+
 
 <div class="row">
   <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">Striped Table</h4>
-        <p class="card-description">
-          Add class <code>.table-striped</code>
-        </p>
+
         <div class="table-responsive">
-          <table class="table table-striped">
+          <table class="table table-striped" style="font-size:12px;">
             <thead>
               <tr>
                 <th>
-                  User
+                  #
                 </th>
                 <th>
-                  First name
+                  ชื่อผู้เช่า
                 </th>
                 <th>
-                  Progress
+                  ผู้ให้บริการ
                 </th>
                 <th>
-                  Amount
+                  รถเช่า
                 </th>
                 <th>
-                  Deadline
+                  วันรับรถ - ส่งรถ
+                </th>
+                <th>
+                 ที่รับรถ
+                </th>
+                <th>
+                  ราคารวม
+                </th>
+                <th>
+                  สถานะ
+                </th>
+                <th>
+
                 </th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td class="py-1">
-                  <img src="https://via.placeholder.com/40x40" alt="image"/>
+
+              @if(isset($objs))
+              @foreach($objs as $u)
+              <tr id="{{$u->id_q}}">
+                <td>
+                  {{$u->order_ids}}
                 </td>
                 <td>
-                  Herman Beck
+                  {{$u->user_name}}
                 </td>
                 <td>
-                  <div class="progress">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                  {{$u->part_name}}
+                </td>
+                <td>
+                  {{$u->car_name}}
+                </td>
+                <td>
+                  {{$u->re_car}} : {{$u->re_car_time}} - {{$u->se_car}} : {{$u->se_car_time}}
+                </td>
+                <td>
+                {{$u->PROVINCE_NAME}} , {{$u->position_name}}
+                </td>
+                <td>
+                  {{$u->total}}
+                </td>
+                <td>
+                  <div class="form-check form-check-flat form-check-primary">
+                    <label class="form-check-label">
+                      <input type="checkbox"
+                      @if($u->statuss == 1)
+                      checked
+                      @endif
+                      class="form-check-input">
+                      สำเร็จแล้ว
+                    </label>
                   </div>
                 </td>
                 <td>
-                  $ 77.99
-                </td>
-                <td>
-                  May 15, 2015
-                </td>
-              </tr>
-              <tr>
-                <td class="py-1">
-                  <img src="https://via.placeholder.com/40x40" alt="image"/>
-                </td>
-                <td>
-                  Messsy Adam
-                </td>
-                <td>
-                  <div class="progress">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </td>
-                <td>
-                  $245.30
-                </td>
-                <td>
-                  July 1, 2015
+
+                  <li class="nav-item dropdown d-none d-lg-flex nav-language">
+                    <div class="nav-link">
+                      <span class="dropdown-toggle btn btn-sm" id="languageDropdown" data-toggle="dropdown">จัดการ
+
+                      </span>
+                      <div class="dropdown-menu navbar-dropdown" aria-labelledby="languageDropdown">
+                        <a href="{{url('admin/order/'.$u->id_q.'/edit')}}" class="dropdown-item font-weight-medium">
+                          ดูข้อมูล
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="{{url('admin/order/del/'.$u->id_q)}}" onclick="return confirm('Are you sure you want to delete this item?');" class="dropdown-item font-weight-medium">
+                          ลบข้อมูล
+                        </a>
+                      </div>
+                    </div>
+                  </li>
+
                 </td>
               </tr>
-              <tr>
-                <td class="py-1">
-                  <img src="https://via.placeholder.com/40x40" alt="image"/>
-                </td>
-                <td>
-                  John Richards
-                </td>
-                <td>
-                  <div class="progress">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </td>
-                <td>
-                  $138.00
-                </td>
-                <td>
-                  Apr 12, 2015
-                </td>
-              </tr>
-              <tr>
-                <td class="py-1">
-                  <img src="https://via.placeholder.com/40x40" alt="image"/>
-                </td>
-                <td>
-                  Peter Meggik
-                </td>
-                <td>
-                  <div class="progress">
-                    <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </td>
-                <td>
-                  $ 77.99
-                </td>
-                <td>
-                  May 15, 2015
-                </td>
-              </tr>
-              <tr>
-                <td class="py-1">
-                  <img src="https://via.placeholder.com/40x40" alt="image"/>
-                </td>
-                <td>
-                  Edward
-                </td>
-                <td>
-                  <div class="progress">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </td>
-                <td>
-                  $ 160.25
-                </td>
-                <td>
-                  May 03, 2015
-                </td>
-              </tr>
-              <tr>
-                <td class="py-1">
-                  <img src="https://via.placeholder.com/40x40" alt="image"/>
-                </td>
-                <td>
-                  John Doe
-                </td>
-                <td>
-                  <div class="progress">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </td>
-                <td>
-                  $ 123.21
-                </td>
-                <td>
-                  April 05, 2015
-                </td>
-              </tr>
-              <tr>
-                <td class="py-1">
-                  <img src="https://via.placeholder.com/40x40" alt="image"/>
-                </td>
-                <td>
-                  Henry Tom
-                </td>
-                <td>
-                  <div class="progress">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </td>
-                <td>
-                  $ 150.00
-                </td>
-                <td>
-                  June 16, 2015
-                </td>
-              </tr>
+              @endforeach
+              @endif
             </tbody>
           </table>
+          {{ $objs->links() }}
         </div>
       </div>
     </div>
@@ -183,6 +129,48 @@
 
 @section('scripts')
 
+<script type="text/javascript">
+$(document).ready(function(){
+  $("input:checkbox").change(function() {
+    var user_id = $(this).closest('tr').attr('id');
+    console.log(user_id)
+    $.ajax({
+            type:'POST',
+            url:'{{url('api/order_status')}}',
+            headers: {'X-CSRF-TOKEN': '{{ csrf_token() }}' },
+            data: { "user_id" : user_id },
+            success: function(data){
+              if(data.data.success){
 
+
+                $.toast({
+                      heading: 'Success',
+                      text: 'ทำการแก้ไขข้อมูลสำเร็จ.',
+                      showHideTransition: 'slide',
+                      icon: 'success',
+                      loaderBg: '#f96868',
+                      position: 'top-right'
+                    })
+
+
+
+              }
+            }
+        });
+    });
+});
+
+
+@if ($message = Session::get('del_product'))
+$.toast({
+      heading: 'Success',
+      text: 'ทำการลบข้อมูลสำเร็จ.',
+      showHideTransition: 'slide',
+      icon: 'success',
+      loaderBg: '#f96868',
+      position: 'top-right'
+    })
+    @endif
+</script>
 
 @stop('scripts')

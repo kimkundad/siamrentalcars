@@ -21,6 +21,9 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/about_us', 'HomeController@about_us')->name('about_us');
+
+Route::get('/promotion', 'HomeController@promotion')->name('promotion');
+
 Route::get('/terms', 'HomeController@terms')->name('terms');
 
 Route::get('/privacy', 'HomeController@privacy')->name('privacy');
@@ -95,6 +98,12 @@ Route::group(['middleware' => ['UserRole:manager|employee']], function() {
     Route::resource('admin/type_cars', 'TypecarController');
     Route::resource('admin/review', 'ReviewController');
     Route::resource('admin/brand_cars', 'BrandController');
+
+
+
+    Route::post('api/order_status', 'OrderController@order_status');
+    Route::get('admin/order/del/{id}', 'OrderController@order_del');
+
     Route::post('api/post_status', 'CarsController@api_post_status');
     Route::post('api/partner_status', 'PartnersController@api_post_status');
     Route::get('admin/car_rent/del/{id}', 'CarsController@del_car');

@@ -71,6 +71,7 @@
               @endif
             </tbody>
           </table>
+          {{ $objs->links() }}
         </div>
       </div>
     </div>

@@ -78,6 +78,17 @@ class HomeController extends Controller
         return view('welcome', $data);
     }
 
+    public function promotion(){
+
+      $obj = DB::table('promotions')
+            ->where('promotion_status', 1)
+            ->get();
+
+      $data['promo'] = $obj;
+
+      return view('promotion', $data);
+    }
+
     public function partner_register(){
 
       $obj = province::all();

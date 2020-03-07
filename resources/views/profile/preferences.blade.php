@@ -78,40 +78,7 @@
 
 
 
-                  <div class="theme-account-preferences-item">
-                    <div class="row">
-                      <div class="col-md-3 ">
-                        <h5 class="theme-account-preferences-item-title">Password</h5>
-                      </div>
-                      <div class="col-md-7 ">
-                        <p class="theme-account-preferences-item-value">********</p>
-                        <div class="collapse" id="ChangePassword">
-                          <div class="theme-account-preferences-item-change">
-                            <p class="theme-account-preferences-item-change-description">It's a good idea to use a strong password
-                              <br/>that you're not using elsewhere
-                            </p>
-                            <div class="form-group theme-account-preferences-item-change-form">
-                              <label>Current Password</label>
-                              <input class="form-control" type="password"/>
-                              <label>New Password</label>
-                              <input class="form-control" type="password"/>
-                              <label>Re-type New Password</label>
-                              <input class="form-control" type="password"/>
-                            </div>
-                            <div class="theme-account-preferences-item-change-actions">
-                              <a class="btn btn-sm btn-primary" href="#">Save changes</a>
-                              <a class="btn btn-sm btn-default" href="#ChangePassword" data-toggle="collapse" aria-expanded="false" aria-controls="ChangePassword">Cancel</a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-2 ">
-                        <a class="theme-account-preferences-item-change-link" href="#ChangePassword" data-toggle="collapse" aria-expanded="false" aria-controls="ChangePassword">
-                          <i class="fa fa-pencil"></i>edit
-                        </a>
-                      </div>
-                    </div>
-                  </div>
+            
 
                   <div class="theme-account-preferences-item">
                     <div class="row">
