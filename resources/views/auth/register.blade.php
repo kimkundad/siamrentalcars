@@ -113,17 +113,10 @@ ul, li {
               </div>
               <div class="theme-login-social-login">
                 <div class="row" data-gutter="10">
-                  <div class="col-xs-6">
-                    <a class="theme-login-social-login-facebook" href="#">
-                      <i class="fa fa-facebook-square"></i>
-                      <span>Sign up with
-                        <br/>
-                        <b>Facebook</b>
-                      </span>
-                    </a>
-                  </div>
-                  <div class="col-xs-6">
-                    <a class="theme-login-social-login-google" href="#">
+
+
+                  <div class="col-xs-12">
+                    <a class="theme-login-social-login-google" href="{{ route('social.oauth', 'google') }}">
                       <i class="fa fa-google-plus-circle"></i>
                       <span>Sign up with
                         <br/>
