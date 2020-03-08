@@ -81,16 +81,19 @@ Route::get('/account_bookmarks', 'ProfileController@account_bookmarks')->name('a
 Route::group(['middleware' => ['UserRole:manager|employee']], function() {
     Route::get('admin/dashboard', 'DashboardController@index');
     Route::get('admin/users', 'StudentController@index');
+    Route::get('admin/users/{id}', 'StudentController@show');
     Route::resource('admin/partners', 'PartnersController');
 
     Route::resource('admin/partners', 'PartnersController');
+    Route::get('admin/partners/order/{id}', 'PartnersController@show');
+
     Route::resource('admin/promotion', 'PromotionController');
     Route::get('admin/promotion_del/{id}', 'PromotionController@destroy');
 
     Route::get('admin/promotion_add/{id}', 'PromotionController@destroy_add');
 
 
-
+    Route::get('admin/del_contact/{id}', 'ContactController@del_contact');
 
     Route::resource('admin/car_rent', 'CarsController');
     Route::resource('admin/order', 'OrderController');

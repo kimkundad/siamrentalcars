@@ -92,6 +92,9 @@
                         <a href="{{url('admin/partners/'.$u->id.'/edit')}}" class="dropdown-item font-weight-medium">
                           ดูข้อมูล
                         </a>
+                        <a href="{{url('admin/partners/order/'.$u->id)}}" class="dropdown-item font-weight-medium">
+                          orders
+                        </a>
                         <a href="{{url('admin/partner_data_pro/'.$u->id)}}" class="dropdown-item font-weight-medium">
                           ข้อมูลรถเช่า
                         </a>

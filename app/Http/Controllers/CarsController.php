@@ -231,9 +231,9 @@ class CarsController extends Controller
 
        }else{
 
-         $objs = DB::table('products')
+         $objs = DB::table('cars')
           ->select(
-             'products.*'
+             'cars.*'
              )
           ->where('id', $id)
           ->first();

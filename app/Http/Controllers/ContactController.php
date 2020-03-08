@@ -39,9 +39,15 @@ class ContactController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function del_contact($id)
     {
         //
+
+        DB::table('contacts')
+        ->where('id', $id)
+        ->delete();
+
+        return back()->with('del_contact','คุณทำการเพิ่มอสังหา สำเร็จ');
     }
 
     /**

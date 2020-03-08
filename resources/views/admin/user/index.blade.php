@@ -50,7 +50,7 @@
                 <td>{{$u->provider}}</td>
                 <td id="{{ $day = date('n', strtotime($u->created_at))}}">{{$u->created_at}}</td>
                 <td>
-                  <a href="#" class="btn btn-outline-primary btn-sm">ดูข้อมูล</a>
+                  <a href="{{url('admin/users/'.$u->id)}}" class="btn btn-outline-primary btn-sm">ดูข้อมูล</a>
                 </td>
               </tr>
               @endforeach

@@ -59,6 +59,7 @@ return "$strDay $strMonthThai $strYear";
                 <th>เบอร์โทร</th>
                 <th>วันที่เพิ่ม</th>
                 <th>รายละเอียด</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -114,6 +115,9 @@ return "$strDay $strMonthThai $strYear";
 
 
                       </td>
+                      <td>
+                        <a href="{{url('admin/del_contact/'.$u->id)}}"  class="btn btn-danger btn-sm">ลบข้อมูล</a>
+                      </td>
 
 
                       </tr>
@@ -140,6 +144,17 @@ return "$strDay $strMonthThai $strYear";
 
 @section('scripts')
 
-
+<script>
+@if ($message = Session::get('del_contact'))
+$.toast({
+      heading: 'Success',
+      text: 'ทำการลบข้อมูลสำเร็จ.',
+      showHideTransition: 'slide',
+      icon: 'success',
+      loaderBg: '#f96868',
+      position: 'top-right'
+    })
+    @endif
+</script>
 
 @stop('scripts')
