@@ -2,7 +2,7 @@
 
 @section('admin.content')
 
-
+<br /><br /><br /><br />
 <div class="row">
   <div class="col-12 grid-margin">
     <div class="card card-statistics">
@@ -75,70 +75,46 @@
               <tbody>
                 <tr>
                   <td>
-                    <h6>Tasks</h6>
-                    <p class="text-muted mb-0">5.6% change today</p>
+                    <h6>Order กำลังดำเนินการ </h6>
                   </td>
                   <td>
                     <h3 class="text-primary">
-                      +20009
+                      {{$get_per1}}
                     </h3>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <h6>Member Profit</h6>
-                    <p class="text-muted mb-0">3 days ago</p>
+                    <h6>Order สำเร็จแล้ว</h6>
+
                   </td>
                   <td>
                     <h3 class="text-danger">
-                      +91964
+                      {{$get_per2}}
                     </h3>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <h6>Orders</h6>
-                    <p class="text-muted mb-0">Weekly Orders</p>
+                    <h6>จำนวน Partner</h6>
+
                   </td>
                   <td>
                     <h3 class="text-success">
-                        -200
+                      {{$partner}}
                     </h3>
                   </td>
                 </tr>
-                <tr>
-                  <td>
-                    <h6>Pending</h6>
-                    <p class="text-muted mb-0">Pending Tasks</p>
-                  </td>
-                  <td>
-                    <h3 class="text-warning">
-                        +5152
-                    </h3>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <h6>Revenue</h6>
-                    <p class="text-muted mb-0">5% increase</p>
-                  </td>
-                  <td>
-                    <h3 class="text-primary">
-                        +89997
-                    </h3>
-                  </td>
-                </tr>
+
+
               </tbody>
             </table>
           </div>
         </div>
         <div class="col-md-7">
           <div class="card-body d-flex flex-column h-100">
-            <div class="d-flex flex-row">
-              <h4 class="card-title">Year-wise performance</h4>
-            </div>
-            <p>Performance of the team is 75% higher this year!</p>
-            <canvas id="chart-activity" class="mt-auto"></canvas>
+
+
           </div>
         </div>
       </div>
@@ -146,7 +122,7 @@
   </div>
 </div>
 
-
+<br /><br /><br /><br />
 @stop
 
 
@@ -155,7 +131,62 @@
 
 <!-- Custom js for this page-->
 <script src="{{url('assets/back/js/dashboard.js')}}"></script>
-<script src="{{url('assets/back/js/todolist.js')}}"></script>
+<script>
+$(function() {
+if ($("#earning-report").length) {
+      var earningReportData = {
+        datasets: [{
+          data: [{{$cars_per1}}, {{$cars_per2}}],
+          backgroundColor: [
+            '#22548e',
+            '#af827c'
+          ],
+          borderWidth: 0
+        }],
+
+        // These labels appear in the legend and in the tooltips when hovering different arcs
+        labels: [
+          'Order กำลังดำเนินการ',
+          'Order สำเร็จ'
+        ]
+      };
+      var earningReportOptions = {
+        responsive: true,
+        maintainAspectRatio: true,
+        animation: {
+          animateScale: true,
+          animateRotate: true
+        },
+        legend: {
+          display: false
+        },
+        legendCallback: function(chart) {
+          var text = [];
+          text.push('<ul class="legend'+ chart.id +'">');
+          for (var i = 0; i < chart.data.datasets[0].data.length; i++) {
+            text.push('<li><span class="legend-label" style="background-color:' + chart.data.datasets[0].backgroundColor[i] + '"></span>');
+            if (chart.data.labels[i]) {
+              text.push(chart.data.labels[i]);
+            }
+            text.push('<span class="legend-percentage ml-auto">'+ chart.data.datasets[0].data[i] + '%</span>');
+            text.push('</li>');
+          }
+          text.push('</ul>');
+          return text.join("");
+        },
+        cutoutPercentage: 70
+      };
+      var earningReportCanvas = $("#earning-report").get(0).getContext("2d");
+      var earningReportChart = new Chart(earningReportCanvas, {
+        type: 'doughnut',
+        data: earningReportData,
+        options: earningReportOptions
+      });
+      document.getElementById('earning-report-legend').innerHTML = earningReportChart.generateLegend();
+    }
+  });
+
+</script>
 <!-- End custom js for this page-->
 
 @stop('scripts')

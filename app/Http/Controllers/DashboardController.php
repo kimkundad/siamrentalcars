@@ -25,6 +25,35 @@ class DashboardController extends Controller
       $cars = DB::table('cars')->count();
       $data['cars'] = $cars;
 
+      $partner = DB::table('partners')->count();
+      $data['partner'] = $partner;
+
+
+      $cars_per1 = DB::table('orders')
+      ->where('status', 0)
+      ->count();
+
+      $data['get_per1'] = $cars_per1;
+
+      $cars_per1 = (($cars_per1/$count_order)*100);
+
+      $data['cars_per1'] = $cars_per1;
+
+
+
+
+      $cars_per2 = DB::table('orders')
+      ->where('status', 1)
+      ->count();
+
+      $data['get_per2'] = $cars_per2;
+
+      $cars_per2 = (($cars_per2/$count_order)*100);
+
+      $data['cars_per2'] = $cars_per2;
+
+    //  dd($cars_per2);
+
       return view('admin.dashboard.index', $data);
     }
 }
