@@ -88,7 +88,7 @@
                 <a href="{{url('account_bookmarks')}}">Booking cars</a>
               </li>
               <li>
-                <a href="{{url('logout')}}">ออกจากรับบ</a>
+                <a href="{{url('logout')}}">ออกจากระบบ</a>
               </li>
             </ul>
             @endif
