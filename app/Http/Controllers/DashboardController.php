@@ -29,13 +29,19 @@ class DashboardController extends Controller
       $data['partner'] = $partner;
 
 
+
+
       $cars_per1 = DB::table('orders')
       ->where('status', 0)
       ->count();
 
       $data['get_per1'] = $cars_per1;
+      if($count_order != 0){
+        $cars_per1 = (($cars_per1/$count_order)*100);
+      }else{
+        $cars_per1 = 0;
+      }
 
-      $cars_per1 = (($cars_per1/$count_order)*100);
 
       $data['cars_per1'] = $cars_per1;
 
@@ -48,9 +54,19 @@ class DashboardController extends Controller
 
       $data['get_per2'] = $cars_per2;
 
-      $cars_per2 = (($cars_per2/$count_order)*100);
+      if($count_order != 0){
+
+        $cars_per2 = (($cars_per2/$count_order)*100);
+      }else{
+        $cars_per2 = 0;
+      }
+
+
 
       $data['cars_per2'] = $cars_per2;
+
+
+
 
     //  dd($cars_per2);
 
