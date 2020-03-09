@@ -352,7 +352,7 @@
               <div class="banner _h-40vh _br-3 banner-animate banner-animate-mask-in">
                 <div class="banner-bg" style="background-image:url({{url('img/23415224_531702273865620_1019474231772926170_o.jpg')}});"></div>
                 <div class="banner-mask _mob-h"></div>
-                <a class="banner-link" href="{{url('search_car/?start_point=2&car_options=0')}}"></a>
+                <a class="banner-link" href="{{url('search_car/?start_point=1&car_options=0')}}"></a>
                 <div class="banner-caption _pt-120 banner-caption-bottom banner-caption-grad">
                   <h5 class="banner-title">นครพนม</h5>
                 </div>
@@ -362,7 +362,7 @@
               <div class="banner _h-40vh _br-3 banner-animate banner-animate-mask-in">
                 <div class="banner-bg" style="background-image:url({{url('img/zzb4wnm8lfjyqw8wzk7schgniudnin.jpg')}});"></div>
                 <div class="banner-mask _mob-h"></div>
-                <a class="banner-link" href="{{url('search_car/?start_point=19&car_options=0')}}"></a>
+                <a class="banner-link" href="{{url('search_car/?start_point=3&car_options=0')}}"></a>
                 <div class="banner-caption _pt-120 banner-caption-bottom banner-caption-grad">
                   <h5 class="banner-title">เชียงใหม่</h5>
                 </div>
@@ -372,7 +372,7 @@
               <div class="banner _h-33vh _br-3 banner-animate banner-animate-mask-in">
                 <div class="banner-bg" style="background-image:url({{url('img/1316762622.jpg')}});"></div>
                 <div class="banner-mask _mob-h"></div>
-                <a class="banner-link" href="{{url('search_car/?start_point=24&car_options=0')}}"></a>
+                <a class="banner-link" href="{{url('search_car/?start_point=5&car_options=0')}}"></a>
                 <div class="banner-caption _pt-120 banner-caption-bottom banner-caption-grad">
                   <h5 class="banner-title">บุรีรัมย์</h5>
                 </div>
@@ -382,7 +382,7 @@
               <div class="banner _h-33vh _br-3 banner-animate banner-animate-mask-in">
                 <div class="banner-bg" style="background-image:url({{url('img/25348298350_225401d83e_152365b.png')}});"></div>
                 <div class="banner-mask _mob-h"></div>
-                <a class="banner-link" href="{{url('search_car/?start_point=27&car_options=0')}}"></a>
+                <a class="banner-link" href="{{url('search_car/?start_point=7&car_options=0')}}"></a>
                 <div class="banner-caption _pt-120 banner-caption-bottom banner-caption-grad">
                   <h5 class="banner-title">อุบลราชธานี</h5>
                 </div>
@@ -392,7 +392,7 @@
               <div class="banner _h-33vh _br-3 banner-animate banner-animate-mask-in">
                 <div class="banner-bg" style="background-image:url({{url('img/img_pro2.png')}});"></div>
                 <div class="banner-mask _mob-h"></div>
-                <a class="banner-link" href="{{url('search_car/?start_point=26&car_options=0')}}"></a>
+                <a class="banner-link" href="{{url('search_car/?start_point=9&car_options=0')}}"></a>
                 <div class="banner-caption _pt-120 banner-caption-bottom banner-caption-grad">
                   <h5 class="banner-title">สกลนคร</h5>
                 </div>
@@ -402,7 +402,7 @@
               <div class="banner _h-33vh _br-3 banner-animate banner-animate-mask-in">
                 <div class="banner-bg" style="background-image:url({{url('img/udon-750x500.jpg')}});"></div>
                 <div class="banner-mask _mob-h"></div>
-                <a class="banner-link" href="{{url('search_car/?start_point=1&car_options=0')}}"></a>
+                <a class="banner-link" href="{{url('search_car/?start_point=11&car_options=0')}}"></a>
                 <div class="banner-caption _pt-120 banner-caption-bottom banner-caption-grad">
                   <h5 class="banner-title">อุดรธานี</h5>
                 </div>
