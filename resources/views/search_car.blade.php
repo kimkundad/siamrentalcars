@@ -705,15 +705,11 @@
 
 
           <div class="theme-ad _mb-20">
-            <a class="theme-ad-link" href="#"></a>
-            <p class="theme-ad-sign">Advertisement</p>
-            <img class="theme-ad-img" src="{{url('assets/home/img/300x500.png')}}" alt="Image Alternative text" title="Image Title"/>
+            <a class="theme-ad-link" target="_blank" href="https://nakhonkoratcarrent.com/" ></a>
+            <p class="theme-ad-sign">Nakhonkoratcarrent ads.</p>
+            <img class="theme-ad-img" src="{{url('img/banner_1.png')}}" alt="Image Alternative text" title="Image Title"/>
           </div>
-          <div class="theme-ad">
-            <a class="theme-ad-link" href="#"></a>
-            <p class="theme-ad-sign">Advertisement</p>
-            <img class="theme-ad-img" src="{{url('assets/home/img/300x500.png')}}" alt="Image Alternative text" title="Image Title"/>
-          </div>
+
 
         </div>
       </div>
