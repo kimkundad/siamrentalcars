@@ -1,8 +1,8 @@
 <div class="nav-top flex-grow-1">
   <div class="container d-flex flex-row h-100">
     <div class="text-center navbar-brand-wrapper d-flex align-items-center">
-      <a class="navbar-brand brand-logo" href="#"><img src="{{url('assets/back/images/logo.svg')}}" alt="logo"/></a>
-      <a class="navbar-brand brand-logo-mini" href="#"><img src="{{url('assets/back/images/logo-mini.svg')}}" alt="logo"/></a>
+      <a class="navbar-brand brand-logo" href="#"><img src="{{url('img/logo_my_website2.png')}}" alt="logo"/></a>
+      <a class="navbar-brand brand-logo-mini" href="#"><img src="{{url('img/logo_my_website2.png')}}" alt="logo"/></a>
     </div>
     <div class="navbar-menu-wrapper d-flex align-items-stretch justify-content-between flex-grow-1">
       <form class="search-field d-none d-md-flex" action="#">
