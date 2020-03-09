@@ -214,6 +214,7 @@ class ApiController extends Controller
             $backup = \Mail::getSwiftMailer();
 
             try{
+              
 
                         //https://accounts.google.com/DisplayUnlockCaptcha
                         // Setup your gmail mailer
