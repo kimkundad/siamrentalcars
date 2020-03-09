@@ -244,7 +244,7 @@ class HomeController extends Controller
 
 
         $message = $request['name'].", ".$request['phone'].", ข้อความ : ".$request['msg'];
-        $lineapi = 'v98WKt3jvUVSKxGz1uLTGZ9ikEIOYd77PtIi66DLfDL';
+        $lineapi = 'Om126prqBmCdPDnQyWPe0f7pniw6gDBHZYlpvDwAmDh';
 
         $mms =  trim($message);
         $chOne = curl_init();
