@@ -25,7 +25,7 @@
             @if(Auth::user()->provider == 'email')
             <img class="theme-account-avatar-img" src="{{url('assets/back/img/avatar/'.Auth::user()->avatar)}}" alt="{{Auth::user()->name}}" title="{{Auth::user()->name}}"/>
             @else
-            <img class="theme-account-avatar-img" src="{{$objs->avatar}}" alt="{{Auth::user()->name}}" title="{{Auth::user()->name}}"/>
+            <img class="theme-account-avatar-img" src="{{Auth::user()->avatar}}" alt="{{Auth::user()->name}}" title="{{Auth::user()->name}}"/>
 
             @endif
             <p class="theme-account-avatar-name">Welcome,
