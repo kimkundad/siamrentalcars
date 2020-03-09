@@ -23,11 +23,9 @@
               <h5 class="theme-footer-section-title">เกี่ยวกับเรา</h5>
               <ul class="theme-footer-section-list">
                 <li>
-                  <a href="{{url('about_us')}}">บริการของเรา</a>
+                  <a href="{{url('about_us')}}">เกี่ยวกับเรา</a>
                 </li>
-                <li>
-                  <a href="#">ประเภทรถเช่า</a>
-                </li>
+
 
                 <li>
                   <a href="{{url('contact_us')}}">ติดต่อเรา</a>
@@ -67,9 +65,7 @@
                 <li>
                   <a href="{{url('document_to_book')}}">เอกสารเช่ารถ</a>
                 </li>
-                <li>
-                  <a href="{{url('insurance')}}">ประกันภัย</a>
-                </li>
+                
 
 
               </ul>
