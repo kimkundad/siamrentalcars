@@ -715,6 +715,7 @@ class HomeController extends Controller
                     'cars.*',
                     'car_parts.cars_id',
                     'cars.id as id_car',
+                    'cars.price as price_car',
                     'car_parts.prov_id as prov_ids',
                     'partners.*',
                     'partners.id as id_part',
@@ -767,7 +768,8 @@ class HomeController extends Controller
                                     ->where('promotion_users.get_status', 0)
                                     ->first();
 
-                              $cupon = $get_data_cu->promotion_amount;
+
+                              $cupon = (($get_car->price_car/100)*$get_data_cu->promotion_amount);
                               $cupon_data = $get_data_cu->promotion_name;
                               $cupon_id = $get_data_cu->id_p;
 
@@ -797,7 +799,8 @@ class HomeController extends Controller
                                             ->where('promotion_users.get_status', 0)
                                             ->first();
 
-                                            $cupon = $get_data_cu1->promotion_amount;
+                                            $cupon = (($get_car->price_car/100)*$get_data_cu1->promotion_amount);
+
                                             $cupon_data = $get_data_cu1->promotion_name;
                                             $cupon_id = $get_data_cu1->id_p;
 

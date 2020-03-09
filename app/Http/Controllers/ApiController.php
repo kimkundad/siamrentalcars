@@ -127,6 +127,8 @@ class ApiController extends Controller
       $package->save();
 
 
+
+
       $objs = DB::table('orders')
         ->select(
         'orders.*',
@@ -147,6 +149,18 @@ class ApiController extends Controller
         ->leftjoin('province', 'province.PROVINCE_ID',  'orders.prov_id')
         ->where('orders.order_ids', $randomSixDigitInt)
         ->first();
+
+        if(isset($objs->promotion_id)){
+          if($objs->promotion_id != null){
+
+            DB::table('promotion_users')
+            ->where('promotion_id', $objs->promotion_id)
+            ->where('user_id', $user_id)
+            ->update(['get_status' => 1]);
+
+          }
+        }
+
 
 
 

@@ -67,7 +67,7 @@
 
                   @if($objs->promotion_id != 0)
                   <li>ส่วนลด ที่ได้รับ ({{$get_pro->promotion_name}})
-                    <span>{{number_format($get_pro->promotion_amount, 2)}} บาท</span>
+                    <span>{{number_format((($car->price/100)*$get_pro->promotion_amount), 2)}} บาท</span>
                   </li>
                   @else
                   @endif

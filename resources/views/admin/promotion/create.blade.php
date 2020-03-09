@@ -29,7 +29,7 @@
             @endif
           </div>
           <div class="form-group">
-            <label for="exampleInputName1">ใส่ราคาส่วนลด*</label>
+            <label for="exampleInputName1">ใส่ราคาส่วนลด %*</label>
             <input type="text" class="form-control" id="exampleInputName1" placeholder="ใส่ราคาส่วนลด" name="promotion_amount" value="{{ old('promotion_amount') }}">
             @if ($errors->has('promotion_amount'))
             <label id="cname-error" class="error mt-2 text-danger" for="promotion_amount">ใส่ราคาส่วนลด ให้ครบ</label>

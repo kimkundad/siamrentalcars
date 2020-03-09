@@ -55,7 +55,7 @@ class ProfileController extends Controller
             ->where('get_status', 0)
             ->count();
 
-      
+
 
             if($check_data > 0){
 
@@ -114,6 +114,7 @@ class ProfileController extends Controller
         ->leftjoin('province', 'province.PROVINCE_ID',  'orders.prov_id')
         ->where('orders.user_id', Auth::user()->id)
         ->where('orders.status_2', 0)
+        ->orderBy('orders.id', 'desc')
         ->get();
 
       //  dd($objs);
