@@ -364,7 +364,7 @@ class HomeController extends Controller
                       'province.PROVINCE_NAME',
                       'province.PROVINCE_ID'
                       )
-                      ->WhereIn('province.PROVINCE_ID', [1,38,39,64,70,28])
+                      ->WhereIn('province.PROVINCE_ID', [36,38,20,23,35,29])
                       ->get();
 
                       foreach($get_provinces as $u){
