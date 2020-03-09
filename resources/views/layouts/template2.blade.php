@@ -23,7 +23,7 @@
 
 
 
-    <link rel="icon" type="image/png" href="{{url('/img/icon_header.png')}}">
+    <link rel="icon" type="image/png" href="{{url('/img/icon_header.png')}}?v1">
 
 
 
