@@ -218,7 +218,7 @@ class ApiController extends Controller
 
                         //https://accounts.google.com/DisplayUnlockCaptcha
                         // Setup your gmail mailer
-                        $transport = new \Swift_SmtpTransport('smtp.gmail.com', 587, 'tls');
+                        $transport = new \Swift_SmtpTransport('smtp.gmail.com', 465, 'SSL');
                         $transport->setUsername($email_sender);
                         $transport->setPassword($email_pass);
 
