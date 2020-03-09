@@ -36,9 +36,7 @@
                     <li>
                       <a href="{{url('/document_to_book')}}">เอกสารเช่ารถ</a>
                     </li>
-                    <li>
-                      <a href="{{url('/insurance')}}">ประกันภัย</a>
-                    </li>
+
 
 
                   </ul>

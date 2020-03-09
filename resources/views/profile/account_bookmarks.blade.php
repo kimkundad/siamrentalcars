@@ -22,7 +22,15 @@
       <div class="col-md-2-5 ">
         <div class="theme-account-sidebar">
           <div class="theme-account-avatar">
+            @if($objs->provider == 'email')
             <img class="theme-account-avatar-img" src="{{url('assets/back/img/avatar/'.Auth::user()->avatar)}}" alt="{{Auth::user()->name}}" title="{{Auth::user()->name}}"/>
+            @else
+            <img class="theme-account-avatar-img" src="{{$objs->avatar}}" alt="{{Auth::user()->name}}" title="{{Auth::user()->name}}"/>
+
+            @endif
+
+
+
             <p class="theme-account-avatar-name">Welcome,
               <br/>{{Auth::user()->name}}
             </p>
