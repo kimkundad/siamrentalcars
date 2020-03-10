@@ -56,7 +56,7 @@
                     </li>
                     <li>
                       <a href="#">
-                        <i class="fa fa-envelope"></i>info@nakhonkoratcarrent.com
+                        <i class="fa fa-envelope"></i>reservations@siamrentalcars.com
                       </a>
                     </li>
                   </ul>
