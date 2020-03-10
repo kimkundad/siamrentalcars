@@ -158,7 +158,7 @@ class ApiController extends Controller
             ->where('user_id', $user_id)
             ->update(['get_status' => 1]);
 
-            $get_promotion = = DB::table('promotions')
+            $get_promotion = DB::table('promotions')
               ->where('id', $objs->promotion_id)
               ->first();
 
