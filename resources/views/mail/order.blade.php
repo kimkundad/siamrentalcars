@@ -2,7 +2,7 @@
 <div style="width:590px">
 <div style="background:url('{{url('assets/image/email_top.png')}}') no-repeat;width:100%;height:75px;display:block">
 <div style="padding-top:30px;padding-left:50px;padding-right:50px">
-<a href="#" target="_blank" ><img src="{{url('assets/image/logo-black.png')}}" alt=""
+<a href="#" target="_blank" ><img src="{{url('img/logo_my_website.png')}}" alt=""
   style="border:none; height:42px;" ></a>
 </div>
 </div>
@@ -61,6 +61,16 @@ repeat-y;width:100%;display:block">
 <tr>
 <td style="text-align:right;font-size:12px" width="150">
 ภาษี: <span>THB0.00</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-size:12px" width="150">
+ส่วนลด: <span>
+  @if($data->promotion_total != 0)
+  {{number_format((($data->price/100)*$data->promotion_total), 2)}} บาท
+  @else
+  @endif
+</span>
 </td>
 </tr>
 <tr>

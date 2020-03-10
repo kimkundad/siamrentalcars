@@ -35,7 +35,7 @@ class ResetPassword extends Mailable
  {
 
    return $this->markdown('emails.resetpassword', [
-   'url' => url(config('app.url').'password/reset/'.$this->token),
+   'url' => url(config('app.url').'/password/reset/'.$this->token),
    'token' => $this->token,
    'name' => $this->notifiable->name,
    ]);

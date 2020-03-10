@@ -146,6 +146,7 @@ class HomeController extends Controller
         $data['car'] = $car;
         $data['part'] = $part;
         $data['objs'] = $objs;
+        
         return view('payment_success', $data);
     }
 
