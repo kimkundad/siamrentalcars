@@ -153,7 +153,7 @@ repeat-y;width:100%;display:block">
 </div>
 <div style="font-size:9px;color:#707070">
 
-<br>© 2020 siamrentalcars | สงวนลิขสิทธิ์<br>siamrentalcars 507/2 ถ.อภิบาลบัญชา ต.ในเมือง อ.เมือง จ.นครพนม 48000</div>
+<br>© 2020 siamrentalcars | สงวนลิขสิทธิ์<br>siamrentalcars ที่อยู่ 222/57 หมู่ 10 ถนนกาญจนาภิเษก ต.บางแก้ว อำเภอบางพลี สมุทรปราการ 10540</div>
 </div></div>
 <div class="yj6qo"></div>
 <div style="background:url('{{url('assets/image/email_bottom.png')}}') no-repeat;width:100%;height:50px;display:block"></div></div></div>
