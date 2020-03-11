@@ -136,6 +136,7 @@
                                         <label for="recipient-name" class="col-form-label">ราคารถเช่า กำหนดเอง:</label>
                                         <input type="text" class="form-control" name="car_price" value="{{$u->cars_price}}">
                                         <input type="hidden" class="form-control" name="part_id" value="{{$objs->part_id}}">
+                                        <input type="hidden" class="form-control" name="part_re" value="{{$id_re}}">
 
                                       </div>
 

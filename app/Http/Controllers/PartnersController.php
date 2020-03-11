@@ -258,7 +258,7 @@ class PartnersController extends Controller
        $package->cars_price = $request['car_price'];
        $package->save();
 
-       return redirect(url('admin/partner_dash_pro/'.$request['part_id']))->with('add_success_car','คุณทำการแก้ไขอสังหา สำเร็จ');
+       return redirect(url('admin/partner_dash_pro/'.$request['part_re']))->with('add_success_car','คุณทำการแก้ไขอสังหา สำเร็จ');
 
      }
 
@@ -411,6 +411,7 @@ class PartnersController extends Controller
       $data['name'] = $name;
       $data['pro'] = $pro;
       $data['objs'] = $objs;
+      $data['id_re'] = $id;
 
       return view('admin.partners.partner_dash_pro', $data);
     }
