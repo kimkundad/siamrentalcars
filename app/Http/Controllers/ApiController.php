@@ -153,6 +153,8 @@ class ApiController extends Controller
         ->Where('car_parts.prov_id', $request['pro_v'])
         ->first();
 
+        dd($objs);
+
         if(isset($objs->promotion_id)){
           if($objs->promotion_id != null){
 
