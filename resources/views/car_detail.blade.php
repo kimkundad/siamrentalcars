@@ -253,7 +253,7 @@
                 <li class="theme-sidebar-section-charges-item">
                   <h5 class="theme-sidebar-section-charges-item-title"><span id="day-set"></span> days</h5>
                   <p class="theme-sidebar-section-charges-item-subtitle">{{$objs->name}}</p>
-                  <p class="theme-sidebar-section-charges-item-price">฿ {{($objs->price )}} / วัน</p>
+                  <p class="theme-sidebar-section-charges-item-price">฿ {{($objs->cars_price )}} / วัน</p>
                 </li>
                 <li class="theme-sidebar-section-charges-item">
                   <h5 class="theme-sidebar-section-charges-item-title">ภาษี & ค่าธรรมเนียม</h5>
@@ -267,7 +267,7 @@
                 </li>
               </ul>
               <p class="theme-sidebar-section-charges-total">Total
-                <span id="sum-muney">{{number_format($objs->price ,2)}}</span>
+                <span id="sum-muney">{{number_format($objs->cars_price ,2)}}</span>
               </p>
               <hr>
               <span class="text-success" style="font-size:12px;">จำนวนเงินมัดจำ ที่ต้องจ่ายตอนรับรถ : ฿ {{number_format($objs->deposit ,2)}}</span><br>
@@ -313,7 +313,7 @@
 <script>
 
     var cupon = {{$cupon}};
-    var sum_mon = {{$objs->price}};
+    var sum_mon = {{$objs->cars_price}};
     var input = "{{Session::get('start_dat')}}";
     var res = input.split("/", 1);
     var input2 = "{{Session::get('end_day')}}";
@@ -336,10 +336,10 @@
         over_time = timeDiff_h * 100;
       }else if(timeDiff_d > 1 && timeDiff_h > 4 && timeDiff_h < 8){
         total = timeDiff_d-1;
-        over_time = ({{$objs->price/2}});
+        over_time = ({{$objs->cars_price/2}});
       }else if(timeDiff_d > 1 && timeDiff_h >= 8){
         total = timeDiff_d-1;
-        over_time = ({{$objs->price}});
+        over_time = ({{$objs->cars_price}});
       }else{
 
       }

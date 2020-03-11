@@ -48,7 +48,7 @@ repeat-y;width:100%;display:block">
         <span>{{$data->car_order}}</span>
       </td>
       <td style="text-align:right;font-size:12px">
-        <span>THB{{$data->price}}.00</span>
+        <span>THB{{$data->cars_price}}.00</span>
         <span></span>
       </td>
     </tr>
@@ -67,7 +67,7 @@ repeat-y;width:100%;display:block">
 <td style="text-align:right;font-size:12px" width="150">
 ส่วนลด: <span>
   @if($data->promotion_total != 0)
-  {{number_format((($data->price/100)*$data->promotion_total), 2)}} บาท
+  {{number_format((($data->cars_price/100)*$data->promotion_total), 2)}} บาท
   @else
   @endif
 </span>

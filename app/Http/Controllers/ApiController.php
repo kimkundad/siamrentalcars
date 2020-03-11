@@ -141,13 +141,16 @@ class ApiController extends Controller
         'cars.*',
         'cars.name as car_order',
         'position_links.*',
-        'province.*'
+        'province.*',
+        'car_parts.cars_price'
         )
         ->leftjoin('partners', 'partners.id',  'orders.part_id')
-        ->leftjoin('cars', 'cars.id',  'orders.pro_id')
+        ->leftjoin('cars', 'cars.id',  'car_parts.cars_id')
+        ->leftjoin('car_parts', 'car_parts.id',  'orders.part_id')
         ->leftjoin('position_links', 'position_links.id',  'orders.position_id')
         ->leftjoin('province', 'province.PROVINCE_ID',  'orders.prov_id')
         ->where('orders.order_ids', $randomSixDigitInt)
+        ->Where('car_parts.prov_id', $request['pro_v'])
         ->first();
 
         if(isset($objs->promotion_id)){

@@ -568,7 +568,7 @@
                   <div class="col-md-2 ">
                     <div class="theme-search-results-item-book">
                       <div class="theme-search-results-item-price">
-                        <p class="theme-search-results-item-price-tag">฿ {{$u->price}}</p>
+                        <p class="theme-search-results-item-price-tag">฿ {{$u->cars_price}}</p>
                         <p class="theme-search-results-item-price-sign">ต่อวัน</p>
                       </div>
                       <a class="btn btn-primary-inverse btn-block theme-search-results-item-price-btn" href="{{url('car_detail/'.$u->id_car)}}">เลือกคันนี้</a>
@@ -623,7 +623,7 @@
                     </div>
                     <div class="col-xs-3 ">
                       <div class="theme-search-results-item-price">
-                        <p class="theme-search-results-item-price-tag">฿ {{$u->price}}</p>
+                        <p class="theme-search-results-item-price-tag">฿ {{$u->cars_price}}</p>
                         <p class="theme-search-results-item-price-sign">ต่อวัน</p>
                       </div>
                     </div>

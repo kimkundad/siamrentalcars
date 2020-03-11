@@ -146,7 +146,7 @@ class HomeController extends Controller
         $data['car'] = $car;
         $data['part'] = $part;
         $data['objs'] = $objs;
-        
+
         return view('payment_success', $data);
     }
 
@@ -571,6 +571,7 @@ class HomeController extends Controller
                                             $get_car2 = DB::table('car_parts')
                                                           ->select(
                                                           'car_parts.cars_id',
+                                                          'car_parts.cars_price',
                                                           'cars.*',
                                                           'cars.id as id_car',
                                                           'partners.*',
@@ -718,6 +719,7 @@ class HomeController extends Controller
                     'cars.id as id_car',
                     'cars.price as price_car',
                     'car_parts.prov_id as prov_ids',
+                    'car_parts.cars_price',
                     'partners.*',
                     'partners.id as id_part',
                     'province.*',
@@ -732,6 +734,8 @@ class HomeController extends Controller
                     ->Where('cars.id', $id)
                     ->Where('cars.status', 1)
                     ->first();
+
+
 
 
                 //    dd($get_car->prov_ids);
