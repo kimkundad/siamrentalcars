@@ -32,7 +32,7 @@
           <div class="col-md-10 col-md-offset-1">
             <div class="theme-search-area-tabs">
               <div class="theme-search-area-tabs-header _c-w _ta-c _mb-20">
-                <h1 class="theme-search-area-tabs-title theme-search-area-tabs-title-sm">รับจัดหารถเช่า</h1>
+                <h1 class="theme-search-area-tabs-title theme-search-area-tabs-title-sm">รับจัดหารถเช่า {{ env('pass_mail') }}</h1>
                 <p class="theme-search-area-subtitle">จากผู้ให้บริการรถเช่าคุณภาพ เลือกวันและเวลา ที่ต้องการใช้รถและคืนรถ</p>
               </div>
               <div class="tabbable">
