@@ -778,6 +778,8 @@ class HomeController extends Controller
                               $cupon_data = $get_data_cu->promotion_name;
                               $cupon_id = $get_data_cu->id_p;
 
+                              dd($cupon);
+
                             }else{
 
                               $check_data2 = DB::table('promotion_users')
@@ -831,7 +833,7 @@ class HomeController extends Controller
                       $cupon_id = 0;
                     }
 
-                    dd($cupon);
+
 
                   $data['cupon'] = $cupon;
                   $data['cupon_data'] = $cupon_data;
