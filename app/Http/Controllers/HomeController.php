@@ -738,7 +738,7 @@ class HomeController extends Controller
 
 
 
-                    dd($get_car);
+                  //  dd($get_car);
 
 
 
