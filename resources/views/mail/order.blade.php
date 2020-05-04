@@ -142,7 +142,7 @@ repeat-y;width:100%;display:block">
     </tr>
   </tbody>
 </table>
-</div><div style="margin:20px 0">หากมีคำถาม ติดต่อ <a href="#" target="_blank" >082-841-6945, 081-872-1215</a>
+</div><div style="margin:20px 0">หากมีคำถาม ติดต่อ <a href="#" target="_blank" >089-059-1794, 090-921-0135</a>
 </div><div style="border-bottom:1px solid #ededed"></div>
 <div style="border-bottom:1px solid #ededed">
 </div>
