@@ -719,7 +719,7 @@ class HomeController extends Controller
                     'cars.id as id_car',
                     'cars.price as price_cars',
                     'car_parts.prov_id as prov_ids',
-                    'car_parts.cars_price',
+                    'car_parts.cars_price as cars_price',
                     'partners.*',
                     'partners.id as id_part',
                     'province.*',
