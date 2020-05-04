@@ -720,6 +720,7 @@ class HomeController extends Controller
                     'cars.price as price_cars',
                     'car_parts.prov_id as prov_ids',
                     'car_parts.cars_price as price_car',
+                    'car_parts.cars_price as cars_price',
                     'partners.*',
                     'partners.id as id_part',
                     'province.*',
@@ -737,7 +738,7 @@ class HomeController extends Controller
 
 
 
-                
+
                   //  dd($get_car);
 
 
