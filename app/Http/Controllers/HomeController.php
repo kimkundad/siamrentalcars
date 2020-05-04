@@ -732,7 +732,7 @@ class HomeController extends Controller
                     ->leftjoin('province', 'province.PROVINCE_ID',  'car_parts.prov_id')
                     ->leftjoin('sub_categories', 'sub_categories.id',  'cars.sub_cat_id')
                     ->leftjoin('categories', 'categories.id',  'cars.cat_id')
-                    ->Where('cars.id', $id)
+                    ->Where('car_parts.cars_id', $id)
                     ->Where('cars.status', 1)
                     ->first();
 
