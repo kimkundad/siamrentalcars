@@ -811,7 +811,7 @@ class HomeController extends Controller
                                             $cupon_data = $get_data_cu1->promotion_name;
                                             $cupon_id = $get_data_cu1->id_p;
 
-                                            dd($get_car->price_car);
+                                          //  dd($get_car->price_car);
 
                                     }else{
 
