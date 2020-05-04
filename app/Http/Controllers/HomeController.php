@@ -831,7 +831,7 @@ class HomeController extends Controller
                       $cupon_id = 0;
                     }
 
-                  //  dd($cupon);
+                    dd($cupon);
 
                   $data['cupon'] = $cupon;
                   $data['cupon_data'] = $cupon_data;
