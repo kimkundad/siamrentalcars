@@ -737,7 +737,7 @@ class HomeController extends Controller
 
 
 
-
+                    dd($get_car->price_car);
                   //  dd($get_car);
 
 
