@@ -738,7 +738,7 @@ class HomeController extends Controller
 
 
 
-                //    dd($get_car->prov_ids);
+                    dd($get_car);
 
 
 
