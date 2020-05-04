@@ -570,6 +570,7 @@ class HomeController extends Controller
 
                                             $get_car2 = DB::table('car_parts')
                                                           ->select(
+                                                          'car_parts.id as idc',
                                                           'car_parts.cars_id',
                                                           'car_parts.cars_price',
                                                           'cars.*',
@@ -593,6 +594,7 @@ class HomeController extends Controller
 
                                             $get_car2 = DB::table('car_parts')
                                                           ->select(
+                                                          'car_parts.id as idc',
                                                           'car_parts.cars_id',
                                                           'cars.*',
                                                           'cars.id as id_car',
@@ -661,6 +663,7 @@ class HomeController extends Controller
                                     'sub_categories.*',
                                     'sub_categories.id as id_sub_cat_2',
                                     'car_parts.*',
+                                    'car_parts.id as idc',
                                     'cars.sub_cat_id'
                                     )
                                     ->join('cars', 'cars.sub_cat_id',  'sub_categories.id')
@@ -678,6 +681,7 @@ class HomeController extends Controller
                                         $get_car3 = DB::table('car_parts')
                                                       ->select(
                                                       'car_parts.cars_id',
+                                                      'car_parts.id as idc',
                                                       'cars.*'
                                                       )
                                                       ->leftjoin('cars', 'cars.id',  'car_parts.cars_id')
@@ -732,7 +736,7 @@ class HomeController extends Controller
                     ->leftjoin('province', 'province.PROVINCE_ID',  'car_parts.prov_id')
                     ->leftjoin('sub_categories', 'sub_categories.id',  'cars.sub_cat_id')
                     ->leftjoin('categories', 'categories.id',  'cars.cat_id')
-                    ->Where('car_parts.cars_id', $id)
+                    ->Where('car_parts.id', $id)
                     ->Where('cars.status', 1)
                     ->first();
 
@@ -862,6 +866,7 @@ class HomeController extends Controller
       $get_car2 = DB::table('car_parts')
                     ->select(
                     'car_parts.cars_id',
+                    'car_parts.id as idc',
                     'cars.*',
                     'cars.id as id_car',
                     'partners.*',
@@ -882,6 +887,7 @@ class HomeController extends Controller
                     $get_count = DB::table('car_parts')
                                   ->select(
                                   'car_parts.cars_id',
+                                  'car_parts.id as idc',
                                   'cars.*',
                                   'partners.*',
                                   'partners.id as id_part',
@@ -903,7 +909,7 @@ class HomeController extends Controller
 
                       $tag_html .=  "<div class='theme-search-results-item _mb-10 theme-search-results-item-'>
                           <div class='theme-search-results-item-preview'>
-                            <a class='theme-search-results-item-mask-link' href='".url('car_detail/'.$u->id_car)."'></a>
+                            <a class='theme-search-results-item-mask-link' href='".url('car_detail/'.$u->idc)."'></a>
                             <div class='row' data-gutter='20'>
                               <div class='col-md-5'>
                                 <div class='theme-search-results-item-img-wrap'>
@@ -951,7 +957,7 @@ class HomeController extends Controller
                                     </p>
                                     <p class='theme-search-results-item-price-sign'>ต่อวัน</p>
                                   </div>
-                                  <a class='btn btn-primary-inverse btn-block theme-search-results-item-price-btn' href='".url('car_detail/'.$u->id_car)."'>เลือกคันนี้</a>
+                                  <a class='btn btn-primary-inverse btn-block theme-search-results-item-price-btn' href='".url('car_detail/'.$u->idc)."'>เลือกคันนี้</a>
                                 </div>
                               </div>
                             </div>

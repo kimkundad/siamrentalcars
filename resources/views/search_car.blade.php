@@ -535,7 +535,7 @@
             @foreach($j as $u)
             <div class="theme-search-results-item _mb-10 theme-search-results-item-">
               <div class="theme-search-results-item-preview">
-                <a class="theme-search-results-item-mask-link" href="{{url('car_detail/'.$u->cars_id)}}"></a>
+                <a class="theme-search-results-item-mask-link" href="{{url('car_detail/'.$u->idc)}}"></a>
                 <div class="row" data-gutter="20">
                   <div class="col-md-5 ">
                     <div class="theme-search-results-item-img-wrap">
@@ -571,7 +571,7 @@
                         <p class="theme-search-results-item-price-tag">฿ {{$u->cars_price}}</p>
                         <p class="theme-search-results-item-price-sign">ต่อวัน</p>
                       </div>
-                      <a class="btn btn-primary-inverse btn-block theme-search-results-item-price-btn" href="{{url('car_detail/'.$u->cars_id)}}">เลือกคันนี้</a>
+                      <a class="btn btn-primary-inverse btn-block theme-search-results-item-price-btn" href="{{url('car_detail/'.$u->idc)}}">เลือกคันนี้</a>
                     </div>
                   </div>
                 </div>
