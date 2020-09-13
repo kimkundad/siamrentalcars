@@ -349,6 +349,8 @@
       var discount_bath = (total_my_p*discount)/100;
 
     console.log(total);
+    console.log(over_time);
+    console.log(total_my_p);
     $("#day-set").html(total);
     $("#day-set2").html(total);
     document.getElementById('total_day').value = total
