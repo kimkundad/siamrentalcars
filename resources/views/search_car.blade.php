@@ -606,7 +606,7 @@
                 <img class="theme-search-results-item-img" src="{{url('assets/back/image/car/'.$u->image)}}" alt="{{$u->name}}" title="{{$u->name}}"/>
               </div>
               <div class="theme-search-results-item-grid-body _pt-0">
-                <a class="theme-search-results-item-mask-link" href="{{url('car_detail/'.$u->id_car)}}"></a>
+                <a class="theme-search-results-item-mask-link" href="{{url('car_detail/'.$u->idc)}}"></a>
                 <div class="theme-search-results-item-grid-header">
                   <h5 class="theme-search-results-item-title _fs">{{$u->name}}</h5>
                 </div>
