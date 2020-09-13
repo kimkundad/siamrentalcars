@@ -782,7 +782,7 @@ class HomeController extends Controller
                               $cupon = (($get_car->price_car/100)*$get_data_cu->promotion_amount);
                               $cupon_data = $get_data_cu->promotion_name;
                               $cupon_id = $get_data_cu->id_p;
-
+                              $cupon_value = $get_data_cu->promotion_amount;
 
 
                             }else{
@@ -815,6 +815,7 @@ class HomeController extends Controller
 
                                             $cupon_data = $get_data_cu1->promotion_name;
                                             $cupon_id = $get_data_cu1->id_p;
+                                            $cupon_value = $get_data_cu1->promotion_amount;
 
                                           //  dd($get_car->price_car);
 
@@ -823,6 +824,7 @@ class HomeController extends Controller
                                       $cupon = 0;
                                       $cupon_data = null;
                                       $cupon_id = 0;
+                                      $cupon_value = 0;
 
                                     }
 
@@ -838,6 +840,7 @@ class HomeController extends Controller
                       $cupon = 0;
                       $cupon_data = null;
                       $cupon_id = 0;
+                      $cupon_value = 0;
                     }
 
 
@@ -845,6 +848,7 @@ class HomeController extends Controller
                   $data['cupon'] = $cupon;
                   $data['cupon_data'] = $cupon_data;
                   $data['cupon_id'] = $cupon_id;
+                  $data['cupon_value'] = $cupon_value;
 
 
                   //  dd($get_car);

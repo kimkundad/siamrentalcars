@@ -263,7 +263,7 @@
                 <li class="theme-sidebar-section-charges-item text-grad1">
                   <h5 class="theme-sidebar-section-charges-item-title">ได้รับส่วนลด</h5>
                   <p class="theme-sidebar-section-charges-item-subtitle">{{$cupon_data}}</p>
-                  <p class="theme-sidebar-section-charges-item-price">฿ {{number_format($cupon ,2)}}</p>
+                  <p class="theme-sidebar-section-charges-item-price" id="my_discount">฿ {{number_format($cupon ,2)}}</p>
                 </li>
               </ul>
               <p class="theme-sidebar-section-charges-total">Total
@@ -318,10 +318,11 @@
     var res = input.split("/", 1);
     var input2 = "{{Session::get('end_day')}}";
     var res2 = input2.split("/", 1);
-
+    var discount = {{$cupon_value}};
 
     var timeDiff_d = moment.utc(moment(input2, "DD/MM/YYYY HH:mm").diff(moment(input, "DD/MM/YYYY HH:mm"))).format("D")
     var timeDiff_h = moment.utc(moment("{{Session::get('start_time')}}", "HH:mm").diff(moment("{{Session::get('end_time')}}", "HH:mm"))).format("H")
+
 
 
     over_time = 0;
@@ -344,16 +345,21 @@
 
       }
 
+      var total_my_p = ((sum_mon * total)+over_time);
+      var discount_bath = (total_my_p*discount)/100;
+
     console.log(total);
     $("#day-set").html(total);
     $("#day-set2").html(total);
     document.getElementById('total_day').value = total
 
 
-    $("#sum-muney").html('฿'+addCommas(((sum_mon * total)+over_time)-cupon));
-    $("#sum-muney2").html('฿'+addCommas(((sum_mon * total)+over_time)-cupon));
-    document.getElementById('total_buy').value = ((sum_mon * total)+over_time)-cupon;
 
+
+    $("#sum-muney").html('฿'+addCommas(total_my_p-discount_bath));
+    $("#sum-muney2").html('฿'+addCommas(total_my_p-discount_bath));
+    document.getElementById('total_buy').value = total_my_p-discount_bath;
+    $("#my_discount").html('฿'+addCommas(discount_bath));
 
 
 
