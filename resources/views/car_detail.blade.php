@@ -345,7 +345,7 @@
 
       }
 
-      var total_my_p = ((sum_mon * total)+0);
+      var total_my_p = ((sum_mon * total)+0)+over_time;
       var discount_bath = (total_my_p*discount)/100;
 
     console.log(total);
